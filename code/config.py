@@ -1,0 +1,3 @@
+GPT4KEY = {
+    "API_KEY": "YOUR_API_KEY",
+}
