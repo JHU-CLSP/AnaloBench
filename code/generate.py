@@ -1,7 +1,7 @@
 import requests
 import json
 
-def generate_chat_completion(messages, API_KEY, model="gpt-4", temperature=1, top_p=1, max_tokens=2000):
+def generate_chat_completion(messages, API_KEY, model="gpt-4", temperature=2, top_p=0.96, max_tokens=3000):
     API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
