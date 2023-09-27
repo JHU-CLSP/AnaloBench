@@ -36,19 +36,19 @@ Before the deployment of this code, ensure that you meet the following prerequis
 
  - `-t` (or `--task`): Specifies the task you intend to execute. This argument is mandatory and must be either of the following:
    * `sentence`: Executes a sentence analogy task.
-   * `story`: Executes a story analogy task.
+   * `story_generate`: Executes a story generation task.
+   * `story_analogy`: Executes a story analogy task.
    * `name`: Currently unsupported; reserved for future use.
  - `-s1` (or `--sent1`): The initial input, which can be a sentence or a story. This argument is mandatory.
  - `-s2` (or `--sent2`): The subsequent input, which can also be a sentence or a story. This argument is also mandatory.
 
 ## Tasks Supported
-The provided code supports the following tasks:
+The script currently supports the following tasks:
 
-- `Sentence Analogy Task` (-t sentence): Compares two sentences and generates predictions based on the analogy.
-- `Story Analogy Task` (-t story): Compares two stories and generates predictions based on the analogy.
-- `Name Analogy Task` (-t name): Currently unsupported; slated for future use.
-
-Following the execution of sentence and story analogy tasks, the script proceeds to generate both correct and incorrect predictions, followed by an assessment of the model's performance.
+- `sentence` : If you select the "sentence" task, the program examines two input sentences and identifies the analogies and incorrect analogies between them.
+- `story_generate` : If you opt for the "story_generate" task, the script generates diverse stories using the two provided input sentences or stories.
+- `story_analogy` : For the "story_analogy" task, the code identifies the analogies and incorrect analogies between two stories.
+- `name` : The "name" task is currently under construction and has no functionality at the moment.
 
 ## License
 This code is available under the MIT License. Feel free to modify and put it to use, as per your requirements. If you make use of GPT-4, ensure your compliance with OpenAI's terms and policies.

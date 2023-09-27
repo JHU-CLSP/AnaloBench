@@ -1,4 +1,31 @@
+import json
 import random
+import config
+import requests
+
+def generate_chat_completion(messages, model="gpt-4", temperature=1, top_p=1, max_tokens=3000):
+    API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
+    API_KEY = config.GPT4KEY["API_KEY"]
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {API_KEY}",
+    }
+
+    data = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "top_p": top_p,
+        "max_tokens": max_tokens,
+    }
+
+    response = requests.post(API_ENDPOINT, headers=headers, data=json.dumps(data))
+
+    if response.status_code == 200:
+        return response.json()["choices"][0]["message"]["content"]
+    else:
+        raise Exception(f"Error {response.status_code}: {response.text}")
+
 def sentence_analogy(sentence1, sentence2):
     prompt = f"""
     List the analogous elements between the following 2 sentences:
@@ -23,7 +50,7 @@ def sentence_analogy(sentence1, sentence2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt)
 
 def sentence_incorrect(sentence1, sentence2):
     prompt = f"""
@@ -49,51 +76,51 @@ def sentence_incorrect(sentence1, sentence2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt)
 
-def comnbine_shuffle_options(correct_output, incorrect_output):
-    correct_output_items = correct_output.split("\n")
-    incorrect_output_items = incorrect_output.split("\n")
+# def comnbine_shuffle_options(correct_output, incorrect_output):
+#     correct_output_items = correct_output.split("\n")
+#     incorrect_output_items = incorrect_output.split("\n")
 
-    combined_output_items = correct_output_items + incorrect_output_items
-    indexed_list = list(enumerate(combined_output_items))
+#     combined_output_items = correct_output_items + incorrect_output_items
+#     indexed_list = list(enumerate(combined_output_items))
 
-    # Shuffle the list
-    random.shuffle(indexed_list)
+#     # Shuffle the list
+#     random.shuffle(indexed_list)
 
-    # Extract the shuffled values
-    shuffled_values = [item[1] for item in indexed_list]
+#     # Extract the shuffled values
+#     shuffled_values = [item[1] for item in indexed_list]
 
-    # Extract the original indices for the first k items
-    original_indices_for_correct = [chr(ord('A') + item[0]) for item in indexed_list[:len(correct_output)]]
-    options = []
-    for i, item in enumerate(shuffled_values):
-        index_label = chr(ord('A') + i)
-        options.append(f"{index_label}. {item}")
-    options = "\n".join(options)
-    return options, original_indices_for_correct
+#     # Extract the original indices for the first k items
+#     original_indices_for_correct = [chr(ord('A') + item[0]) for item in indexed_list[:len(correct_output)]]
+#     options = []
+#     for i, item in enumerate(shuffled_values):
+#         index_label = chr(ord('A') + i)
+#         options.append(f"{index_label}. {item}")
+#     options = "\n".join(options)
+#     return options, original_indices_for_correct
 
-def sentence_evaluation(sentence1, sentence2, correct_output, incorrect_output):
-    options, correct_indices = comnbine_shuffle_options(correct_output, incorrect_output)
+# def sentence_evaluation(sentence1, sentence2, correct_output, incorrect_output):
+#     options, correct_indices = comnbine_shuffle_options(correct_output, incorrect_output)
 
-    prompt = f"""
-    The following is a multiple-choice question. Please select all options that you believe are correct.
-    NOTE: Only generate the index.
+#     prompt = f"""
+#     The following is a multiple-choice question. Please select all options that you believe are correct.
+#     NOTE: Only generate the index.
 
-    Identify the analogies between the following 2 sentences:
+#     Identify the analogies between the following 2 sentences:
 
-    Sentence1: {sentence1}
+#     Sentence1: {sentence1}
 
-    Sentence2: {sentence2}
+#     Sentence2: {sentence2}
 
-    Options:
-    {options}
-    """
-    prompt = [
-        {"role": "user", "content": prompt}
-    ]
+#     Options:
+#     {options}
+#     """
+#     prompt = [
+#         {"role": "user", "content": prompt}
+#     ]
 
-    return prompt, correct_indices
+#     return prompt, correct_indices
 
 def story_diverse(sentence):
     style = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review", "Poetry", "Technical"]
@@ -106,7 +133,7 @@ def story_diverse(sentence):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
 
 def story_analogy(story1, story2):
     prompt = f"""
@@ -143,7 +170,7 @@ def story_analogy(story1, story2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt)
 
 def story_incorrect(story1, story2):
     prompt = f"""
@@ -168,27 +195,27 @@ def story_incorrect(story1, story2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt)
 
-def story_evaluation(story1, story2, correct_output, incorrect_output):
-    options, correct_indices = comnbine_shuffle_options(correct_output, incorrect_output)
+# def story_evaluation(story1, story2, correct_output, incorrect_output):
+#     options, correct_indices = comnbine_shuffle_options(correct_output, incorrect_output)
 
-    prompt = f"""
-    The following is a multiple-choice question. Please select all options that you believe are correct.
-    NOTE: Only generate the index.
+#     prompt = f"""
+#     The following is a multiple-choice question. Please select all options that you believe are correct.
+#     NOTE: Only generate the index.
 
-    Identify the analogies between the following 2 stories:
+#     Identify the analogies between the following 2 stories:
 
-    Story1: {story1}
-    Story2: {story2}
+#     Story1: {story1}
+#     Story2: {story2}
 
-    Options:
-    {options}
-    """
-    prompt = [
-        {"role": "user", "content": prompt}
-    ]
-    return prompt, correct_indices
+#     Options:
+#     {options}
+#     """
+#     prompt = [
+#         {"role": "user", "content": prompt}
+#     ]
+#     return prompt, correct_indices
 
 def story_names(name_set, story):
     prompt = f"""
@@ -207,7 +234,7 @@ def story_names(name_set, story):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt)
 
 def name_analogy(story1, story2):
     prompt = f"""
@@ -221,7 +248,7 @@ def name_analogy(story1, story2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return prompt
+    return generate_chat_completion(prompt)
 
 def name_incorrect():
     #TODO
