@@ -50,33 +50,33 @@ def sentence_analogy(sentence1, sentence2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return generate_chat_completion(prompt)
+    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
 
-def sentence_incorrect(sentence1, sentence2):
-    prompt = f"""
-    Given two sentences, incorrectly identify the analogous elements without considering the subjects and their experiences in both scenarios. Remember to mismatch the subjects and their struggles.
+# def sentence_incorrect(sentence1, sentence2):
+#     prompt = f"""
+#     Given two sentences, incorrectly identify the analogous elements without considering the subjects and their experiences in both scenarios. Remember to mismatch the subjects and their struggles.
 
-    E.g.
-    Sentence1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
+#     E.g.
+#     Sentence1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
 
-    Sentence2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
+#     Sentence2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
 
-    Incorrect Analogies:
-    - Winning the soccer game <-> Girls | Explanation: Winning the soccer game is the goal in the first story, girls are the subject in the second story.
-    - Boy <-> Winning the dance competition prize | Explanation: Boy is the subject being supported in the first story, whereas winning the dance competition is the goal in the second story.
-    - Man <-> Dance competition | Explanation: Man is the supporter in the first story, dance competition is the event in the second story.
-    ...
+#     Incorrect Analogies:
+#     - Winning the soccer game <-> Girls | Explanation: Winning the soccer game is the goal in the first story, girls are the subject in the second story.
+#     - Boy <-> Winning the dance competition prize | Explanation: Boy is the subject being supported in the first story, whereas winning the dance competition is the goal in the second story.
+#     - Man <-> Dance competition | Explanation: Man is the supporter in the first story, dance competition is the event in the second story.
+#     ...
 
-    Sentence1: {sentence1}
+#     Sentence1: {sentence1}
 
-    Sentence2: {sentence2}
+#     Sentence2: {sentence2}
 
-    Analogies:
-    """
-    prompt = [
-        {"role": "user", "content": prompt}
-    ]
-    return generate_chat_completion(prompt)
+#     Analogies:
+#     """
+#     prompt = [
+#         {"role": "user", "content": prompt}
+#     ]
+#     return generate_chat_completion(prompt)
 
 # def comnbine_shuffle_options(correct_output, incorrect_output):
 #     correct_output_items = correct_output.split("\n")
@@ -170,32 +170,32 @@ def story_analogy(story1, story2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return generate_chat_completion(prompt)
+    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
 
-def story_incorrect(story1, story2):
-    prompt = f"""
-    Given two stories, incorrectly identify the analogous elements without considering the subjects and their experiences in both scenarios. Remember to mismatch the subjects and their struggles.
+# def story_incorrect(story1, story2):
+#     prompt = f"""
+#     Given two stories, incorrectly identify the analogous elements without considering the subjects and their experiences in both scenarios. Remember to mismatch the subjects and their struggles.
 
-    E.g.
-    Story1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
+#     E.g.
+#     Story1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
 
-    Story2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
+#     Story2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
 
-    Incorrect Analogies:
-    - Winning the soccer game <-> Girls | Explanation: Winning the soccer game is the goal in the first story, girls are the subject in the second story.
-    - Boy <-> Winning the dance competition prize | Explanation: Boy is the subject being supported in the first story, whereas winning the dance competition is the goal in the second story.
-    - Man <-> Dance competition | Explanation: Man is the supporter in the first story, dance competition is the event in the second story.
-    ...
+#     Incorrect Analogies:
+#     - Winning the soccer game <-> Girls | Explanation: Winning the soccer game is the goal in the first story, girls are the subject in the second story.
+#     - Boy <-> Winning the dance competition prize | Explanation: Boy is the subject being supported in the first story, whereas winning the dance competition is the goal in the second story.
+#     - Man <-> Dance competition | Explanation: Man is the supporter in the first story, dance competition is the event in the second story.
+#     ...
 
-    Story1: {story1}
-    Story2: {story2}
+#     Story1: {story1}
+#     Story2: {story2}
 
-    Incorrect Analogies:
-    """
-    prompt = [
-        {"role": "user", "content": prompt}
-    ]
-    return generate_chat_completion(prompt)
+#     Incorrect Analogies:
+#     """
+#     prompt = [
+#         {"role": "user", "content": prompt}
+#     ]
+#     return generate_chat_completion(prompt)
 
 # def story_evaluation(story1, story2, correct_output, incorrect_output):
 #     options, correct_indices = comnbine_shuffle_options(correct_output, incorrect_output)

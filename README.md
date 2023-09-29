@@ -1,54 +1,49 @@
-# Analogical Reasoning
+# Analogical Reasoning with GPT-4
 
-This README provides an overview and usage instructions for the provided Python script, which employs the OpenAI's GPT-4 in executing analogy tasks. This code allows you to undertake analogy comparisons between sentences or stories and renders predictions based on these tasks. Follow the instructions detailed below to successfully utilize this code.
+This README explains how to utilize our Python script. The provided script is programmed to perform various tasks related to analogy, using OpenAI's GPT-4. These tasks include sentence or story analogy extraction and story generation. Follow the instructions given below to use the provided script.
 
 ## Table of Contents
-- [Requirements](#requirements)
-- [Usage](#usage)
+- [Prerequisites](#prerequisites)
+- [How to Use](#how-to-use)
 - [Command Line Arguments](#command-line-arguments)
-- [Tasks Supported](#tasks-supported)
+- [Supported Tasks](#supported-tasks)
 - [License](#license)
 
-## Requirements
-Before the deployment of this code, ensure that you meet the following prerequisites:
+## Prerequisites
+Ensure that the following requirements are met before running the code:
 
 - Python 3.6 or higher
-- An API key for GPT-4 (attainable from OpenAI)
+- Access to OpenAI's GPT-4, which requires an API key.
 
-## Usage
-1. Clone this repository to your local machine.
-2. Install the required Python packages by executing the command:
+## How to Use
+1. Clone this repository to your local system.
+2. Install the necessary Python packages with the following command:
     ```bash
     pip install -r requirements.txt
     ```
-3. Modify the config.py file to contain your GPT-4 API key. Replace 'YOUR_API_KEY' with your actual API key:
+3. Edit the 'config.py' file to include your actual API key for GPT-4. Replace 'YOUR_API_KEY' with your GPT-4 API key in the following line:
     ```python
     GPT4KEY = { "API_KEY": "YOUR_API_KEY" }
     ```
-4. Run the script with the appropriate task and required inputs. Below is the basic usage:
+4. Run the script. The basic command usage is as follows:
     ```bash
-    python code/main.py -t [task] -s1 [input1] -s2 [input2]
+    python main.py -t [task] -k [times for story analogy generation]
     ```
-    Replace [task] with a supported task type, [input1] with your first input (sentence or story), and [input2] with your second input (sentence or story).
+    Replace [task] with the task type and [-k] with the number of times you want to run the story analogy generation task.
 
 ## Command Line Arguments
- The script accepts the following command-line arguments:
+The script accepts these command-line arguments:
 
- - `-t` (or `--task`): Specifies the task you intend to execute. This argument is mandatory and must be either of the following:
-   * `sentence`: Executes a sentence analogy task.
-   * `story_generate`: Executes a story generation task.
-   * `story_analogy`: Executes a story analogy task.
-   * `name`: Currently unsupported; reserved for future use.
- - `-s1` (or `--sent1`): The initial input, which can be a sentence or a story. This argument is mandatory.
- - `-s2` (or `--sent2`): The subsequent input, which can also be a sentence or a story. This argument is also mandatory.
+- `-t` or `--task`: Specifies the task to run. It's required and can be either 'sentence', 'story_generate', 'story_analogy' or 'name'.
+- `-k` or `--k`: Specifies the number of times you would like to generate story analogies. It's optional, with a default value of 1.
 
-## Tasks Supported
-The script currently supports the following tasks:
+## Supported Tasks
+The current version of the script supports these tasks:
 
-- `sentence` : If you select the "sentence" task, the program examines two input sentences and identifies the analogies and incorrect analogies between them.
-- `story_generate` : If you opt for the "story_generate" task, the script generates diverse stories using the two provided input sentences or stories.
-- `story_analogy` : For the "story_analogy" task, the code identifies the analogies and incorrect analogies between two stories.
-- `name` : The "name" task is currently under construction and has no functionality at the moment.
+- `sentence` : Runs a sentence analogy task. The script identifies analogies between the two provided sentences and writes them into a CSV file.
+- `story_generate` : Runs a story generation task. The script generates diverse stories from the two provided sentences or stories and writes them into a CSV file.
+- `story_analogy` : Runs a story analogy task that creates analogies between two stories multiple times based on the `-k` argument and writes them into a CSV file.
+- `name` : Currently this task isn't supported; it's a placeholder for future functionality.
 
 ## License
-This code is available under the MIT License. Feel free to modify and put it to use, as per your requirements. If you make use of GPT-4, ensure your compliance with OpenAI's terms and policies.
+This project is available under the MIT License. You can freely modify and use it as per your needs. Please keep in mind OpenAI's terms and policies if you use GPT-4.
