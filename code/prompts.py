@@ -3,7 +3,7 @@ import random
 import config
 import requests
 
-def generate_chat_completion(messages, model="gpt-4", temperature=1, top_p=1, max_tokens=3000):
+def generate_chat_completion(messages, model="gpt-4", temperature: float=1.0, top_p: float=1.0, max_tokens: int=3000):
     API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
     API_KEY = config.GPT4KEY["API_KEY"]
     headers = {
@@ -130,6 +130,7 @@ def story_diverse(sentence):
     Sentence: {sentence}
 
     """
+    # TODO: return the style and save it in CVS file
     prompt = [
         {"role": "user", "content": prompt}
     ]
