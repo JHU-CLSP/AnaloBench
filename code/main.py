@@ -2,11 +2,12 @@ import csv
 import config
 import prompts
 import argparse
+from tqdm import tqdm
 import pandas as pd
 
 def parse_args():
     parser=argparse.ArgumentParser(description="analogy tasks")
-    parser.add_argument('-t', '--task', type=str, help='the task that you want to do', required=True)
+    parser.add_argument('-t', '--task', type=str, help='the task that you want to do. Possible options are `sentence` and `story_generate` and `story_analogy` ', required=True)
     parser.add_argument('-k', '--k', type=int, help='the times for story analogy generation', required=False, default=1)
     args=parser.parse_args()
     return args
@@ -18,14 +19,14 @@ if __name__ == '__main__':
     sent_data = pd.read_csv("sentences.csv")
     num_generation = args.k
     if task == "sentence":
-        fields = ["Index", "Sentence1", "Sentence2", "Analogy"]
+        fields = ["Index", "Sentence1", "Sentence2", "Correct_Analogy"]
         filename = "sent_analogy.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
             csvwriter.writeheader()
 
-            for i, (sent1, sent2) in enumerate(sent_data.values):
+            for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
                 try:
                     correct_out = prompts.sentence_analogy(sent1, sent2)
                 except Exception as e:
@@ -73,7 +74,7 @@ if __name__ == '__main__':
                 csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
                 csvwriter.writeheader()
 
-                for row in csvreader:
+                for row in tqdm(csvreader):
                     try:
                         sent1, sent2 = row["Sentence1"], row["Sentence2"]
                         story1, story2 = row["Story1"], row["Story2"]
