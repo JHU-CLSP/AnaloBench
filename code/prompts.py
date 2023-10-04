@@ -124,17 +124,17 @@ def sentence_analogy(sentence1, sentence2):
 
 def story_diverse(sentence):
     style = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review", "Poetry", "Technical"]
+    cur_style = random.choice(style)
     prompt = f"""
-    Generate a 7-10 sentence {random.choice(style)} style story with respect to the following sentence:
+    Generate a 7-10 sentence {cur_style} style story with respect to the following sentence:
 
     Sentence: {sentence}
 
     """
-    # TODO: return the style and save it in CVS file
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
+    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95), cur_style
 
 def story_analogy(story1, story2):
     prompt = f"""
@@ -231,6 +231,7 @@ def story_names(name_set, story):
     Name Set: {name_set}
 
     Story: {story}
+    Output:
     """
     prompt = [
         {"role": "user", "content": prompt}
