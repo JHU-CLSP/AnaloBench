@@ -1,15 +1,38 @@
 import csv
+import spacy
 import config
+import random
 import prompts
 import argparse
+import itertools
 import pandas as pd
 from tqdm import tqdm
-import spacy
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer
+
+styles = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review", "Poetry", "Technical"]
+style_pairs = list(itertools.combinations(styles, 2))
+pair_counts = {pair: 0 for pair in style_pairs}
 
 # Load Spacy's English model
 nlp = spacy.load('en_core_web_sm')
+
+def parse_styles(fixed_style=None):
+    selected_pair = None
+    if fixed_style:
+        eligible_pairs = [pair for pair in style_pairs if fixed_style == pair[0]]          
+        min_count = float('inf')
+        for ep in eligible_pairs:
+            if pair_counts[ep] < min_count:
+                min_count = pair_counts[ep]
+                selected_pair = ep
+    else:
+        min_count = min(pair_counts.values())
+        eligible_pairs = [pair for pair, count in pair_counts.items() if count == min_count]
+        selected_pair = random.choice(eligible_pairs)
+    pair_counts[selected_pair] += 1
+
+    return selected_pair
 
 
 def similarity_check(text1, text2):
@@ -83,6 +106,7 @@ if __name__ == '__main__':
                 })
 
     elif task == "story_generate":
+        processed_stories = {}
         fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
         filename = "story_generation.csv"
 
@@ -92,8 +116,15 @@ if __name__ == '__main__':
 
             for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
                 try:
-                    story1, style1 = prompts.story_diverse(sent1)
-                    story2, style2 = prompts.story_diverse(sent2)
+                    story1, story2, style1, style2 = None, None, None, None
+                    if sent1 in processed_stories:
+                        story1, style1 = processed_stories[sent1]
+                        style1, style2 = parse_styles(style1)
+                    else:
+                        style1, style2 = parse_styles()
+                        processed_stories[sent1] = (prompts.story_diverse(sent1, style1), style1)
+                        story1, style1 = processed_stories[sent1]
+                    story2 = prompts.story_diverse(sent2, style2)
                 except Exception as e:
                     print(f"An error occurred: {e}")
                     raise

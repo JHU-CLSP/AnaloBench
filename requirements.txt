@@ -2,4 +2,4 @@ requests
 pandas
 tqdm
 spacy
-sklearn
+scikit-learn
