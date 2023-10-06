@@ -179,6 +179,7 @@ if __name__ == '__main__':
                     "Analogy": result
                 })
     elif task == "name_generate":
+        processed_stories = {}
         fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2"]
         filename = "name_generation.csv"
         filename_story = "story_generation.csv"
@@ -192,7 +193,10 @@ if __name__ == '__main__':
 
             for row in tqdm(csvreader):
                 try:
-                    story1 = prompts.story_names(names1, row["Story1"])
+                    sent1 = row["Sentence1"]
+                    if sent1 not in processed_stories:
+                        processed_stories[sent1] = prompts.story_names(names1, row["Story1"])
+                    story1 = processed_stories[sent1]
                     story2 = prompts.story_names(names2, row["Story2"])
                 except Exception as e:
                     print(f"An error occurred: {e}")
