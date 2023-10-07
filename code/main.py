@@ -89,7 +89,7 @@ if __name__ == '__main__':
                              '\n (4) `generate_stories_with_names`: Reads story generations and assign names to the objects within the story, and writes the results into a CSV file.'
                              '\n (5) `generate_name_analogies`: Creates analogies between two stories with aligned names multiple times based on the `-k` argument and writes them into a CSV file. '
                              
-                             '\n (6) `generate_stories_with_random_names`: Generate stories that use random names as mentions. '
+                             '\n (6) `replace_story_mentions_with_random_words`: Generate stories that use random names as mentions. '
                              '\n (7) `generate_analogies_story_mentions_with_random_words`: Creates analogies between two stories that contain random names. The generation is done multiple times based on the `-k` argument and writes them into a CSV file. ',
                         required=True)
     parser.add_argument('--k', '-k', type=int, default=None,
@@ -299,7 +299,10 @@ if __name__ == '__main__':
     elif task == "replace_story_mentions_with_random_words":
         # replace the mentions in the story with random words
 
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
+        # "Original_Story1": story1,
+        #                     "Original_Story2": story2,
+
+        fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Style1", "Style2", "Story1", "Story2"]
         filename_input = "data/story_generation.csv"
         filename_output = "data/story_generation_random_names.csv"
 
