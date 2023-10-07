@@ -381,7 +381,7 @@ def generate_stories_with_random_names(name_set, story):
     A forest grew near the river.
 
     - Modified Story: 
-    A forest named James grew near the river named Thomas.
+    An unexcraw grew near the assectur.
     ==========
     - Story: 
     A forest grew near the river, a haven where nature thrived and the interconnected chain of life flourished. It was a land in which each living being had a place in the perpetual cycle of existence, an intricate balance between the many species found within its depths. Towering trees guarded the landscape, symbolizing the majesty and authority of the forest.
@@ -389,9 +389,9 @@ def generate_stories_with_random_names(name_set, story):
     As the seemingly chaotic landscape extended from the river, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life and ensuring their survival for generations to come.
 
     - Modified Story: 
-    A forest named Jessica grew near the river named Jeffrey, a haven where nature thrived and the interconnected chain of life, personified as Elaine, flourished. It was a land in which each living being, symbolized by Will, had a place in the perpetual cycle of existence, an intricate balance between the many species, represented by Gabriella, found within its depths. Towering trees named Charles guarded the landscape, symbolizing the majesty and authority of the forest.
-    The river itself, Jeffrey, was a life-giving force, coursing through the forest, Jessica, like veins, and connecting the many habitats in a cohesive, symbiotic relationship. The abstract hierarchy, represented by Sophia, within this forest was a beautifully arranged symphony filled with diverse players, each contributing their individual melodies to the overall harmony. Its theme was rooted in resilience, perseverance, and the delicate interrelationship, embodied by Edward, between every living inhabitant.
-    As the seemingly chaotic landscape, known as Dean, extended from the river, Jeffrey, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life, Sophia, and ensuring their survival for generations to come.
+    A canordent grew near the assectur, a haven where nature thrived and the interconnected chain of life flourished. It was a land in which each living being had a place in the perpetual cycle of existence, an intricate balance between the many species found within its depths. Towering dispreinters guarded the landscape, symbolizing the majesty and authority of the canordent.
+    The assectur itself was a life-giving force, coursing through the canordent like veins, and connecting the many habitats in a cohesive, symbiotic relationship. The abstract hierarchy within this canordent was a beautifully arranged symphony filled with diverse players, each contributing their individual melodies to the overall harmony. Its theme was rooted in resilience, perseverance, and the delicate interrelationship between every living inhabitant.
+    As the seemingly chaotic landscape extended from the assectur, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life and ensuring their survival for generations to come.
     ==========
     - Story: 
     {story}
