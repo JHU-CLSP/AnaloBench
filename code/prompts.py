@@ -3,7 +3,9 @@ import random
 import config
 import requests
 
-def generate_chat_completion(messages, model="gpt-4", temperature: float=1.0, top_p: float=1.0, max_tokens: int=3000):
+
+def generate_chat_completion(messages, model="gpt-4", temperature: float = 1.0, top_p: float = 1.0,
+                             max_tokens: int = 3000):
     API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
     API_KEY = config.GPT4KEY["API_KEY"]
     headers = {
@@ -26,31 +28,44 @@ def generate_chat_completion(messages, model="gpt-4", temperature: float=1.0, to
     else:
         raise Exception(f"Error {response.status_code}: {response.text}")
 
-def sentence_analogy(sentence1, sentence2):
+
+def generate_analogies(story1, story2):
     prompt = f"""
-    List the analogous elements between the following 2 sentences:
+    List the analogous mentions between the following two sentences:
 
-    E.g.
-    Sentence1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
-
-    Sentence2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
+    Here is an example: 
+    ========================
+    - Story1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
+    
+    - Story2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
 
     Analogies:
-    - Man <-> Woman | Explanation: they're the supporters in both stories
-    - Boy <-> Girl | Explanation: they're both being supported in both stories
-    - Winning the soccer game <-> Winning the dance competition prize | Explanation: the goal of winning in both stories
-    ...
-
-    Sentence1: {sentence1}
-
-    Sentence2: {sentence2}
-
+    - Man <-> Woman | Explanation: they're the supporters in the two stories
+    - Boy <-> Girl | Explanation: they're both being supported in the two stories
+    - Winning the soccer game <-> Winning the dance competition prize | Explanation: these two mentions are the goal of winning in both stories
+    ========================
+    - Story1: The water is flowing fast from a large beaker to a smaller one through a narrow pipe. It was all done in 15 minutes.
+    
+    - Story2: The parents try to slowly instill bits of knowledge in their child through simple communication. This often takes repetition.
+    
+    Analogies:
+    - flow <-> instill | Explanation: They're both the action being described.
+    - large beaker <-> parent | Explanation: they're both the source of the action.
+    - small beaker <-> child | Explanation: they're both the target of the action in both stories
+    - water <-> knowledge | Explanation: they're both the object of the action (the content of the flow).
+    - narrow pipe <-> communication | Explanation: they're both the means of the action (how the flow happens).
+    ========================
+    - Story1: {story1}
+    
+    - Story2: {story2}
+    
     Analogies:
     """
     prompt = [
         {"role": "user", "content": prompt}
     ]
     return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
+
 
 # def sentence_incorrect(sentence1, sentence2):
 #     prompt = f"""
@@ -122,56 +137,26 @@ def sentence_analogy(sentence1, sentence2):
 
 #     return prompt, correct_indices
 
-def story_diverse(sentence):
-    style = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review", "Poetry", "Technical"]
+def generate_diverse_story(sentence):
+    style = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative",
+             "Objective", "Subjective", "Review",
+             "Poetry", "Technical"]
     prompt = f"""
-    Generate a 7-10 sentence {random.choice(style)} style story with respect to the following sentence:
+    Given the following sentence, expand it into a 10-sentence story  in a {random.choice(style)} style. 
 
     Sentence: {sentence}
-
-    """
-    # TODO: return the style and save it in CVS file
-    prompt = [
-        {"role": "user", "content": prompt}
-    ]
-    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
-
-def story_analogy(story1, story2):
-    prompt = f"""
-    List the analogous elements between the following 2 stories:
-
-    E.g.
-    Story1: The boy is lucky to have the man's lifelong support to win all the soccer games since they hoped it would spread the sport.
-
-    Story2: Women are supportive of the girls in their mission to get the dance competition prize since they hoped it would benefit the girls.
-
-    Analogies:
-    - Man <-> Woman | Explanation: they're the supporters in both stories
-    - Boy <-> Girl | Explanation: they're both being supported in both stories
-    - Winning the soccer game <-> Winning the dance competition prize | Explanation: the goal of winning in both stories
-    ...
-
-    Story1: The water is flowing fast from a large beaker to a smaller one through a narrow pipe. It was all done in 15 minutes.
-
-    Story2: The parents try to slowly instill bits of knowledge in their child through simple communication. This often takes repetition.
-
-    Analogies:
-    - flow <-> instill | Explanation: They're both the action being described.
-    - large beaker <-> parent | Explanation: they're both the source of the action.
-    - small beaker <-> child | Explanation: they're both the target of the action in both stories
-    - water <-> knowledge | Explanation: they're both the object of the action (the content of the flow).
-    - narrow pipe <-> communication | Explanation: they're both the means of the action (how the flow happens).
-    ...
-
-    Story1: {story1}
-    Story2: {story2}
-
-    Analogies:
     """
     prompt = [
-        {"role": "user", "content": prompt}
+        {
+            "role": "user",
+            "content": prompt,
+        }
     ]
-    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
+    return {
+        "generation": generate_chat_completion(prompt, temperature=1.6, top_p=0.95),
+        "style": style
+    }
+
 
 # def story_incorrect(story1, story2):
 #     prompt = f"""
@@ -218,24 +203,29 @@ def story_analogy(story1, story2):
 #     ]
 #     return prompt, correct_indices
 
+
+def generate_random_strings():
+    pass
+
+
 def story_names(name_set, story):
     prompt = f"""
-    Can you assign human names(like James) to different objects inside of the story? NOTE: You should only use names in the Name Set and use at least 5 names.
+    Given a 
+    Can you assign human names (like James) to different objects inside of the story? NOTE: You should only use names in the Name Set and use at least 5 names.
 
-    E.g.
-    Story:
-    A forest grew near the river.
-    Output:
-    A forest named James grew near the river named Thomas.
+    Here are a few examples: 
+    - Name Set: James, Thomas, Jane, Mary 
+    - Story: A forest grew near the river.
+    - Modified story: A forest named James grew near the river named Thomas.
 
-    Name Set: {name_set}
-
-    Story: {story}
+    - Name Set: {name_set}
+    - Story: {story}
     """
     prompt = [
         {"role": "user", "content": prompt}
     ]
     return generate_chat_completion(prompt)
+
 
 def name_analogy(story1, story2):
     prompt = f"""
@@ -251,10 +241,12 @@ def name_analogy(story1, story2):
     ]
     return generate_chat_completion(prompt)
 
+
 def name_incorrect():
-    #TODO
+    # TODO
     pass
 
+
 def name_evaluation():
-    #TODO
+    # TODO
     pass

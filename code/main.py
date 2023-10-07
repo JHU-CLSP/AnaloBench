@@ -7,8 +7,8 @@ import pandas as pd
 
 def parse_args():
     parser=argparse.ArgumentParser(description="analogy tasks")
-    parser.add_argument('-t', '--task', type=str, help='the task that you want to do. Possible options are `sentence` and `story_generate` and `story_analogy` ', required=True)
-    parser.add_argument('-k', '--k', type=int, help='the times for story analogy generation', required=False, default=1)
+    parser.add_argument('-t', '--task', type=str, help='The task that you want to do. Possible options are `sentence` and `story_generate` and `story_analogy` ', required=True)
+    parser.add_argument('-k', '--k', type=int, help='The number of times we prompt the model for generating analogies.', required=False, default=1)
     args=parser.parse_args()
     return args
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
             for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
                 try:
-                    correct_out = prompts.sentence_analogy(sent1, sent2)
+                    correct_out = prompts.generate_analogies(sent1, sent2)
                 except Exception as e:
                     print(f"An error occurred: {e}")
                     raise
@@ -50,8 +50,13 @@ if __name__ == '__main__':
 
             for i, (sent1, sent2) in enumerate(sent_data.values):
                 try:
-                    story1 = prompts.story_diverse(sent1)
-                    story2 = prompts.story_diverse(sent2)
+                    output1 = prompts.generate_diverse_story(sent1)
+                    story1 = output1["generation"]
+                    style1 = output1["style"]
+
+                    output2 = prompts.generate_diverse_story(sent2)
+                    story2 = output1["generation"]
+                    style2 = output1["style"]
                 except Exception as e:
                     print(f"An error occurred: {e}")
                     raise
@@ -61,7 +66,9 @@ if __name__ == '__main__':
                     "Sentence1": sent1,
                     "Sentence2": sent2,
                     "Story1": story1,
-                    "Story2": story2
+                    "Story2": story2,
+                    "Style1": style1,
+                    "Style2": style2
                 })
     elif task == "story_analogy":
         for k in range(num_generation):
@@ -78,7 +85,7 @@ if __name__ == '__main__':
                     try:
                         sent1, sent2 = row["Sentence1"], row["Sentence2"]
                         story1, story2 = row["Story1"], row["Story2"]
-                        correct_out = prompts.sentence_analogy(story1, story2)
+                        correct_out = prompts.generate_analogies(story1, story2)
                     except Exception as e:
                         print(f"An error occurred: {e}")
                         raise
