@@ -1,4 +1,6 @@
 import csv
+import json
+
 import spacy
 import config
 import random
@@ -296,10 +298,9 @@ if __name__ == '__main__':
         # replace the mentions in the story with random words
         # first, extract the mentions that are used in the analogies
 
-        names = prompts.random_names()
-        mentions = {}
 
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy", "Random_names"]
+
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy", "Menton_mapping"]
         filename_input = "data/story_analogy.csv"
         filename_output = "data/story_analogy_random_names.csv"
 
@@ -309,6 +310,9 @@ if __name__ == '__main__':
             csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
+
+                names = prompts.random_names()
+
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
@@ -316,38 +320,47 @@ if __name__ == '__main__':
 
                 analogy_items = convert_to_list(analogy)
 
-                print(analogy_items)
+                mentions = []
+                mention_mapping = {}
 
-                analogy_list = []
-                for k in range(num_repetition):
-                    try:
-                        correct_out = prompts.generate_analogies(story1, story2)
-                    except Exception as e:
-                        print(f"An error occurred: {e}")
-                        raise
-                    analogy_items = convert_to_list(correct_out)
-                    if not analogy_list:
-                        analogy_list = analogy_items
-                        continue
+                for item1, item2, _ in analogy_items:
+                    mentions.append(item1)
+                    mentions.append(item2)
 
-                    for item in analogy_items:
-                        if not any(
-                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
-                                                                                                       item[1]) > 0.7
-                                for existing_item in analogy_list):
-                            analogy_list.append(item)
-                result = "\n".join(
-                    f"{i + 1}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                # keep the unique mentions
+                mentions = list(set(mentions))
+
+                for mention in mentions:
+                    mention_mapping[mention] = random.choice(names)
+                    # exclude the selected name from the list of names
+                    names.remove(mention_mapping[mention])
+
+                # sort the mentions by length to avoid replacing substrings. Longest first
+                mentions = sorted(mentions, key=lambda x: len(x), reverse=True)
+
+                new_story1 = story1
+                new_story2 = story2
+                new_analogy = analogy
+
+                for mention in mentions:
+                    story1 = story1.replace(mention, mention_mapping[mention])
+                    story2 = story2.replace(mention, mention_mapping[mention])
+                    analogy = analogy.replace(mention, mention_mapping[mention])
+
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
                     "Sentence2": sent2,
-                    "Story1": story1,
-                    "Story2": story2,
+                    "Original_Story1": story1,
+                    "Original_Story2": story2,
                     "Style1": style1,
                     "Style2": style2,
-                    "Analogy": result,
-                    "Random_names": None
+                    "Story1": new_story1,
+                    "Story2": new_story2,
+                    "Original_Analogy": analogy,
+                    "Analogy": new_analogy,
+                    "Menton_mapping": json.dumps(mention_mapping, indent=4)
                 })
 
-        pass
+
+
