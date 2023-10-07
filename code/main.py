@@ -156,7 +156,7 @@ if __name__ == '__main__':
                 analogy_list = []
                 for k in range(num_generation):
                     try:
-                        correct_out = prompts.story_analogy(story1, story2)
+                        correct_out = prompts.generate_analogies(story1, story2)
                     except Exception as e:
                         print(f"An error occurred: {e}")
                         raise
