@@ -226,7 +226,7 @@ def story_names(name_set, story):
     - Story: 
     {story}
     
-    Modified Story:
+    - Modified Story:
     """
     prompt = [
         {"role": "user", "content": prompt}

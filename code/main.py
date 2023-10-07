@@ -5,7 +5,6 @@ import random
 import prompts
 import argparse
 import itertools
-from tqdm import tqdm
 import pandas as pd
 from tqdm import tqdm
 from sklearn.metrics.pairwise import cosine_similarity
@@ -199,10 +198,7 @@ if __name__ == '__main__':
                         processed_stories[sent1] = prompts.story_names(names1, row["Story1"])
                     story1 = processed_stories[sent1]
 
-                    sent2 = row["Sentence2"]
-                    if sent2 not in processed_stories:
-                        processed_stories[sent2] = prompts.story_names(names2, row["Story2"])
-                    story2 = processed_stories[sent2]
+                    story2 = prompts.story_names(names2, row["Story2"])
                 except Exception as e:
                     print(f"An error occurred: {e}")
                     raise
