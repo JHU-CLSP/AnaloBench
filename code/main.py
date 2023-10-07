@@ -82,10 +82,15 @@ if __name__ == '__main__':
     parser.add_argument('--task', '-t', type=str, default=None,
                         help='The task that you want to do. Possible options are the following: '
                              '\n (1) `generate_sentence_analogies`: The script identifies analogies between the two provided sentences and writes them into a CSV file'
+                             
                              '\n (2) `generate_stories`: The script generates diverse stories from the two provided sentences or stories and writes them into a CSV file '
                              '\n (3) `generate_story_analogies`: Runs a story analogy task that creates analogies between two stories multiple times based on the `-k` argument and writes them into a CSV file.'
+                             
                              '\n (4) `generate_stories_with_names`: Reads story generations and assign names to the objects within the story, and writes the results into a CSV file.'
-                             '\n (5) `generate_name_analogies`: Creates analogies between two stories with aligned names multiple times based on the `-k` argument and writes them into a CSV file. ',
+                             '\n (5) `generate_name_analogies`: Creates analogies between two stories with aligned names multiple times based on the `-k` argument and writes them into a CSV file. '
+                             
+                             '\n (6) `generate_stories_with_random_names`: Generate stories that use random names as mentions. '
+                             '\n (7) `generate_analogies_story_mentions_with_random_words`: Creates analogies between two stories that contain random names. The generation is done multiple times based on the `-k` argument and writes them into a CSV file. ',
                         required=True)
     parser.add_argument('--k', '-k', type=int, default=None,
                         help='The number of the repetitions we prompt the model for generating analogies.',
