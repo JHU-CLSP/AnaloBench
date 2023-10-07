@@ -1,3 +1,6 @@
+import os
+
 GPT4KEY = {
-    "API_KEY": "YOUR_API_KEY",
+    # read the key from environmental variable
+    "API_KEY": os.environ.get("API_KEY"),
 }

@@ -21,9 +21,9 @@ Ensure that the following requirements are met before running the code:
     ```bash
     pip install -r requirements.txt
     ```
-3. Edit the 'config.py' file to include your actual API key for GPT-4. Replace 'YOUR_API_KEY' with your GPT-4 API key in the following line:
-    ```python
-    GPT4KEY = { "API_KEY": "YOUR_API_KEY" }
+3. Export your API key for GPT- as an environmental variable:
+    ```bash
+    export API_KEY="..." 
     ```
 4. Run the script. The basic command usage is as follows:
     ```bash

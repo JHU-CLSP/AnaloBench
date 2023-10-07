@@ -40,14 +40,6 @@ def similarity_check(text1, text2):
     tokens1 = [token.lemma_ for token in doc1]
     tokens2 = [token.lemma_ for token in doc2]
 
-    # use CountVectorizer to convert text into matrix
-    # vectorizer = CountVectorizer().fit_transform([tokens1, tokens2])
-    # vectors = vectorizer.toarray()
-    #
-    # # calculate cosine similarity which gives us the text similarity
-    # csim = cosine_similarity(vectors)
-    # return csim[0][1]
-
     # token overlap:
     overlap = len(set(tokens1).intersection(set(tokens2)))
     total_unique_words = len(set(tokens1).union(set(tokens2)))
@@ -72,29 +64,29 @@ def convert_to_list(input_str):
     return result
 
 
-def parse_args():
-    parser=argparse.ArgumentParser(description="analogy tasks")
-    parser.add_argument('-t', '--task', type=str,
-                        help='The task that you want to do. Possible options are the following: '
+if __name__ == '__main__': 
+
+    # parse the arguments
+    parser = argparse.ArgumentParser(description='Run the GPT-4 API. Use --help to see the options.')
+    parser.add_argument('--task', '-t', type=str, default=None, help='The task that you want to do. Possible options are the following: '
                              '\n - generate_sentence_analogies '
                              '\n - generate_stories '
                              '\n - generate_story_analogies '
                              '\n - generate_stories_with_names '
                              '\n - generate_name_analogies` ', required=True)
-    parser.add_argument('-k', '--k', type=int, help='The number of times we prompt the model for generating analogies.', required=False, default=1)
-    args=parser.parse_args()
-    return args
+    parser.add_argument('--k', '-k', type=int, default=None, help='The number of times we prompt the model for generating analogies.', required=False)
 
-if __name__ == '__main__': 
-    args = parse_args()
+    args=parser.parse_args()
     task = args.task
+
     key = config.GPT4KEY["API_KEY"]
-    sent_data = pd.read_csv("sentences.csv")
+
+    sent_data = pd.read_csv("data/sentences.csv")
     num_generation = args.k
 
     if task == "generate_sentence_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Analogy"]
-        filename = "sent_analogy.csv"
+        filename = "data/sent_analogy.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
@@ -116,7 +108,7 @@ if __name__ == '__main__':
     elif task == "generate_stories":
         processed_stories = {}
         fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
-        filename = "story_generation.csv"
+        filename = "data/story_generation.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
@@ -148,8 +140,8 @@ if __name__ == '__main__':
                 })
     elif task == "generate_story_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
-        filename_input = "story_generation.csv"
-        filename_output = "story_analogy.csv"
+        filename_input = "data/story_generation.csv"
+        filename_output = "data/story_analogy.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -189,8 +181,8 @@ if __name__ == '__main__':
     elif task == "generate_stories_with_names":
         processed_stories = {}
         fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2"]
-        filename = "name_generation.csv"
-        filename_story = "story_generation.csv"
+        filename = "data/name_generation.csv"
+        filename_story = "data/story_generation.csv"
         names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean", "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
         names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor", "Max", "Mila", "Owen", "Tara", "Jacob"]
 
@@ -220,8 +212,8 @@ if __name__ == '__main__':
                 })
     elif task == "generate_name_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Analogy"]
-        filename_input = "name_generation.csv"
-        filename_output = "name_analogy.csv"
+        filename_input = "data/name_generation.csv"
+        filename_output = "data/name_analogy.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -254,4 +246,8 @@ if __name__ == '__main__':
                     "Story1": story1,
                     "Story2": story2,
                     "Analogy": result
-                })
+                });
+    elif task == "replace_story_mentions_with_random_words":
+        pass
+    elif task == "replace_analogy_mentions_with_random_words":
+        pass
