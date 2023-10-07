@@ -7,8 +7,6 @@ import argparse
 import itertools
 import pandas as pd
 from tqdm import tqdm
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import CountVectorizer
 
 styles = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review", "Poetry", "Technical"]
 style_pairs = list(itertools.combinations(styles, 2))
@@ -39,17 +37,21 @@ def similarity_check(text1, text2):
     doc1 = nlp(text1.lower())
     doc2 = nlp(text2.lower())
 
-    tokens1 = " ".join([token.lemma_ for token in doc1])
-    tokens2 = " ".join([token.lemma_ for token in doc2])
+    tokens1 = [token.lemma_ for token in doc1]
+    tokens2 = [token.lemma_ for token in doc2]
 
     # use CountVectorizer to convert text into matrix
-    vectorizer = CountVectorizer().fit_transform([tokens1, tokens2])
-    vectors = vectorizer.toarray()
+    # vectorizer = CountVectorizer().fit_transform([tokens1, tokens2])
+    # vectors = vectorizer.toarray()
+    #
+    # # calculate cosine similarity which gives us the text similarity
+    # csim = cosine_similarity(vectors)
+    # return csim[0][1]
 
-    # calculate cosine similarity which gives us the text similarity
-    csim = cosine_similarity(vectors)
-
-    return csim[0][1]
+    # token overlap:
+    overlap = len(set(tokens1).intersection(set(tokens2)))
+    total_unique_words = len(set(tokens1).union(set(tokens2)))
+    return overlap / total_unique_words
 
 def convert_to_list(input_str):
     # Split the input string into a list of statements
