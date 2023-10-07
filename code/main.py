@@ -322,18 +322,18 @@ if __name__ == '__main__':
                 style1, style2 = row["Style1"], row["Style2"]
 
                 # sample 15 random mentions
-                random_names_subset = random.sample(prompts.random_names(), 15)
+                random_names_subset = ", ".join(random.sample(prompts.random_names(), 15))
 
                 if story1 in story_cache:
                     new_story1 = story_cache[story1]
                 else:
-                    new_story1 = prompts.generate_stories_with_human_names(random_names_subset, row["Story1"])
+                    new_story1 = prompts.generate_stories_with_random_names(random_names_subset, row["Story1"])
                     story_cache[story1] = new_story1
 
                 if story2 in story_cache:
                     new_story2 = story_cache[story2]
                 else:
-                    new_story2 = prompts.generate_stories_with_human_names(random_names_subset, row["Story2"])
+                    new_story2 = prompts.generate_stories_with_random_names(random_names_subset, row["Story2"])
                     story_cache[story2] = new_story2
 
                 csvwriter.writerow({

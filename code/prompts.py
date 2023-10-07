@@ -224,9 +224,11 @@ def generate_stories_with_human_names(name_set, story):
     
     - Modified Story:
     """
+
     prompt = [
         {"role": "user", "content": prompt}
     ]
+
     return generate_chat_completion(prompt, temperature=1.1, top_p=0.96)
 
 
@@ -368,12 +370,12 @@ def random_names():
         "guranences",
         "thorbiker",
     ]
-    return ", ".join(names)
+    return names
 
 
 def generate_stories_with_random_names(name_set, story):
     prompt = f"""
-    In the given story, assign human names (e.g., James) to each mention in the given story. You should use only the names in the provided "Name Set" and must use at least 5 names.
+    In the given story, replace each entity with one of names in the provided list "Name Set" and must use at least 5 names.
     Here is the Name Set: {name_set}
 
     Here are a few examples:
@@ -398,6 +400,7 @@ def generate_stories_with_random_names(name_set, story):
 
     - Modified Story:
     """
+    print(prompt)
     prompt = [
         {"role": "user", "content": prompt}
     ]
