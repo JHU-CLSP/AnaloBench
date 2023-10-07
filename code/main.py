@@ -72,7 +72,13 @@ def convert_to_list(input_str):
 
 def parse_args():
     parser=argparse.ArgumentParser(description="analogy tasks")
-    parser.add_argument('-t', '--task', type=str, help='The task that you want to do. Possible options are `sentence` and `story_generate` and `story_analogy` ', required=True)
+    parser.add_argument('-t', '--task', type=str,
+                        help='The task that you want to do. Possible options are the following: '
+                             '\n - generate_sentence_analogies '
+                             '\n - generate_stories '
+                             '\n - generate_story_analogies '
+                             '\n - generate_stories_with_names '
+                             '\n - generate_name_analogies` ', required=True)
     parser.add_argument('-k', '--k', type=int, help='The number of times we prompt the model for generating analogies.', required=False, default=1)
     args=parser.parse_args()
     return args
@@ -83,7 +89,8 @@ if __name__ == '__main__':
     key = config.GPT4KEY["API_KEY"]
     sent_data = pd.read_csv("sentences.csv")
     num_generation = args.k
-    if task == "sentence":
+
+    if task == "generate_sentence_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Analogy"]
         filename = "sent_analogy.csv"
 
@@ -104,8 +111,7 @@ if __name__ == '__main__':
                     "Sentence2": sent2,
                     "Analogy": correct_out
                 })
-
-    elif task == "story_generate":
+    elif task == "generate_stories":
         processed_stories = {}
         fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
         filename = "story_generation.csv"
@@ -138,7 +144,7 @@ if __name__ == '__main__':
                     "Style1": style1,
                     "Style2": style2
                 })
-    elif task == "story_analogy":
+    elif task == "generate_story_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
         filename_input = "story_generation.csv"
         filename_output = "story_analogy.csv"
@@ -178,7 +184,7 @@ if __name__ == '__main__':
                     "Style2": style2,
                     "Analogy": result
                 })
-    elif task == "name_generate":
+    elif task == "generate_stories_with_names":
         processed_stories = {}
         fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2"]
         filename = "name_generation.csv"
@@ -210,8 +216,7 @@ if __name__ == '__main__':
                     "Story1": story1,
                     "Story2": story2
                 })
-
-    elif task == "name_analogy":
+    elif task == "generate_name_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Analogy"]
         filename_input = "name_generation.csv"
         filename_output = "name_analogy.csv"
