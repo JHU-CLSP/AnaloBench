@@ -261,7 +261,9 @@ if __name__ == '__main__':
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
             csvwriter.writeheader()
 
-            for row in tqdm(csvreader):
+            for i, row in tqdm(enumerate(csvreader)):
+                if i > num_generation:
+                    break
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
@@ -313,6 +315,8 @@ if __name__ == '__main__':
             csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
+                if i > num_generation:
+                    break
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
