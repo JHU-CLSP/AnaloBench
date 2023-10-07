@@ -31,6 +31,8 @@ Ensure that the following requirements are met before running the code:
     ```
     Replace [task] with the task type and [-k] with the number of times you want to run the story analogy generation task.
 
+   To see different possible commands, use `--help`. 
+   
 ## Command Line Arguments
 The script accepts these command-line arguments:
 
