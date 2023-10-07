@@ -214,6 +214,7 @@ if __name__ == '__main__':
                     "Story1": story1,
                     "Story2": story2
                 })
+
     elif task == "name_analogy":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Analogy"]
         filename_input = "name_generation.csv"
