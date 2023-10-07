@@ -4,7 +4,7 @@ import config
 import requests
 
 
-def generate_chat_completion(messages, model="gpt-4", temperature: float = 1.0, top_p: float = 1.0,
+def generate_chat_completion(messages, temperature: float, top_p: float, model="gpt-4",
                              max_tokens: int = 3000):
     API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
     API_KEY = config.GPT4KEY["API_KEY"]
@@ -64,7 +64,7 @@ def generate_analogies(story1, story2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
+    return generate_chat_completion(prompt, temperature=2.0, top_p=0.95)
 
 
 # def sentence_incorrect(sentence1, sentence2):
@@ -148,7 +148,7 @@ def generate_diverse_story(sentence, cur_style):
         {"role": "user", "content": prompt}
     ]
 
-    return generate_chat_completion(prompt, temperature=1.6, top_p=0.95)
+    return generate_chat_completion(prompt, temperature=1.9, top_p=0.95)
 
 
 # def story_incorrect(story1, story2):
@@ -197,46 +197,7 @@ def generate_diverse_story(sentence, cur_style):
 #     return prompt, correct_indices
 
 
-def random_names():
-    return [
-        "Usho",
-        "Stromathing",
-        "Bytriport",
-        "Skepre",
-        "Yokovich",
-        "Adequil",
-        "Entninang",
-        "Ehablix",
-        "Franasm",
-        "Wofez",
-        "Peartzle",
-        "Istestuff",
-        "Garioudishoon",
-        "Bioyino",
-        "Dalph",
-        "Niconfroman",
-        "Republast",
-        "Mohanneles",
-        "Grapdrow",
-        "Colbt",
-        "Foragenue",
-        "Waox",
-        "Hiating",
-        "Burmintaloomer",
-        "Suft",
-        "Defas",
-        "Sproxes",
-        "Emmythir",
-        "Prembalts",
-        "Promnely",
-        "Hibicy",
-        "Boxscape",
-        "Fierer",
-        "Wuz"
-    ]
-
-
-def story_names(name_set, story):
+def generate_stories_with_human_names(name_set, story):
     prompt = f"""
     In the given story, assign human names (e.g., James) to each mention in the given story. You should use only the names in the provided "Name Set" and must use at least 5 names.
     Here is the Name Set: {name_set}
@@ -263,13 +224,15 @@ def story_names(name_set, story):
     
     - Modified Story:
     """
+
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return generate_chat_completion(prompt)
+
+    return generate_chat_completion(prompt, temperature=1.1, top_p=0.96)
 
 
-def name_analogy(story1, story2):
+def extract_analogies_between_named_stories(story1, story2):
     prompt = f"""
     Extract all analogous elements in the two given stories in the following format, while excluding specific entities mentioned in the stories:
 
@@ -301,4 +264,144 @@ def name_analogy(story1, story2):
     prompt = [
         {"role": "user", "content": prompt}
     ]
-    return generate_chat_completion(prompt)
+    return generate_chat_completion(prompt, temperature=2.0, top_p=0.95)
+
+
+def random_names():
+    # extarcted from: https://www.soybomb.com/tricks/words/
+    names = [
+        "junkhavents",
+        "pedistrings",
+        "ablesselles",
+        "logyroing",
+        "repewter",
+        "subcons",
+        "denonpoite",
+        "ormistiroyd",
+        "clemor",
+        "loaffeed",
+        "wrigott",
+        "signatmoured",
+        "staffleezing",
+        "patturusly",
+        "reprain",
+        "winnonals",
+        "unexcraw",
+        "canordent",
+        "cravians",
+        "assectur",
+        "exanalyze",
+        "dispreinters",
+        "heigate",
+        "belloverhayn",
+        "waldnes",
+        "contanizes",
+        "wisele",
+        "compats",
+        "ponessedandy",
+        "propier",
+        "bushocracushel",
+        "haysic",
+        "ficided",
+        "contramently",
+        "searines",
+        "profity",
+        "avence",
+        "calcully",
+        "docted",
+        "vinize",
+        "prephammer",
+        "wiellizes",
+        "movated",
+        "aggripations",
+        "fleciah",
+        "icalized",
+        "odiescring",
+        "mizationts",
+        "creansy",
+        "boulating",
+        "shoundedoms",
+        "paperfoilstor",
+        "ciently",
+        "elegankles",
+        "mcinteled",
+        "bufficle",
+        "gregar",
+        "comeand",
+        "distrum",
+        "shievely",
+        "bibbleters",
+        "bitate",
+        "concie",
+        "begullian",
+        "manproges",
+        "favoicas",
+        "tracceaned",
+        "piloves",
+        "evilets",
+        "physia",
+        "insimulty",
+        "austumbright",
+        "agrably",
+        "flamule",
+        "buking",
+        "bewidths",
+        "mckafka",
+        "orstic",
+        "rapenizing",
+        "calify",
+        "clathetizes",
+        "sclizers",
+        "strichble",
+        "subobbed",
+        "alized",
+        "alition",
+        "alyzers",
+        "storountly",
+        "suitudiew",
+        "scorifie",
+        "garrously",
+        "astions",
+        "westruse",
+        "digiracts",
+        "equinoterse",
+        "setturnfult",
+        "obtatops",
+        "guranences",
+        "thorbiker",
+    ]
+    return names
+
+
+def generate_stories_with_random_names(name_set, story):
+    prompt = f"""
+    In the given story, replace each entity with one of names in the provided list "Name Set" and must use at least 5 names.
+    Here is the Name Set: {name_set}
+
+    Here are a few examples:
+    - Story: 
+    A forest grew near the river.
+
+    - Modified Story: 
+    An unexcraw grew near the assectur.
+    ==========
+    - Story: 
+    A forest grew near the river, a haven where nature thrived and the interconnected chain of life flourished. It was a land in which each living being had a place in the perpetual cycle of existence, an intricate balance between the many species found within its depths. Towering trees guarded the landscape, symbolizing the majesty and authority of the forest.
+    The river itself was a life-giving force, coursing through the forest like veins, and connecting the many habitats in a cohesive, symbiotic relationship. The abstract hierarchy within this forest was a beautifully arranged symphony filled with diverse players, each contributing their individual melodies to the overall harmony. Its theme was rooted in resilience, perseverance, and the delicate interrelationship between every living inhabitant.
+    As the seemingly chaotic landscape extended from the river, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life and ensuring their survival for generations to come.
+
+    - Modified Story: 
+    A canordent grew near the assectur, a haven where nature thrived and the interconnected chain of life flourished. It was a land in which each living being had a place in the perpetual cycle of existence, an intricate balance between the many species found within its depths. Towering dispreinters guarded the landscape, symbolizing the majesty and authority of the canordent.
+    The assectur itself was a life-giving force, coursing through the canordent like veins, and connecting the many habitats in a cohesive, symbiotic relationship. The abstract hierarchy within this canordent was a beautifully arranged symphony filled with diverse players, each contributing their individual melodies to the overall harmony. Its theme was rooted in resilience, perseverance, and the delicate interrelationship between every living inhabitant.
+    As the seemingly chaotic landscape extended from the assectur, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life and ensuring their survival for generations to come.
+    ==========
+    - Story: 
+    {story}
+
+    - Modified Story:
+    """
+    print(prompt)
+    prompt = [
+        {"role": "user", "content": prompt}
+    ]
+    return generate_chat_completion(prompt, temperature=1.1, top_p=0.95)
