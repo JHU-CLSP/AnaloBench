@@ -4,7 +4,7 @@ import config
 import requests
 
 
-def generate_chat_completion(messages, model="gpt-4", temperature: float = 1.0, top_p: float = 1.0,
+def generate_chat_completion(messages, model="gpt-4", temperature: float = 2.0, top_p: float = 0.95,
                              max_tokens: int = 3000):
     API_ENDPOINT = "https://api.openai.com/v1/chat/completions"
     API_KEY = config.GPT4KEY["API_KEY"]
