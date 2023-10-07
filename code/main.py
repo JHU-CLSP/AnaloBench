@@ -56,13 +56,22 @@ def convert_to_list(input_str):
 
     # Loop through each statement
     for statement in statements:
-        paired_terms, explanation = statement.split(" | ")
-        term1, term2 = paired_terms.split(" <-> ")
+        print(" --> statement: ", statement)
+        delimiter = " | "
+        if delimiter not in statement:
+            continue
+        paired_terms, explanation = statement.split(delimiter)
+        delimiter = " <-> "
+        if delimiter not in paired_terms:
+            continue
+        term1, term2 = paired_terms.split(delimiter)
 
         # Remove leading "- " from the first term
         term1 = term1[2:] if term1.startswith('- ') else term1
 
         result.append((term1, term2, explanation))
+
+    assert len(result) > 0, f"No analogies found in {statements}!"
 
     return result
 
@@ -80,7 +89,8 @@ if __name__ == '__main__':
                              '\n (5) `generate_name_analogies`: Creates analogies between two stories with aligned names multiple times based on the `-k` argument and writes them into a CSV file. ',
                         required=True)
     parser.add_argument('--k', '-k', type=int, default=None,
-                        help='The number of the repetitions we prompt the model for generating analogies.', required=False)
+                        help='The number of the repetitions we prompt the model for generating analogies.',
+                        required=False)
     parser.add_argument('--num', '-n', type=int, default=None,
                         help='The number of instances to use for generation. ', required=False)
 
@@ -124,6 +134,8 @@ if __name__ == '__main__':
             csvwriter.writeheader()
 
             for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
+                if i > num_generation:
+                    break
                 try:
                     story1, story2, style1, style2 = None, None, None, None
                     if sent1 in processed_stories:
@@ -157,10 +169,155 @@ if __name__ == '__main__':
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
             csvwriter.writeheader()
 
+            for i, row in tqdm(enumerate(csvreader)):
+                if i > num_generation:
+                    break
+                sent1, sent2 = row["Sentence1"], row["Sentence2"]
+                story1, story2 = row["Story1"], row["Story2"]
+                style1, style2 = row["Style1"], row["Style2"]
+                analogy_list = []
+                for k in range(num_repetition):
+                    try:
+                        correct_out = prompts.generate_analogies(story1, story2)
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+                        raise
+                    analogy_items = convert_to_list(correct_out)
+                    if not analogy_list:
+                        analogy_list = analogy_items
+                        continue
+
+                    for item in analogy_items:
+                        if not any(
+                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
+                                                                                                       item[1]) > 0.7
+                                for existing_item in analogy_list):
+                            analogy_list.append(item)
+                # sort the analogies alphabetically
+                analogy_list = sorted(analogy_list, key=lambda x: x[0])
+                result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                csvwriter.writerow({
+                    "Index": row["Index"],
+                    "Sentence1": sent1,
+                    "Sentence2": sent2,
+                    "Story1": story1,
+                    "Story2": story2,
+                    "Style1": style1,
+                    "Style2": style2,
+                    "Analogy": result
+                })
+    elif task == "generate_stories_with_names":
+        processed_stories = {}
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
+        filename = "data/name_generation.csv"
+        filename_story = "data/story_generation.csv"
+        names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean",
+                  "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
+        names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor",
+                  "Max", "Mila", "Owen", "Tara", "Jacob"]
+
+        with open(filename, 'w', newline='') as csvfile, open(filename_story, 'r') as csvfile_input:
+            csvreader = csv.DictReader(csvfile_input)
+            csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
+            csvwriter.writeheader()
+
+            for i, row in tqdm(enumerate(csvreader)):
+                if i > num_generation:
+                    break
+                try:
+                    sent1 = row["Sentence1"]
+                    if sent1 not in processed_stories:
+                        processed_stories[sent1] = prompts.story_names(names1, row["Story1"])
+                    story1 = processed_stories[sent1]
+
+                    story2 = prompts.story_names(names2, row["Story2"])
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+                    raise
+
+                style1 = row["Style1"]
+                style2 = row["Style2"]
+
+                csvwriter.writerow({
+                    "Index": row["Index"],
+                    "Sentence1": row["Sentence1"],
+                    "Sentence2": row["Sentence2"],
+                    "Story1": story1,
+                    "Story2": story2,
+                    "Style1": style1,
+                    "Style2": style2
+                })
+    elif task == "generate_name_analogies":
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
+        filename_input = "data/name_generation.csv"
+        filename_output = "data/name_analogy.csv"
+
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+            csvreader = csv.DictReader(csvfile_input)
+            csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
+            csvwriter.writeheader()
+
             for row in tqdm(csvreader):
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
+                analogy_list = []
+                for k in range(num_repetition):
+                    try:
+                        correct_out = prompts.name_analogy(story1, story2)
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+                        raise
+                    analogy_items = convert_to_list(correct_out)
+                    if not analogy_list:
+                        analogy_list = analogy_items
+                        continue
+
+                    for item in analogy_items:
+                        if not any(
+                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
+                                                                                                       item[1]) > 0.7
+                                for existing_item in analogy_list):
+                            analogy_list.append(item)
+                # sort the analogies alphabetically
+                analogy_list = sorted(analogy_list, key=lambda x: x[0])
+                result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                csvwriter.writerow({
+                    "Index": row["Index"],
+                    "Sentence1": sent1,
+                    "Sentence2": sent2,
+                    "Story1": story1,
+                    "Story2": story2,
+                    "Style1": style1,
+                    "Style2": style2,
+                    "Analogy": result
+                })
+    elif task == "replace_story_mentions_with_random_words":
+        # replace the mentions in the story with random words
+        # first, extract the mentions that are used in the analogies
+
+        names = prompts.random_names()
+        mentions = {}
+
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy", "Random_names"]
+        filename_input = "data/story_analogy.csv"
+        filename_output = "data/story_analogy_random_names.csv"
+
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+            csvreader = csv.DictReader(csvfile_input)
+            csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
+            csvwriter.writeheader()
+
+            for i, row in tqdm(enumerate(csvreader)):
+                sent1, sent2 = row["Sentence1"], row["Sentence2"]
+                story1, story2 = row["Story1"], row["Story2"]
+                style1, style2 = row["Style1"], row["Style2"]
+                analogy = row["Analogy"]
+
+                analogy_items = convert_to_list(analogy)
+
+                print(analogy_items)
+
                 analogy_list = []
                 for k in range(num_repetition):
                     try:
@@ -189,84 +346,8 @@ if __name__ == '__main__':
                     "Story2": story2,
                     "Style1": style1,
                     "Style2": style2,
-                    "Analogy": result
+                    "Analogy": result,
+                    "Random_names": None
                 })
-    elif task == "generate_stories_with_names":
-        processed_stories = {}
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2"]
-        filename = "data/name_generation.csv"
-        filename_story = "data/story_generation.csv"
-        names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean",
-                  "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
-        names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor",
-                  "Max", "Mila", "Owen", "Tara", "Jacob"]
 
-        with open(filename, 'w', newline='') as csvfile, open(filename_story, 'r') as csvfile_input:
-            csvreader = csv.DictReader(csvfile_input)
-            csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
-            csvwriter.writeheader()
-
-            for row in tqdm(csvreader):
-                try:
-                    sent1 = row["Sentence1"]
-                    if sent1 not in processed_stories:
-                        processed_stories[sent1] = prompts.story_names(names1, row["Story1"])
-                    story1 = processed_stories[sent1]
-
-                    story2 = prompts.story_names(names2, row["Story2"])
-                except Exception as e:
-                    print(f"An error occurred: {e}")
-                    raise
-
-                csvwriter.writerow({
-                    "Index": row["Index"],
-                    "Sentence1": row["Sentence1"],
-                    "Sentence2": row["Sentence2"],
-                    "Story1": story1,
-                    "Story2": story2
-                })
-    elif task == "generate_name_analogies":
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Analogy"]
-        filename_input = "data/name_generation.csv"
-        filename_output = "data/name_analogy.csv"
-
-        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
-            csvreader = csv.DictReader(csvfile_input)
-            csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
-            csvwriter.writeheader()
-
-            for row in tqdm(csvreader):
-                sent1, sent2 = row["Sentence1"], row["Sentence2"]
-                story1, story2 = row["Story1"], row["Story2"]
-                analogy_list = []
-                for k in range(num_repetition):
-                    try:
-                        correct_out = prompts.name_analogy(story1, story2)
-                    except Exception as e:
-                        print(f"An error occurred: {e}")
-                        raise
-                    analogy_items = convert_to_list(correct_out)
-                    if not analogy_list:
-                        analogy_list = analogy_items
-                        continue
-
-                    for item in analogy_items:
-                        if not any(
-                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
-                                                                                                       item[1]) > 0.7
-                                for existing_item in analogy_list):
-                            analogy_list.append(item)
-                result = "\n".join(
-                    f"{i + 1}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
-                csvwriter.writerow({
-                    "Index": row["Index"],
-                    "Sentence1": sent1,
-                    "Sentence2": sent2,
-                    "Story1": story1,
-                    "Story2": story2,
-                    "Analogy": result
-                })
-    elif task == "replace_story_mentions_with_random_words":
-        pass
-    elif task == "replace_analogy_mentions_with_random_words":
         pass
