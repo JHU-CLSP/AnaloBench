@@ -197,8 +197,43 @@ def generate_diverse_story(sentence, cur_style):
 #     return prompt, correct_indices
 
 
-def generate_random_strings():
-    pass
+def random_names():
+    return [
+        "Usho",
+        "Stromathing",
+        "Bytriport",
+        "Skepre",
+        "Yokovich",
+        "Adequil",
+        "Entninang",
+        "Ehablix",
+        "Franasm",
+        "Wofez",
+        "Peartzle",
+        "Istestuff",
+        "Garioudishoon",
+        "Bioyino",
+        "Dalph",
+        "Niconfroman",
+        "Republast",
+        "Mohanneles",
+        "Grapdrow",
+        "Colbt",
+        "Foragenue",
+        "Waox",
+        "Hiating",
+        "Burmintaloomer",
+        "Suft",
+        "Defas",
+        "Sproxes",
+        "Emmythir",
+        "Prembalts",
+        "Promnely",
+        "Hibicy",
+        "Boxscape",
+        "Fierer",
+        "Wuz"
+    ]
 
 
 def story_names(name_set, story):

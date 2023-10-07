@@ -7,15 +7,15 @@ import argparse
 import itertools
 import pandas as pd
 from tqdm import tqdm
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import CountVectorizer
 
-styles = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review", "Poetry", "Technical"]
+styles = ["Narrative", "Descriptive", "Expository", "Persuasive", "Creative", "Objective", "Subjective", "Review",
+          "Poetry", "Technical"]
 style_pairs = list(itertools.combinations(styles, 2))
 pair_counts = {pair: 0 for pair in style_pairs}
 
 # Load Spacy's English model
 nlp = spacy.load('en_core_web_sm')
+
 
 def parse_styles(fixed_style=None):
     selected_pair = None
@@ -39,17 +39,14 @@ def similarity_check(text1, text2):
     doc1 = nlp(text1.lower())
     doc2 = nlp(text2.lower())
 
-    tokens1 = " ".join([token.lemma_ for token in doc1])
-    tokens2 = " ".join([token.lemma_ for token in doc2])
+    tokens1 = [token.lemma_ for token in doc1]
+    tokens2 = [token.lemma_ for token in doc2]
 
-    # use CountVectorizer to convert text into matrix
-    vectorizer = CountVectorizer().fit_transform([tokens1, tokens2])
-    vectors = vectorizer.toarray()
+    # token overlap:
+    overlap = len(set(tokens1).intersection(set(tokens2)))
+    total_unique_words = len(set(tokens1).union(set(tokens2)))
+    return overlap / total_unique_words
 
-    # calculate cosine similarity which gives us the text similarity
-    csim = cosine_similarity(vectors)
-
-    return csim[0][1]
 
 def convert_to_list(input_str):
     # Split the input string into a list of statements
@@ -70,41 +67,46 @@ def convert_to_list(input_str):
     return result
 
 
-def parse_args():
-    parser=argparse.ArgumentParser(description="analogy tasks")
-    parser.add_argument('-t', '--task', type=str,
-                        help='The task that you want to do. Possible options are the following: '
-                             '\n - generate_sentence_analogies '
-                             '\n - generate_stories '
-                             '\n - generate_story_analogies '
-                             '\n - generate_stories_with_names '
-                             '\n - generate_name_analogies` ', required=True)
-    parser.add_argument('-k', '--k', type=int, help='The number of times we prompt the model for generating analogies.', required=False, default=1)
-    args=parser.parse_args()
-    return args
+if __name__ == '__main__':
 
-if __name__ == '__main__': 
-    args = parse_args()
+    # parse the arguments
+    parser = argparse.ArgumentParser(description='Run the GPT-4 API. Use --help to see the options.')
+    parser.add_argument('--task', '-t', type=str, default=None,
+                        help='The task that you want to do. Possible options are the following: '
+                             '\n (1) `generate_sentence_analogies`: The script identifies analogies between the two provided sentences and writes them into a CSV file'
+                             '\n (2) `generate_stories`: The script generates diverse stories from the two provided sentences or stories and writes them into a CSV file '
+                             '\n (3) `generate_story_analogies`: Runs a story analogy task that creates analogies between two stories multiple times based on the `-k` argument and writes them into a CSV file.'
+                             '\n (4) `generate_stories_with_names`: Reads story generations and assign names to the objects within the story, and writes the results into a CSV file.'
+                             '\n (5) `generate_name_analogies`: Creates analogies between two stories with aligned names multiple times based on the `-k` argument and writes them into a CSV file. ',
+                        required=True)
+    parser.add_argument('--k', '-k', type=int, default=None,
+                        help='The number of the repetitions we prompt the model for generating analogies.', required=False)
+    parser.add_argument('--num', '-n', type=int, default=None,
+                        help='The number of instances to use for generation. ', required=False)
+
+    args = parser.parse_args()
     task = args.task
-    key = config.GPT4KEY["API_KEY"]
-    sent_data = pd.read_csv("sentences.csv")
-    num_generation = args.k
+    num_repetition = args.k
+    num_generation = args.num
 
     if task == "generate_sentence_analogies":
+        sent_data = pd.read_csv("data/sentences.csv")
         fields = ["Index", "Sentence1", "Sentence2", "Analogy"]
-        filename = "sent_analogy.csv"
+        filename = "data/sent_analogy.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
             csvwriter.writeheader()
 
             for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
+                if i > num_generation:
+                    break
                 try:
                     correct_out = prompts.generate_analogies(sent1, sent2)
                 except Exception as e:
                     print(f"An error occurred: {e}")
                     raise
-                
+
                 csvwriter.writerow({
                     "Index": i,
                     "Sentence1": sent1,
@@ -112,9 +114,10 @@ if __name__ == '__main__':
                     "Analogy": correct_out
                 })
     elif task == "generate_stories":
+        sent_data = pd.read_csv("data/sentences.csv")
         processed_stories = {}
-        fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
-        filename = "story_generation.csv"
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
+        filename = "data/story_generation.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
@@ -146,8 +149,8 @@ if __name__ == '__main__':
                 })
     elif task == "generate_story_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
-        filename_input = "story_generation.csv"
-        filename_output = "story_analogy.csv"
+        filename_input = "data/story_generation.csv"
+        filename_output = "data/story_analogy.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -159,7 +162,7 @@ if __name__ == '__main__':
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
                 analogy_list = []
-                for k in range(num_generation):
+                for k in range(num_repetition):
                     try:
                         correct_out = prompts.generate_analogies(story1, story2)
                     except Exception as e:
@@ -171,9 +174,13 @@ if __name__ == '__main__':
                         continue
 
                     for item in analogy_items:
-                        if not any(similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1], item[1]) > 0.7 for existing_item in analogy_list):
+                        if not any(
+                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
+                                                                                                       item[1]) > 0.7
+                                for existing_item in analogy_list):
                             analogy_list.append(item)
-                result = "\n".join(f"{i+1}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                result = "\n".join(
+                    f"{i + 1}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
@@ -186,11 +193,13 @@ if __name__ == '__main__':
                 })
     elif task == "generate_stories_with_names":
         processed_stories = {}
-        fields =  ["Index", "Sentence1", "Sentence2", "Story1", "Story2"]
-        filename = "name_generation.csv"
-        filename_story = "story_generation.csv"
-        names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean", "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
-        names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor", "Max", "Mila", "Owen", "Tara", "Jacob"]
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2"]
+        filename = "data/name_generation.csv"
+        filename_story = "data/story_generation.csv"
+        names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean",
+                  "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
+        names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor",
+                  "Max", "Mila", "Owen", "Tara", "Jacob"]
 
         with open(filename, 'w', newline='') as csvfile, open(filename_story, 'r') as csvfile_input:
             csvreader = csv.DictReader(csvfile_input)
@@ -218,8 +227,8 @@ if __name__ == '__main__':
                 })
     elif task == "generate_name_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Analogy"]
-        filename_input = "name_generation.csv"
-        filename_output = "name_analogy.csv"
+        filename_input = "data/name_generation.csv"
+        filename_output = "data/name_analogy.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -230,7 +239,7 @@ if __name__ == '__main__':
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 analogy_list = []
-                for k in range(num_generation):
+                for k in range(num_repetition):
                     try:
                         correct_out = prompts.name_analogy(story1, story2)
                     except Exception as e:
@@ -242,9 +251,13 @@ if __name__ == '__main__':
                         continue
 
                     for item in analogy_items:
-                        if not any(similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1], item[1]) > 0.7 for existing_item in analogy_list):
+                        if not any(
+                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
+                                                                                                       item[1]) > 0.7
+                                for existing_item in analogy_list):
                             analogy_list.append(item)
-                result = "\n".join(f"{i+1}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                result = "\n".join(
+                    f"{i + 1}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
@@ -253,3 +266,7 @@ if __name__ == '__main__':
                     "Story2": story2,
                     "Analogy": result
                 })
+    elif task == "replace_story_mentions_with_random_words":
+        pass
+    elif task == "replace_analogy_mentions_with_random_words":
+        pass

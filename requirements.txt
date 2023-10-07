@@ -1,5 +1,4 @@
 requests
 pandas
 tqdm
-spacy
-scikit-learn
+spacy==3.7.1

@@ -21,9 +21,9 @@ Ensure that the following requirements are met before running the code:
     ```bash
     pip install -r requirements.txt
     ```
-3. Edit the 'config.py' file to include your actual API key for GPT-4. Replace 'YOUR_API_KEY' with your GPT-4 API key in the following line:
-    ```python
-    GPT4KEY = { "API_KEY": "YOUR_API_KEY" }
+3. Export your API key for GPT- as an environmental variable:
+    ```bash
+    export API_KEY="..." 
     ```
 4. Run the script. The basic command usage is as follows:
     ```bash
@@ -31,20 +31,13 @@ Ensure that the following requirements are met before running the code:
     ```
     Replace [task] with the task type and [-k] with the number of times you want to run the story analogy generation task.
 
+   To see different possible commands, use `--help`. 
+   
 ## Command Line Arguments
 The script accepts these command-line arguments:
 
 - `-t` or `--task`: Specifies the task to run. It's required and can be either 'sentence', 'story_generate', 'story_analogy', 'name_generate' or 'name_analogy'.
 - `-k` or `--k`: Specifies the number of times you would like to generate story analogies. It's optional, with a default value of 1.
-
-## Supported Tasks
-The current version of the script supports these tasks:
-
-- `sentence` : Runs a sentence analogy task. The script identifies analogies between the two provided sentences and writes them into a CSV file.
-- `story_generate` : Runs a story generation task. The script generates diverse stories from the two provided sentences or stories and writes them into a CSV file.
-- `story_analogy` : Runs a story analogy task that creates analogies between two stories multiple times based on the `-k` argument and writes them into a CSV file.
-- `name_generate` : Reads story generations and assign names to the objects within the story, and writes the results into a CSV file.
-- `name_analogy` : Creates analogies between two stories with aligned names multiple times based on the `-k` argument and writes them into a CSV file.
 
 ## License
 This project is available under the MIT License. You can freely modify and use it as per your needs. Please keep in mind OpenAI's terms and policies if you use GPT-4.
