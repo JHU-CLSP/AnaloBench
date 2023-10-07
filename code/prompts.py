@@ -303,7 +303,7 @@ def random_names():
     return ", ".join(names)
 
 
-def story_names(name_set, story):
+def generate_stories_with_human_names(name_set, story):
     prompt = f"""
     In the given story, assign human names (e.g., James) to each mention in the given story. You should use only the names in the provided "Name Set" and must use at least 5 names.
     Here is the Name Set: {name_set}
@@ -336,7 +336,7 @@ def story_names(name_set, story):
     return generate_chat_completion(prompt)
 
 
-def name_analogy(story1, story2):
+def extract_analogies_between_named_stories(story1, story2):
     prompt = f"""
     Extract all analogous elements in the two given stories in the following format, while excluding specific entities mentioned in the stories:
 
@@ -371,3 +371,34 @@ def name_analogy(story1, story2):
     return generate_chat_completion(prompt)
 
 
+def generate_stories_with_random_names(name_set, story):
+    prompt = f"""
+    In the given story, assign human names (e.g., James) to each mention in the given story. You should use only the names in the provided "Name Set" and must use at least 5 names.
+    Here is the Name Set: {name_set}
+
+    Here are a few examples:
+    - Story: 
+    A forest grew near the river.
+
+    - Modified Story: 
+    A forest named James grew near the river named Thomas.
+    ==========
+    - Story: 
+    A forest grew near the river, a haven where nature thrived and the interconnected chain of life flourished. It was a land in which each living being had a place in the perpetual cycle of existence, an intricate balance between the many species found within its depths. Towering trees guarded the landscape, symbolizing the majesty and authority of the forest.
+    The river itself was a life-giving force, coursing through the forest like veins, and connecting the many habitats in a cohesive, symbiotic relationship. The abstract hierarchy within this forest was a beautifully arranged symphony filled with diverse players, each contributing their individual melodies to the overall harmony. Its theme was rooted in resilience, perseverance, and the delicate interrelationship between every living inhabitant.
+    As the seemingly chaotic landscape extended from the river, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life and ensuring their survival for generations to come.
+
+    - Modified Story: 
+    A forest named Jessica grew near the river named Jeffrey, a haven where nature thrived and the interconnected chain of life, personified as Elaine, flourished. It was a land in which each living being, symbolized by Will, had a place in the perpetual cycle of existence, an intricate balance between the many species, represented by Gabriella, found within its depths. Towering trees named Charles guarded the landscape, symbolizing the majesty and authority of the forest.
+    The river itself, Jeffrey, was a life-giving force, coursing through the forest, Jessica, like veins, and connecting the many habitats in a cohesive, symbiotic relationship. The abstract hierarchy, represented by Sophia, within this forest was a beautifully arranged symphony filled with diverse players, each contributing their individual melodies to the overall harmony. Its theme was rooted in resilience, perseverance, and the delicate interrelationship, embodied by Edward, between every living inhabitant.
+    As the seemingly chaotic landscape, known as Dean, extended from the river, Jeffrey, it offered a stunning reminder of the ever-present theme, binding all its living creatures through the hierarchy of life, Sophia, and ensuring their survival for generations to come.
+    ==========
+    - Story: 
+    {story}
+
+    - Modified Story:
+    """
+    prompt = [
+        {"role": "user", "content": prompt}
+    ]
+    return generate_chat_completion(prompt)

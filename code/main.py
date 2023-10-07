@@ -229,10 +229,10 @@ if __name__ == '__main__':
                 try:
                     sent1 = row["Sentence1"]
                     if sent1 not in processed_stories:
-                        processed_stories[sent1] = prompts.story_names(names1, row["Story1"])
+                        processed_stories[sent1] = prompts.generate_stories_with_human_names(names1, row["Story1"])
                     story1 = processed_stories[sent1]
 
-                    story2 = prompts.story_names(names2, row["Story2"])
+                    story2 = prompts.generate_stories_with_human_names(names2, row["Story2"])
                 except Exception as e:
                     print(f"An error occurred: {e}")
                     raise
@@ -266,7 +266,7 @@ if __name__ == '__main__':
                 analogy_list = []
                 for k in range(num_repetition):
                     try:
-                        correct_out = prompts.name_analogy(story1, story2)
+                        correct_out = prompts.extract_analogies_between_named_stories(story1, story2)
                     except Exception as e:
                         print(f"An error occurred: {e}")
                         raise
@@ -296,56 +296,36 @@ if __name__ == '__main__':
                 })
     elif task == "replace_story_mentions_with_random_words":
         # replace the mentions in the story with random words
-        # first, extract the mentions that are used in the analogies
 
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
+        filename_input = "data/story_generation.csv"
+        filename_output = "data/story_generation_random_names.csv"
 
-
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy", "Menton_mapping"]
-        filename_input = "data/story_analogy.csv"
-        filename_output = "data/story_analogy_random_names.csv"
-
+        story_cache = {}
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
             csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
-
-                names = prompts.random_names()
-
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
-                analogy = row["Analogy"]
 
-                analogy_items = convert_to_list(analogy)
+                # sample 15 random mentions
+                random_names_subset = random.sample(prompts.random_names(), 15)
 
-                mentions = []
-                mention_mapping = {}
+                if story1 in story_cache:
+                    new_story1 = story_cache[story1]
+                else:
+                    new_story1 = prompts.generate_stories_with_human_names(random_names_subset, row["Story1"])
+                    story_cache[story1] = new_story1
 
-                for item1, item2, _ in analogy_items:
-                    mentions.append(item1)
-                    mentions.append(item2)
-
-                # keep the unique mentions
-                mentions = list(set(mentions))
-
-                for mention in mentions:
-                    mention_mapping[mention] = random.choice(names)
-                    # exclude the selected name from the list of names
-                    names.remove(mention_mapping[mention])
-
-                # sort the mentions by length to avoid replacing substrings. Longest first
-                mentions = sorted(mentions, key=lambda x: len(x), reverse=True)
-
-                new_story1 = story1
-                new_story2 = story2
-                new_analogy = analogy
-
-                for mention in mentions:
-                    story1 = story1.replace(mention, mention_mapping[mention])
-                    story2 = story2.replace(mention, mention_mapping[mention])
-                    analogy = analogy.replace(mention, mention_mapping[mention])
+                if story2 in story_cache:
+                    new_story2 = story_cache[story2]
+                else:
+                    new_story2 = prompts.generate_stories_with_human_names(random_names_subset, row["Story2"])
+                    story_cache[story2] = new_story2
 
                 csvwriter.writerow({
                     "Index": row["Index"],
@@ -357,10 +337,56 @@ if __name__ == '__main__':
                     "Style2": style2,
                     "Story1": new_story1,
                     "Story2": new_story2,
-                    "Original_Analogy": analogy,
-                    "Analogy": new_analogy,
-                    "Menton_mapping": json.dumps(mention_mapping, indent=4)
                 })
+    elif task == "generate_analogies_story_mentions_with_random_words":
+        fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Style1", "Style2", "Story1",
+                  "Story2", "Analogy"]
+        filename_input = "data/story_generation_random_names.csv"
+        filename_output = "data/analogy_generation_random_names.csv"
 
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+            csvreader = csv.DictReader(csvfile_input)
+            csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
+            csvwriter.writeheader()
 
+            for i, row in tqdm(enumerate(csvreader)):
+                if i > num_generation:
+                    break
+                sent1, sent2 = row["Sentence1"], row["Sentence2"]
+                original_story1, original_story2 = row["Original_Story1"], row["Original_Story2"]
+                story1, story2 = row["Story1"], row["Story2"]
+                style1, style2 = row["Style1"], row["Style2"]
 
+                analogy_list = []
+                for k in range(num_repetition):
+                    try:
+                        correct_out = prompts.generate_analogies(story1, story2)
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+                        raise
+                    analogy_items = convert_to_list(correct_out)
+                    if not analogy_list:
+                        analogy_list = analogy_items
+                        continue
+
+                    for item in analogy_items:
+                        if not any(
+                                similarity_check(existing_item[0], item[0]) > 0.7 and similarity_check(existing_item[1],
+                                                                                                       item[1]) > 0.7
+                                for existing_item in analogy_list):
+                            analogy_list.append(item)
+                # sort the analogies alphabetically
+                analogy_list = sorted(analogy_list, key=lambda x: x[0])
+                result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                csvwriter.writerow({
+                    "Index": row["Index"],
+                    "Sentence1": sent1,
+                    "Sentence2": sent2,
+                    "Original_Story1": original_story1,
+                    "Original_Story2": original_story2,
+                    "Style1": style1,
+                    "Style2": style2,
+                    "Story1": story1,
+                    "Story2": story2,
+                    "Analogy": result
+                })
