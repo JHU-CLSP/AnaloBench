@@ -106,7 +106,7 @@ if __name__ == '__main__':
     if task == "generate_sentence_analogies":
         sent_data = pd.read_csv("data/sentences.csv")
         fields = ["Index", "Sentence1", "Sentence2", "Analogy"]
-        filename = "data/sent_analogy.csv"
+        filename = "data/1.sent_analogy.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
@@ -131,7 +131,7 @@ if __name__ == '__main__':
         sent_data = pd.read_csv("data/sentences.csv")
         processed_stories = {}
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
-        filename = "data/story_generation.csv"
+        filename = "data/2.story_generation.csv"
 
         with open(filename, 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
@@ -165,8 +165,8 @@ if __name__ == '__main__':
                 })
     elif task == "generate_story_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
-        filename_input = "data/story_generation.csv"
-        filename_output = "data/story_analogy.csv"
+        filename_input = "data/2.story_generation.csv"
+        filename_output = "data/3.story_analogy.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -198,7 +198,7 @@ if __name__ == '__main__':
                                 for existing_item in analogy_list):
                             analogy_list.append(item)
                 # sort the analogies alphabetically
-                analogy_list = sorted(analogy_list, key=lambda x: x[0])
+                analogy_list = sorted(analogy_list, key=lambda x: x[0].lower())
                 result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
@@ -213,8 +213,8 @@ if __name__ == '__main__':
     elif task == "generate_stories_with_names":
         processed_stories = {}
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
-        filename = "data/name_generation.csv"
-        filename_story = "data/story_generation.csv"
+        filename = "data/4.name_generation.csv"
+        filename_story = "data/2.story_generation.csv"
         names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean",
                   "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
         names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor",
@@ -253,8 +253,8 @@ if __name__ == '__main__':
                 })
     elif task == "generate_name_analogies":
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
-        filename_input = "data/name_generation.csv"
-        filename_output = "data/name_analogy.csv"
+        filename_input = "data/4.name_generation.csv"
+        filename_output = "data/5.name_analogy.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -301,12 +301,9 @@ if __name__ == '__main__':
     elif task == "replace_story_mentions_with_random_words":
         # replace the mentions in the story with random words
 
-        # "Original_Story1": story1,
-        #                     "Original_Story2": story2,
-
         fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Style1", "Style2", "Story1", "Story2"]
-        filename_input = "data/story_generation.csv"
-        filename_output = "data/story_generation_random_names.csv"
+        filename_input = "data/2.story_generation.csv"
+        filename_output = "data/6.story_generation_random_names.csv"
 
         story_cache = {}
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
@@ -350,8 +347,8 @@ if __name__ == '__main__':
     elif task == "generate_analogies_story_mentions_with_random_words":
         fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Style1", "Style2", "Story1",
                   "Story2", "Analogy"]
-        filename_input = "data/story_generation_random_names.csv"
-        filename_output = "data/analogy_generation_random_names.csv"
+        filename_input = "data/6.story_generation_random_names.csv"
+        filename_output = "data/7.analogy_generation_random_names.csv"
 
         with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
@@ -385,7 +382,7 @@ if __name__ == '__main__':
                                 for existing_item in analogy_list):
                             analogy_list.append(item)
                 # sort the analogies alphabetically
-                analogy_list = sorted(analogy_list, key=lambda x: x[0])
+                analogy_list = sorted(analogy_list, key=lambda x: x[0].lower())
                 result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
