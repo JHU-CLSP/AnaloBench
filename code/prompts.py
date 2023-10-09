@@ -400,7 +400,6 @@ def generate_stories_with_random_names(name_set, story):
 
     - Modified Story:
     """
-    print(prompt)
     prompt = [
         {"role": "user", "content": prompt}
     ]

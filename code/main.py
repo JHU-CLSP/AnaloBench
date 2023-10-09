@@ -1,3 +1,4 @@
+import os
 import csv
 import spacy
 import random
@@ -55,7 +56,6 @@ def convert_to_list(input_str):
 
     # Loop through each statement
     for statement in statements:
-        print(" --> statement: ", statement)
         delimiter = " | "
         if delimiter not in statement:
             continue
@@ -92,11 +92,11 @@ if __name__ == '__main__':
                              '\n (6) `replace_story_mentions_with_random_words`: Generate stories that use random names as mentions. '
                              '\n (7) `generate_analogies_story_mentions_with_random_words`: Creates analogies between two stories that contain random names. The generation is done multiple times based on the `-k` argument and writes them into a CSV file. ',
                         required=True)
-    parser.add_argument('--k', '-k', type=int, default=None,
+    parser.add_argument('--k', '-k', type=int, default=1,
                         help='The number of the repetitions we prompt the model for generating analogies.',
                         required=False)
     parser.add_argument('--num', '-n', type=int, default=None,
-                        help='The number of instances to use for generation. ', required=False)
+                        help='The number of instances to use for generation. ', required=True)
 
     args = parser.parse_args()
     task = args.task
@@ -107,14 +107,23 @@ if __name__ == '__main__':
         sent_data = pd.read_csv("data/sentences.csv")
         fields = ["Index", "Sentence1", "Sentence2", "Analogy"]
         filename = "data/1.sent_analogy.csv"
+        last_index_processed = -1
+        if os.path.isfile(filename):
+            with open(filename, 'r') as f:
+                df = pd.read_csv(filename)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
-        with open(filename, 'w', newline='') as csvfile:
+        with open(filename, 'a' if os.path.isfile(filename) else 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
 
             for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 try:
                     correct_out = prompts.generate_analogies(sent1, sent2)
                 except Exception as e:
@@ -132,14 +141,24 @@ if __name__ == '__main__':
         processed_stories = {}
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
         filename = "data/2.story_generation.csv"
+        last_index_processed = -1
+        if os.path.isfile(filename):
+            with open(filename, 'r') as f:
+                df = pd.read_csv(filename)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
-        with open(filename, 'w', newline='') as csvfile:
+        with open(filename, 'a' if os.path.isfile(filename) else 'w', newline='') as csvfile:
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
+
 
             for i, (sent1, sent2) in tqdm(enumerate(sent_data.values)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 try:
                     story1, story2, style1, style2 = None, None, None, None
                     if sent1 in processed_stories:
@@ -167,15 +186,24 @@ if __name__ == '__main__':
         fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
         filename_input = "data/2.story_generation.csv"
         filename_output = "data/3.story_analogy.csv"
+        last_index_processed = -1
+        if os.path.isfile(filename_output):
+            with open(filename_output, 'r') as f:
+                df = pd.read_csv(filename_output)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
-        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'a' if os.path.isfile(filename_output) else 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
@@ -199,7 +227,7 @@ if __name__ == '__main__':
                             analogy_list.append(item)
                 # sort the analogies alphabetically
                 analogy_list = sorted(analogy_list, key=lambda x: x[0].lower())
-                result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                result = "\n".join(f"{i}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
@@ -212,22 +240,31 @@ if __name__ == '__main__':
                 })
     elif task == "generate_stories_with_names":
         processed_stories = {}
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2"]
+        fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Story1", "Story2", "Style1", "Style2"]
         filename = "data/4.name_generation.csv"
         filename_story = "data/2.story_generation.csv"
         names1 = ["Jessica", "Jeffrey", "Elaine", "Will", "Gabriella", "Charles", "Rose", "Edward", "Sophia", "Dean",
                   "Olivia", "Liam", "Madison", "Luke", "Zoe", "Evan"]
         names2 = ["Clara", "Samuel", "Nora", "Martin", "Bella", "Leo", "Amy", "Jared", "Rebecca", "Elias", "Eleanor",
                   "Max", "Mila", "Owen", "Tara", "Jacob"]
+        last_index_processed = -1
+        if os.path.isfile(filename):
+            with open(filename, 'r') as f:
+                df = pd.read_csv(filename)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
-        with open(filename, 'w', newline='') as csvfile, open(filename_story, 'r') as csvfile_input:
+        with open(filename, 'a' if os.path.isfile(filename) else 'w', newline='') as csvfile, open(filename_story, 'r') as csvfile_input:
             csvreader = csv.DictReader(csvfile_input)
             csvwriter = csv.DictWriter(csvfile, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 try:
                     sent1 = row["Sentence1"]
                     if sent1 not in processed_stories:
@@ -246,24 +283,35 @@ if __name__ == '__main__':
                     "Index": row["Index"],
                     "Sentence1": row["Sentence1"],
                     "Sentence2": row["Sentence2"],
+                    "Original_Story1": row["Story1"],
+                    "Original_Story2": row["Story2"],
                     "Story1": story1,
                     "Story2": story2,
                     "Style1": style1,
                     "Style2": style2
                 })
     elif task == "generate_name_analogies":
-        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
+        fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Story1", "Story2", "Style1", "Style2", "Analogy"]
         filename_input = "data/4.name_generation.csv"
         filename_output = "data/5.name_analogy.csv"
+        last_index_processed = -1
+        if os.path.isfile(filename_output):
+            with open(filename_output, 'r') as f:
+                df = pd.read_csv(filename_output)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
-        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'a' if os.path.isfile(filename_output) else 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
@@ -286,12 +334,14 @@ if __name__ == '__main__':
                                 for existing_item in analogy_list):
                             analogy_list.append(item)
                 # sort the analogies alphabetically
-                analogy_list = sorted(analogy_list, key=lambda x: x[0])
-                result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                analogy_list = sorted(analogy_list, key=lambda x: x[0].lower())
+                result = "\n".join(f"{i}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
                     "Sentence2": sent2,
+                    "Original_Story1": row["Original_Story1"],
+                    "Original_Story2": row["Original_Story2"],
                     "Story1": story1,
                     "Story2": story2,
                     "Style1": style1,
@@ -303,35 +353,38 @@ if __name__ == '__main__':
 
         fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Style1", "Style2", "Story1", "Story2"]
         filename_input = "data/2.story_generation.csv"
-        filename_output = "data/6.story_generation_random_names.csv"
+        filename_output = "data/6.story_generation_random_words.csv"
+        last_index_processed = -1
+        if os.path.isfile(filename_output):
+            with open(filename_output, 'r') as f:
+                df = pd.read_csv(filename_output)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
         story_cache = {}
-        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'a' if os.path.isfile(filename_output) else 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 story1, story2 = row["Story1"], row["Story2"]
                 style1, style2 = row["Style1"], row["Style2"]
 
                 # sample 15 random mentions
-                random_names_subset = ", ".join(random.sample(prompts.random_names(), 15))
+                random_names_subset1 = ", ".join(random.sample(prompts.random_names(), 15))
+                random_names_subset2 = ", ".join(random.sample(prompts.random_names(), 15))
 
-                if story1 in story_cache:
-                    new_story1 = story_cache[story1]
-                else:
-                    new_story1 = prompts.generate_stories_with_random_names(random_names_subset, row["Story1"])
-                    story_cache[story1] = new_story1
-
-                if story2 in story_cache:
-                    new_story2 = story_cache[story2]
-                else:
-                    new_story2 = prompts.generate_stories_with_random_names(random_names_subset, row["Story2"])
-                    story_cache[story2] = new_story2
+                if story1 not in story_cache:
+                    story_cache[story1] = prompts.generate_stories_with_random_names(random_names_subset1, row["Story1"])
+                new_story1 = story_cache[story1]
+                new_story2 = prompts.generate_stories_with_random_names(random_names_subset2, row["Story2"])
 
                 csvwriter.writerow({
                     "Index": row["Index"],
@@ -339,25 +392,34 @@ if __name__ == '__main__':
                     "Sentence2": sent2,
                     "Original_Story1": story1,
                     "Original_Story2": story2,
-                    "Style1": style1,
-                    "Style2": style2,
                     "Story1": new_story1,
                     "Story2": new_story2,
+                    "Style1": style1,
+                    "Style2": style2,
                 })
     elif task == "generate_analogies_story_mentions_with_random_words":
         fields = ["Index", "Sentence1", "Sentence2", "Original_Story1", "Original_Story2", "Style1", "Style2", "Story1",
                   "Story2", "Analogy"]
-        filename_input = "data/6.story_generation_random_names.csv"
-        filename_output = "data/7.analogy_generation_random_names.csv"
+        filename_input = "data/6.story_generation_random_words.csv"
+        filename_output = "data/7.analogy_generation_random_words.csv"
+        last_index_processed = -1
+        if os.path.isfile(filename_output):
+            with open(filename_output, 'r') as f:
+                df = pd.read_csv(filename_output)
+                if not df.empty:
+                    last_index_processed = df['Index'].values[-1]
 
-        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'a' if os.path.isfile(filename_output) else 'w', newline='') as csvfile_output:
             csvreader = csv.DictReader(csvfile_input)
             csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
-            csvwriter.writeheader()
+            if last_index_processed == -1:
+                csvwriter.writeheader()
 
             for i, row in tqdm(enumerate(csvreader)):
                 if i > num_generation:
                     break
+                elif i <= last_index_processed:
+                    continue
                 sent1, sent2 = row["Sentence1"], row["Sentence2"]
                 original_story1, original_story2 = row["Original_Story1"], row["Original_Story2"]
                 story1, story2 = row["Story1"], row["Story2"]
@@ -383,16 +445,16 @@ if __name__ == '__main__':
                             analogy_list.append(item)
                 # sort the analogies alphabetically
                 analogy_list = sorted(analogy_list, key=lambda x: x[0].lower())
-                result = "\n".join(f"{item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
+                result = "\n".join(f"{i}. {item[0]} <-> {item[1]} | {item[2]}" for i, item in enumerate(analogy_list))
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
                     "Sentence2": sent2,
                     "Original_Story1": original_story1,
                     "Original_Story2": original_story2,
-                    "Style1": style1,
-                    "Style2": style2,
                     "Story1": story1,
                     "Story2": story2,
+                    "Style1": style1,
+                    "Style2": style2,
                     "Analogy": result
                 })
