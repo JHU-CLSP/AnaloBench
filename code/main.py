@@ -458,3 +458,39 @@ if __name__ == '__main__':
                     "Style2": style2,
                     "Analogy": result
                 })
+    elif task == "QA":
+        fields = ["Index", "Sentence1", "Sentence2", "Story1", "Story2", "Questions", "AnswerS", "AnswerL"]
+        filename_input = "data/2.story_generation.csv"
+        filename_output = "data/8.QA.csv"
+        with open(filename_input, 'r') as csvfile_input, open(filename_output, 'w', newline='') as csvfile_output:
+            csvreader = csv.DictReader(csvfile_input)
+            csvwriter = csv.DictWriter(csvfile_output, fieldnames=fields)
+            csvwriter.writeheader()
+            for i, row in tqdm(enumerate(csvreader)):
+                if i > num_generation:
+                    break
+                sent1, sent2 = row["Sentence1"], row["Sentence2"]
+                try:
+                    correct_out = prompts.QA_generate_questions(sent1, sent2)
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+                    raise
+                correct_out = correct_out.split("\n")
+                answer_index = correct_out.index("Answers:")
+                questions, answerS = "\n".join(correct_out[:answer_index]), "\n".join(correct_out[answer_index+1:])
+                story1, story2 = row["Story1"], row["Story2"]
+                try:
+                    answerL = prompts.QA_generate_answers(story1, story2, questions)
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+                    raise
+                csvwriter.writerow({
+                    "Index": row["Index"],
+                    "Sentence1": sent1,
+                    "Sentence2": sent2,
+                    "Story1": story1,
+                    "Story2": story2,
+                    "Questions": questions,
+                    "AnswerS": answerS,
+                    "AnswerL": answerL
+                })
