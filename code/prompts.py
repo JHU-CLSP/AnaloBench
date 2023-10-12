@@ -417,10 +417,10 @@ def QA_generate_questions(sent1, sent2):
     Questions: 
     1. "Adam" in story 1 is analogous to what in story 2?
     2. The relationship between "child" and "top shelf" in story 2 is analogous to to anything in story 2? (If so, what?)
-    3. What is the analogous mention of "understand" (story2) in story 1?
+    3. What is the analogous mention of "understand" (story1) in story 1?
     4. Why are "understand" (story1) and "reach" (story2) analogous to each other?
     5. What is the common element between Adam's situation in story 1 and the child's situation in story 2?
-    6.  What are the obstacles in each story?
+    6. What are the obstacles in each story?
     Answers:
     1. The child
     2. Yes, it is analogous to the relationship between "Adam" and "crisis" 
