@@ -479,11 +479,20 @@ if __name__ == '__main__':
                 answer_index = correct_out.index("Answers:")
                 questions, answerS = "\n".join(correct_out[:answer_index]), "\n".join(correct_out[answer_index+1:])
                 story1, story2 = row["Story1"], row["Story2"]
-                try:
-                    answerL = prompts.QA_generate_answers(story1, story2, questions)
-                except Exception as e:
-                    print(f"An error occurred: {e}")
-                    raise
+                answer_list = []
+                for k in range(num_repetition):
+                    try:
+                        answerL = prompts.QA_generate_answers(story1, story2, questions)
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+                        raise
+                    if not answer_list:
+                        answer_list = answerL.split("\n")
+                        continue
+                    for item in answerL.split("\n"):
+                        if not any(similarity_check(existing_item, item) > 0.7 for existing_item in answer_list):
+                            answer_list.append(item)
+                answer_list = sorted(answer_list)
                 csvwriter.writerow({
                     "Index": row["Index"],
                     "Sentence1": sent1,
@@ -492,5 +501,5 @@ if __name__ == '__main__':
                     "Story2": story2,
                     "Questions": questions,
                     "AnswerS": answerS,
-                    "AnswerL": answerL
+                    "AnswerL": "\n".join(answer_list)
                 })
