@@ -11,17 +11,23 @@ cluster	sentence
 0	Claire always thought that Max was unkind and rude because of his edgy fashion sense. But once she learned how kind and sensitive he was, she was surprised.
 0	Jake might look confused all the time, but he's really extremely bright.
 0	Don't trust everything on the social media. It appears that people are having the best time of their lives, but remember, it can be fake.
+0	Sometimes I feel I should have gone for my master’s degree like you instead of this job. Well, the grass is always greener on the other side.
+0	The lawyer left his profession to become an MBA graduate thinking it was better. Guess what? He is still struggling to find a job.
+0	John is rich and everyone is envious of his wealth. But he is also lonely as he has no one to share his life with.
+0	It looks like fun but it is actually a struggle to move to a different country. You should count your blessings.
+0	The life of a celebrity looks like they have it all, but in fact they have more problems than anyone can possibly imagine.
+0	She thought her neighbor's home was more attractive than her own when she turned to look at it. But she had no idea that it was more difficult to keep up.
 1	After letting off his rage he sat down like a lamb.
 1	The weather finally became pleasant following the stormy week.
 1	Having cried the entire night she greeted everyone in the morning like sunshine.
 1	A soft breeze blew after the gust of wind shook down the shacks.
-1	As the flame extinguished, it left behind a thin wisp of smoke
-1	He danced off his sugar high then promptly fell asleep
+1	As the flame extinguished, it left behind a thin wisp of smoke.
+1	He danced off his sugar high then promptly fell asleep.
 1	My pet dog is down for the count after playing the whole day with the frisbee.
-1	Their company is so debt-ridden due to poor management that I think it's safe to say they're about to go bankrupt.
+1	Their company is so debt-ridden due to erratic management that I think it's safe to say they're about to go bankrupt.
 1	On his last birthday, Mike's friend gave him so many drinks that he passed out before midnight.
 1	After going through an extensive workload, Ally got very sick and will be doing nothing but rest during this weekend.
-1	Having immersed herself in a day-long painting marathon, my friend is now completely drained and refused to get up for several minutes
+1	Having immersed herself in a day-long painting marathon, my friend is now completely drained and refused to get up for several minutes.
 1	Monica cooked so much food last weekend in the restaurant that she had to take a leave to rest on Monday.
 1	After working two years for the company she was burned out.
 1	He collapsed after he ran for the marathon.
@@ -30,12 +36,12 @@ cluster	sentence
 2	Better to buy the sweets we are accustomed to than to try the new ones that might taste better.
 2	I would rather use my old pan for cooking than buy the new utensil with fancy features.
 2	Let's make-do with the cold and build a fire instead of waiting for the weather to warm up.
-2	Keep watering your garden even if rain is on the forecast.
+2	Even if rain is on the forecast, keep watering your garden.
 2	Make sure you take an umbrella – I know it's sunny now, but better safe than sorry.
-2	To avoid burning your hands, use oven mitts when removing the cake, as it will be hot unlike how it is now. 
+2	To avoid burning your hands, use oven mitts when removing the cake, as it will be hot unlike how it is now.
 2	It is not that cold today, but I'd still go by car since I can't afford to get sick.
 2	Don't be greedy, just take whatever they offer you as if you negotiate too much they might take the offer back.
-2	A romantic comedy ought to begin with a joke. Some critics may rate these kinds of movies poorly if the audience doesn't laugh in the first 5 minutes.
+2	Although I'm pretty familiar with this part of the woods and don't need a map, I still brought one with me in case I got lost during the hike.
 2	Keep a jug full of water near the table in case you get thirsty at night.
 3	In for a penny, in for a pound, we need to stay up all night and get the report done since we cannot turn it in half-finished.
 3	I have decided to see the project through and I will do anything to get the work done.
@@ -49,10 +55,10 @@ cluster	sentence
 3	Sally was adamant and stubborn about her religious beliefs and went through with the ceremony with full conviction.
 3	I was completely against nationalization. I resisted it wholeheartedly even though I became quite unpopular in the process.
 3	Larry was so attached to the idea of working for Frank that no other employer could convince him otherwise.
-4	The drawing shows me at one glance, what a book can only show me in many pages
+4	The drawing shows me at one glance, what a book can only show me in many pages.
 4	I can just watch the adaptation instead of reading the 5 massive books the adaptation was based on.
 4	A picture of diseased lungs on the back of cigarette packs is more effective than just the statutory warning message.
-4	Hearing the startup give its business pitch was more informative than any of their marketing and advertising
+4	Hearing the startup give its business pitch was more informative than any of their marketing and advertising.
 4	It is better to use a map with directions than reading the instructions on how to arrive at the event.
 4	Mary prefered to learn from the diagrams of the processes than from the notes describing them as they gave her a better idea.
 5	I would have preferred a house of my own rather than sharing, but beggars can't be choosers, I suppose.
@@ -65,7 +71,7 @@ cluster	sentence
 5	After losing half of the soldiers, they had no other option but to use the tank to fight.
 6	As they say, every cloud has a silver lining. If we hadn't missed the plane, we would never have met you.
 6	Had she brought the chicken for the birthday party as planned, we wouldn't have got the chance to taste the delicious pasta she made.
-6	It is good that you didn't get to go to the party as I heard the neighbors called police and everyone got in trouble.
+6	It is good that you didn't get to go to the party as I heard the neighbors called the police and everyone got in trouble.
 6	But if you look at the bright side you got to learn so much from the experience.
 6	Even though I lost everything in the fire, I ended up moving to Arkansas where I won the state lottery.
 6	The painter did not have the yellow color with him so had to paint with red, making his painting famous for its unconventional choice.
@@ -80,10 +86,10 @@ cluster	sentence
 8	Normally I try to maintain a good work-life balance, but I worked all of last week non stop because I had 5 deadlines and I couldn't miss any of them.
 8	Sally had to gather the strength to be the pillar of support for her parents when her only sibling passed away.
 8	David was at risk of receiving bad reviews for his work ethic from his manager and scrambled to setup the new system from scratch.
-8	Megan worked twice as hard and revised her basics once she was told to mentor two new members of the team.
+8	Megan, a lousy student, worked twice as hard and revised her basics once she was told to mentor two new members of the team.
 9	It is not acceptable to do a bad thing just because someone else has done it.
 9	You should not be using your pen for gossip and rumors, even though other media reporters are doing so.
-9	Just because your roommate never cleans up after himself doesn't mean you should too
+9	Just because your roommate never cleans up after himself doesn't mean you should too.
 9	Your friend going to the spa instead of doing her homework doesn't mean you can do it too.
 9	Sally spent the weekend relaxing following her sister's example. But it was not right choice as she had a lot of work to do.
 9	Mary should not have dropped out of school to follow in the footsteps of her favorite writer.
@@ -92,8 +98,8 @@ cluster	sentence
 10	While the president was immensely popular, he nevertheless had to step down at the conclusion of his term per the rules of the constitution.
 10	I have had a great time in college, but tomorrow I will be graduating.
 10	I wish the TV show never ended. It was so good but unfortunately the writers thought to end it at a high point.
-10	But before he knew it, he had already finished the delicious meal
-10	College life is the best time of your life, enjoy it while it lasts.
+10	But before he knew it, he had already finished the delicious meal.
+10	Your 20s are the best time of your life, enjoy it while it lasts.
 10	You wouldn't have these options once you move across the country, so work hard while you are here.
 10	When the season changes, we won't have access to such delicious mangoes. So, devour them.
 10	Enjoy the honeymoon period of your marriage as much as you can before it passes.
@@ -106,236 +112,230 @@ cluster	sentence
 11	Since he had nothing else to do during the break, he kept obsessing over his previous girlfriend.
 11	The students created a mess in the class when there was no teacher to monitor.
 12	Don’t ignore the sudden malfunctioning of your car, just go to the garage. A stitch in time saves nine.
-12	I think it’s better to compromise with your neighbour now instead of letting tensions simmer and allowing the problem to snowball
+12	I think it’s better to compromise with your neighbour now instead of letting tensions simmer and allowing the problem to snowball.
 12	Resolving small issues in relationships immediately may prevent bigger troubles down the road.
 12	If you had come earlier with your computer, it would have been possible to fix the malfunction. But now, you may need to buy a new one.
 12	You should have gone to the doctor earlier. They still could have cured you then.
-12	It would have been okay if you had discussed the problem right then and there. Now, its too late and a lot of work is required to rectify this.
-12	We should go early to the boutique on the day of their sale to get the best stuff. The early bird catches the worm!
+12	It would have been okay if you had discussed the problem right then and there. Now, it's too late and a lot of work is required to rectify this.
+12	We should go early to the boutique on the day of their sale to get the best stuff. The early bird catches the worm!.
 12	We should submit the courses we want to register as early as possible so that we can get a seat.
 12	When the site was just discovered and undeveloped, Larry was able to purchase the home for a low price. Now, the price has risen to the point where even Will cannot afford it.
 12	To secure the best batch, let's go to the farmer's market early as the remaining options may not be as favorable.
 12	You must go immediately if you want to meet with the Senate. Otherwise, you'll struggle due to the traffic.
 12	Between six and eight in the morning is when most of the museum visitors arrive. So, you should come one hour before then to avoid the crowd.
-13	Sometimes I feel I should have gone for my master’s degree like you instead of this job. Well, the grass is always greener on the other side.
-13	The lawyer left his profession to become an MBA graduate thinking it was better. Guess what? He is still struggling to find a job.
-13	John is rich and everyone is envious of his wealth. But he is also lonely as he has no one to share his life with.
-13	It looks like fun but it is actually a struggle to move to a different country. You should count your blessings.
-13	The life of a celebrity looks like they have it all, but in fact they have more problems than anyone can possibly imagine.
-13	She thought her neighbor's home was more attractive than her own when she turned to look at it. But she had no idea that it was more difficult to keep up.
-14	I don’t really like the colour of your car, but then, beauty lies in the eyes of the beholder.
-14	She thinks he is the most attractive man in the world, even though others perceive him as ordinary.
-14	The oldest laptop in the office is Lexi's. But she really enjoys using it.
-14	Although many people dislike the color combination of orange and green, I believe it to be one of the best.
-14	Many people fail to understand the beauty of mathematics. But to me, it is the most meaningful subject.
-14	Although he isn't my favorite singer, my brother absolutely adores his vocals and techniques.
-15	We have been waiting for you for 3 hours, but that's okay. It’s better late than never.
-15	Even though it took me two weeks, I at least sent the letter.
-15	A friend of mine who had failed 12th grade for the last five years, finally succeeded to pass.
-15	I took three years instead of one to finish the training program, but at least I have the credential now.
-15	Clark took 10 years to propose to Cece. We all had lost hope but finally he came through.
-15	Although she realized the mistake a week after the incident, she waited two years before finally apologizing and confessing.
-17	Don’t invest all your money in the stock market, you should never put all your eggs in one basket.
-17	It would be better if you applied to several companies instead of just one.
-17	He was depending heavily on the success of his venture, but when it failed, he was ruined. He realized that he should have had other backup plans.
-17	It is important to keep learning new skills and not rely on one skill for your career. With emerging technology, current skills may become outdated in the future.
-17	In familiy planning, it's wise not to trust just one childcare method. Different parenting styles contribute to a well-rounded upbringing.
-17	Having different social groups is a good idea so that you can enjoy all the things you like with different kinds of people.
-18	Don’t lie to land a job, remember that honesty is the best policy.
-18	Doing your work thoroughly and responsibly helps you avoid problems in the long run.
-18	Politicians frequently tell lies, which gets them into problems. They could win election after election if they would just be sincere about their aims.
-18	Jane advised a worried Jill that she would feel better after owning up to the mistake.
-18	Liam lied to get into the school; Lary did not. Liam had a difficult time trying to hide the deception as a result. But unlike Liam, Lary did not have to worry about anything else, so he had a terrific time.
-18	You should tell your mother the truth about the vase, as it would relieve you of the stress.
-19	Don’t rush through your assignment, remember haste makes waste.
-19	Larry always starts the work without reading the requirements and tries to finish it early as well. This leads to others having to fix his work.
-19	Kim checked the papers in a rush so that she can have more free time. But, now she needs to redo them as half of the class complained.
-19	The presentation was such a mess! The presenters tried to convey a lot of information in such a short time that there was no clarity.
-19	These files require a throrough look, don't skim through them quickly.
-19	Maintaining a steady pace and avoiding excessing running at the start is crucial in a marathon.
-20	"Walter failed his exam, but his father only responded, ""Son, don't cry over spilt milk,"" when he arrived."
-20	There is no point in regretting your approach after you've had the interview. Move on to the next one.
-20	Larry was upset even months after breaking up with Samantha. So, Mary, his sister finally told him that there is no point in dwelling over it since Samantha has moved on.
-20	When Juli's favorite tree was down, her father created a painting of it and said there was nothing else they could do.
-20	After seeing Tim being disappointed over not making the basketball team, Barry advised him to stray away from his emotions and work hard to try again next year.
-20	We missed the bus, but it serves no use to be angry about it right now, so let's walk.
-20	Now that we're friends, we can let bygones be bygones
-20	Since both of our favourite teams have lost, lets enjoy the world cup together and not fight.
-20	Let's forget what happened and work on the project together.
-20	The brother and sister decided to stop the fight and decided to be cordial again.
-20	The war was finally over and the countries decided to maintain cordial relations with each other.
-20	The parents have been living happily ever since they decided not to go through the divorce.
-21	I can see that you are beside yourself with joy at being selected for the job, congratulations.
-21	Rory could see the happiness on her mother's face when her brother called after ages.
-21	The teacher was ecstatic that he had finally succeeded in explaining the complex topic for the students.
-21	Samantha was more than happy when she realised David had kept her trust by not going to the event.
-21	Wow, your kid just graduated middle schoool! You must be filled with pride and joy.
-21	The incharge was overjoyed to see that the floor had finally been cleaned properly by the new hire and was no longer slippery.
-22	Brian kept quiet at the board meeting, who knew he had an Ace hidden up his sleeve the whole time.
-22	The savvy politician had a secret plan that could make him win. At the last moment, he revealed a scandalous secret about his opponent.
-22	The opponents are unaware of my greatest asset, which is my stamina. The other runners have no chance at all!
-22	I've heard that the defense lawyer has a fresh eyewitness who was previously unknown.
-22	They think they’ve won the contract but we’ve still got a couple of ideas to win it back.
-22	She cannot be dismissed because she is aware of the boss's shady business dealings.
-23	I hold it against him for not treating me with respect.
-23	I am mad at Kim for choosing not to support me at my wedding.
-23	I cannot forgive Nick for how he insulted me that day at the party.
-23	Sam decided not to engage with Peter in a friendly manner anymore after he made fun of her about her insecurities.
-23	Karen is upset with Sandy for not telling her about her plans for the summer.
-23	Mary stopped talking to Amy because of the way she spoke to her last time.
-24	Lester made the dance team by the skin of his teeth since the audition was about to be closed.
-24	While people believed it was impossible to escape from the secret police, Peter somehow managed to do so successfully, albeit a bit close for comfort. 
-24	The group managed to finish the project just in time and submitted the report two minutes before the deadline.
-24	He made the final cut to the university just by a small margin.
-24	He slipped at the edge of the cliff but managed to hold on to the rock and was saved just in time.
-24	Philly won the game but the opponent was just as good and also came close to victory.
-25	Listen, losing weight is easier said than done, many people lack commitment.
-25	It looks easy but it is very hard to drive a car in this traffic. Only experienced drivers can navigate this chaos.
-25	It takes a lot of effort to write a novel, so do not think writers do nothing worthy.
-25	Victor thought acting is an easy and useless job until he joined a theater class and performed for the first time. He realised it is an art form not everyone can master.
-25	To teach a class of even 10 students can be daunting for a first-timer. It needs a lot of dedication and preparation to explain ideas in simlest of forms.
-25	It requires a tremendous amount of focus and discipline to clear the entrance exam. Not everyone can pass it.
-26	I am absolutely terrified of skydiving, but I think once in my life, I will give it a whirl.
-26	I am afraid of walking on the streets at night but I will eventually do it one day once I start living alone.
-26	Sam is scared of speaking to strangers but she wants to build up the courage and try it out.
-26	Frank has never tried to write a computer program before as he finds computers daunting. But last time we met, he said he will go for it.
-26	My sister cannot sleep in a dark room due to her fears, but she wants to challenge herself someday.
-26	Sally has never been to the gym as she is afraid of lifting weights, but lately she's been showing interest and said she will start soon.
-27	When Chris turned forty, he decided to live his life in the fast lane and quit his job for his hobbies.
-27	After years of working as a lawyer, Smith decided to quit and open a youtube channel for his singing videos.
-27	Once she got bored and tired with the same old job, she decided to leave and opened up a restaurant.
-27	She worked for weeks on the project and got so exhausted that she decided to go on a vacation for a month.
-27	Post graduation, Emily decided to not go for any jobs but instead chose to travel and paint for enjoyment.
-27	When he finally started earning after years of struggle, Alex spent all his money on drinks and parties as he wanted to enjoy his life now.
-28	The baby looks as snug as a bug in a rug next to her mother.
-28	Sally always gets so happy and comfortable whenever Sharon is around.
-28	Jimmy was reassured after consulting with the professor about what courses to take next semester.
-28	Frank finally had a good sleep in his childhood bed when he returned to the familiarity of his home country after years of working in faraway lands.
-28	Linda's demeanor changes whenever her husband is around. She feels she can be her true self whenever she's with him.
-28	Sally owns a pet dog; the dog always wiggles its tails and sits next to Sally's father more than anyone else.
-29	He always argues on the silliest topics, it’s like he can’t see the wood for the trees.
-29	The congressman became so involved in the wording of his bill that he did not realize that the bill could never pass.
-29	The way he's obsessing over one doorknob when we're renovating the entire house makes me think that he can't see the larger picture.
-29	The way the book is written, I get distracted by the peculiar grammar and word choice and can't learn anything from it.
-29	He is so engrossed in his work that he is missing out on his personal life and his family.
-29	Often times, in the interest of reaching the destination, we forget to experience the journey.
-30	Listen to the news straight from the horse’s mouth, his factory burned down right in front of his eyes.
-30	Lets meet him and ask about the robbery. Since he is the one who was robbed, it would be much more thrilling to hear.
-30	I want to attend the lecture as it will be delivered straight from the pioneer of the subject.
-30	Let Mike share the incident with you as he is the one who went through it and will be able to give enough details.
-30	He was called on national television to talk about his crimes for everyone to listen directly from the serial killer.
-30	Let Sam share the story of the movie herself as she was the one who went to watch it.
-31	This shopkeeper always palms off old stock to the customers.
-31	She tried to hand over the hardest part of the assignment on me so she doesn't have to do it.
-31	In this part of town, there are always guys trying to deceitfully pass off cheap watches as authentic Rolexes.
-31	Victor from school is always trying to sell old coins to me saying they are rare and valuable.
-31	The music producer selects a less liked song from his collection for his least favorite client.
-31	The chef picks out a dish from his list of simpler recipies for the less adventurous customer.
-32	Please don’t bother me today with any calls, I have bigger fish to fry.
-32	Whenever Tom had an important event to plan for, he would not meet with any of us and work on that plan with full attention.
-32	Ramos decided to finish writing the novel over the weekend, so he went to the cabin where no one could disturb him.
-32	The doctor had an important surgery the next day, so he asked the staff to not interrupt him with any minor tasks.
-32	Philip needed an entire day of focus to finish the project that he switched off all of his devices.
-32	My mother had an important conference to prepare for, so she refused to entertain our day to day rants and fights.
-33	Andy played hooky from work for a week saying he was sick, now he is on very thin ice according to his boss.
-33	The manager saw that Silvy was passing on her clients for hair appointments to other professionals but was showing up for tips; she decided to fire her the next time.
-33	Soon after, Garry realized that Hannah was avoiding making the presentation by pretending to be occupied by personal issues, he planned to approach her about it if she repeated it again.
-33	Philip avoided the chores by pretending to be busy until his mother realised he had no work and made him do the chores all week.
-33	The group had lied about one of them being out of town to avoid the meeting, but the professor discerned the truth and decided to decut marks on the project.
-33	For not submitting her homework on time, Amy falsely made up an excuse that her dog ate it but the professor decided to penalize her
-34	He told his wife that he doesn’t want to rain on her parade, but they had to shift their vacation dates.
-34	I hate to inform you that your A in chemistry was actually a clerical error.
-34	I'm sorry to disappoint you but you're not allowed in this party anymore. You're on the blacklist!
-34	I am sorry, but you would now have to present your work before you can go for the vacation.
-34	The company was apologetic for not being able to pay the holiday bonus to employees.
-34	I do not want to spoil your mood but I have to babysit my nephew today.
-35	She's a representative of California for crying out loud! How do you not recognize her?
-35	Don't you know he is the president of the United States?!
-35	I cannot believe you don't know who Cristiano Ronaldo is! He is one of the greatest football player alive.
-35	Show some respect to your professor! He is a legend in his field.
-35	He is the winner of three Grammy awards for god's sake! People consider him to be the god of rap.
-35	Do you know who you're facing? That's the world champion of taekwondo standing right there!
-36	She knows he's lying to her, but she's choosing to turn a blind eye to the situation.
-36	Garry knows he is underpaid, but he chooses not to focus on it as he is more than happy to have a job.
-36	Sally is not clueless about her situation with Scott, she has just decided to be with him despite the circumstances.
-36	He knows Rick is not a good friend and is only after money, but chooses to get along with him for the time being
-36	The professor knows the students mostly copied the homework, but decides not to be strict about it.
-36	Lisa knew that Mark borrowed her book without asking, but she doesn't mention this to him
-37	She never bragged about her grades but secured the second position in the board exams. Truly, actions speak louder than words.
-37	He never told her about his feelings but everytime he met her, he was caring towards her.
-37	She posted a lot about her friendship with Mary on Instagram. But in reality they hardly had any bond as they were constantly on their phones when together.
-37	He spoke about his guitar skills poorly, but when he played, his hard work showed through the music he produced.
-37	Garry talked about how easily he managed the work stress. But his constant need of smoking told a different story.
-37	Peter's parents said they were not good parents at all but they were always ready to spend quality time with their children showing they were really good parents.
-38	A forest grew near the river.
-38	Many students came to study under the guru.
-38	John brought out one dish after another onto the dining room table. Soon, all the guests began gathering around
-38	Mary collected so many books over the years that she eventually had enough to make her own library
-38	Andy opened the window blinds to see the sun rising. The dark room was brighly lit in a few hours.
-38	A large suburban community has developed outside the city center over the past few decades.
-45	Each blade of grass was a bayonet pointed firmly at our bare feet
-45	Every cigarette you smoked is a threat to your health.
-45	He attacked every point in my argument
-45	The strong winds snapped many of the cables supporting the cellphone tower.
-45	A succession of waves battered the rock.
-45	A string of unfortunate events had plagued the production of the play.
-45	The economic depression was the result of risky fiscal policies from the last several presidents.
-45	The corporation threw in more and more money to fix the problem.
-45	He knocked the nail into the wall with a hammer.
-45	Her ideas were challenged as she read book after book
-49	It's hard to love with a broken heart.
-49	A broken cup can no longer contain its coffee.
-49	You can't pour from an empty cup.
-49	A fallen tree cannot provide shade.
-49	No light can be found from an unlit candle
-49	You can't write from an inkless pen.
-49	You can't drive a car with no fuel.
-49	one can't eat from a broken plate.
-51	The water is flowing from a large beaker to a smaller one through a narrow pipe.
-51	Lake Erie drains into Lake Ontario via the Niagara River.
-51	The parent tries to instill bits of knowledge in their child by simple communication.
-51	Little by little, the stove’s radiating heat melted the chocolate bar on the counter nearby.
-51	Part of the state budget comes from the federal government’s contentious spending package.
-51	My tiny daily coffee expenses are draining up all my income.
-54	The father told the son that it was his way or the highway when the son came back home drunk.
-54	The management made it clear that the employees had to be on board with the new policies or they would be let go.
-54	The wife told the husband that since she is in charge of the kitchen, the family will eat what she makes or go hungry.
-54	The technical lead informed the team that they have to follow his ideas for the project to be completed without question or risk failure.
-54	I told my wife I will compromise on most of the things but on holidays I can do whatever I want.
-54	If the workers cannot work for 20 hours a week, they can quit.
-55	Every evening, many drinkers get together in a bar near our home. You know, birds of a feather flock together.
-55	I love to talk to people who know about computers because I enjoy learning about computers.
-55	The fancy Michelin-star restaurant seems to attract a homogeneous clientele, who all appear to wear the same fashion and be around the same age 
-55	The lawyers who attended the business seminar talked amongst themselves.
-55	The soccer club is divided into groups of people from the same region who practice often with each other.
-55	All the people who had the same interests at the conference were socializing together.
-56	You can’t just sell all of your shares when the market is low; look before you leap. Tomorrow, it is possible the shares may rebound.
-56	It is better to gauge others before taking such political stands these days. You never know who is on your side and who will cause you harm for it.
-56	People in the village say that the house is haunted by the ghost of the lady that lived here many years back. So, my father decides to wait to buy it so he can take more opinions from different people.
-56	Gary started investing his money and time in creating a small garden for himself during off season. Gary regrets not planning and starting during the spring and summer season when results are more visible.
-56	No need to take so much work this quarter, as performance won't impact appraisals. Work more in the next two quarters when the management will actively prioritize it.
-56	Samantha should not spend all her savings on the flight tickets during the holidays. She should wait and check after a few months when the prices are low.
-57	The deal was finally in the bag after a few rounds of tough negotiations.
-57	The game was won when the team broke the tie and scored their third goal.
-57	After months of hard campaigning, the politician had all but secured the election
-57	The job was finally his after the last interview that went well.
-57	Everyone thought that he would lose, but he made a comeback through herculean effort.
-57	Having received recognition from the management for his diligence, he got the promotion.
-58	They don’t talk about Olive anymore, turns out he was the Black sheep of the family, he married someone else while he was still engaged to his fiancé.
-58	Sandy is the only one who doesn't show up to the dance class and one of us is always without a partner because of it.
-58	Jim is the only one who has engaged in any sort of criminal activity. Only Jim from our group has ever spent time in jail when he was younger.
-58	Everyone likes me because I'm so quiet and obedient. The same cannot be said for my wild cousin Nathan, who always lands himself in trouble.
-58	The A team is the best one as it has the best players except Ron, who often negates the others' efforts.
-58	All the songs on her album are amazing, but the last one is the one that ruins the vibe.
-60	If you don’t go to sleep early, you will wake up late. As you sow, so shall you reap.
-60	How can you expect to not to fail if you didn't study for the test at all?
-60	Fred built an immense fortune by swindling others, but he lost it all when someone swindled him.
-60	He spent years trying to avoid paying taxes, and now he's facing nearly 10 years in prison for it.
-60	She has been talking trash about us all week to everyone. So I don't feel sorry for her when someone spilled all her secrets. 
-60	The boy who cried wolf got his comeuppance once the wolves really came. 
-63	She wanted to buy a dress in case someone asked her to the dance, but I told her not to count her chickens before they hatched.
-63	He wanted to buy a big house and a car, but his father advised him to get a job first.
-63	Mary started making vacation plans but realized she might not get leave until the project was done.
-63	Although Larry looked forward to meeting his favorite author at the event, he had yet to receive an invite.
-63	John wanted to build and paint the nursery without having heard the adoption agency's decision.
-63	Sarah wanted to book the honeymoon tickets before she had even been proposed to.
+13	I don’t really like the colour of your car, but then, beauty lies in the eyes of the beholder.
+13	She thinks he is the most attractive man in the world, even though others perceive him as ordinary.
+13	The oldest laptop in the office is Lexi's. But she really enjoys using it.
+13	Although many people dislike the color combination of orange and green, I believe it to be one of the best.
+13	Many people fail to understand the beauty of mathematics. But to me, it is the most meaningful subject.
+13	Although he isn't my favorite singer, my brother absolutely adores his vocals and techniques.
+14	We have been waiting for you for 3 hours, but that's okay. It’s better late than never.
+14	Even though it took me two weeks, I at least sent the letter.
+14	A friend of mine who had failed 12th grade for the last five years, finally succeeded to pass.
+14	I took three years instead of one to finish the training program, but at least I have the credential now.
+14	Clark took 10 years to propose to Cece. We all had lost hope but finally he came through.
+14	Although she realized the mistake a week after the incident, she waited two years before finally apologizing and confessing.
+16	Don’t invest all your money in the stock market, you should never put all your eggs in one basket.
+16	It would be better if you applied to several companies instead of just one.
+16	He was depending heavily on the success of his venture, but when it failed, he was ruined. He realized that he should have had other backup plans.
+16	It is important to keep learning new skills and not rely on one skill for your career. With emerging technology, current skills may become outdated in the future.
+16	In familiy planning, it's wise not to trust just one childcare method. Different parenting styles contribute to a well-rounded upbringing.
+16	Having different social groups is a good idea so that you can enjoy all the things you like with different kinds of people.
+17	Don’t lie to land a job, remember that honesty is the best policy.
+17	Doing your work thoroughly and responsibly helps you avoid problems in the long run.
+17	Politicians frequently tell lies, which gets them into problems. They could win election after election if they would just be sincere about their aims.
+17	Jane advised a worried Jill that she would feel better after owning up to the mistake.
+17	Liam lied to get into the school; Lary did not. Liam had a difficult time trying to hide the deception as a result. But unlike Liam, Lary did not have to worry about anything else, so he had a terrific time.
+17	You should tell your mother the truth about the vase, as it would relieve you of the stress.
+18	Don’t rush through your assignment, remember haste makes waste.
+18	Larry always starts the work without reading the requirements and tries to finish it early as well. This leads to others having to fix his work.
+18	Kim checked the papers in a rush so that she can have more free time. But, now she needs to redo them as half of the class complained.
+18	The presentation was such a mess! The presenters tried to convey a lot of information in such a short time that there was no clarity.
+18	These files require a throrough look, don't skim through them quickly.
+18	Maintaining a steady pace and avoiding excessive running at the start is crucial in a marathon.
+19	"Walter failed his exam, but his father only responded, ""Son, don't cry over spilt milk,"" when he arrived."
+19	There is no point in regretting your approach after you've had the interview. Move on to the next one.
+19	Larry was upset even months after breaking up with Samantha. So, Mary, his sister finally told him that there is no point in dwelling over it since Samantha has moved on.
+19	When Juli's favorite tree had fallen over, her father created a painting of it and said there was nothing else they could do.
+19	After seeing Tim being disappointed over not making the basketball team, Barry advised him to stray away from his emotions and work hard to try again next year.
+19	We missed the bus, but it serves no use to be angry about it right now, so let's walk.
+19	Now that we're friends, we can let bygones be bygones.
+19	Since both of our favourite teams have lost, lets enjoy the world cup together and not fight.
+19	Let's forget what happened and work on the project together.
+19	The brother and sister decided to stop the fight and decided to be cordial again.
+19	The war was finally over and the countries decided to maintain friendly relations with each other.
+19	The parents have been living happily ever since they decided not to go through the divorce.
+20	I can see that you are beside yourself with joy at being selected for the job, congratulations.
+20	Rory could see the happiness on her mother's face when her brother called after ages.
+20	The teacher was ecstatic that he had finally succeeded in explaining the complex topic for the students.
+20	Samantha was more than happy when she realised David had kept her trust by not going to the event.
+20	Wow, your kid just graduated middle schoool! You must be filled with pride and joy.
+20	The incharge was overjoyed to see that the floor had finally been cleaned properly by the new hire and was no longer slippery.
+21	Brian kept quiet at the board meeting, who knew he had an Ace hidden up his sleeve the whole time.
+21	The savvy politician had a secret plan that could make him win. At the last moment, he revealed a scandalous secret about his opponent.
+21	The opponents are unaware of my greatest asset, which is my stamina. The other runners have no chance at all!.
+21	I've heard that the defense lawyer has a fresh eyewitness who was previously unknown.
+21	They think they’ve won the contract but we’ve still got a couple of ideas to win it back.
+21	She cannot be dismissed because she is aware of the boss's shady business dealings.
+22	I hold it against him for not treating me with respect.
+22	I am mad at Kim for choosing not to support me at my wedding.
+22	I cannot forgive Nick for how he insulted me that day at the party.
+22	Sam decided not to engage with Peter in a friendly manner anymore after he made fun of her about her insecurities.
+22	Karen is upset with Sandy for not telling her about her plans for the summer.
+22	Mary stopped talking to Amy because of the way she spoke to her last time.
+23	Lester made the dance team by the skin of his teeth since the audition was about to be closed.
+23	While people believed it was impossible to escape from the secret police, Peter somehow managed to do so successfully, albeit a bit close for comfort.
+23	The group managed to finish the project just in time and submitted the report two minutes before the deadline.
+23	He made the final cut to the university just by a small margin.
+23	He slipped at the edge of the cliff but managed to hold on to the rock and was saved just in time.
+23	Philly won the game but the opponent was just as good and also came close to victory.
+24	Listen, losing weight is easier said than done, many people lack commitment.
+24	It looks easy but it is very hard to drive a car in this traffic. Only experienced drivers can navigate this chaos.
+24	It takes a lot of effort to write a novel, so do not think writers do nothing worthy.
+24	Victor thought acting is an easy and useless job until he joined a theater class and performed for the first time. He realised it is an art form not everyone can master.
+24	To teach a class of even 10 students can be daunting for a first-timer. It needs a lot of dedication and preparation to explain ideas well.
+24	It requires a tremendous amount of focus and discipline to clear the entrance exam. Not everyone can pass it.
+25	I am absolutely terrified of skydiving, but I think once in my life, I will give it a whirl.
+25	I am afraid of walking on the streets at night but I will eventually do it one day once I start living alone.
+25	Sam is scared of speaking to strangers but she wants to build up the courage and try it out.
+25	Frank has never tried to write a computer program before as he finds computers daunting. But last time we met, he said he will go for it.
+25	My sister cannot sleep in a dark room due to her fears, but she wants to challenge herself someday.
+25	Sally has never been to the gym as she is afraid of lifting weights, but lately she's been showing interest and said she will start soon.
+26	When Chris turned forty, he decided to live his life in the fast lane and quit his job for his hobbies.
+26	After years of working as a lawyer, Smith decided to quit and open a youtube channel for his singing videos.
+26	Once she got bored and tired with the same old job, she decided to leave and opened up a restaurant.
+26	She worked for weeks on the project and got so exhausted that she decided to go on a vacation for a month.
+26	Post graduation, Emily decided to not go for any jobs but instead chose to travel and paint for enjoyment.
+26	When he finally started earning after years of struggle, Alex spent all his money on drinks and parties as he wanted to enjoy his life now.
+27	The baby looks as snug as a bug in a rug next to her mother.
+27	Sally always gets so happy and comfortable whenever Sharon is around.
+27	Jimmy was reassured after consulting with the professor about what courses to take next semester.
+27	Frank finally had a good sleep in his childhood bed when he returned to the familiarity of his home country after years of working in faraway lands.
+27	Linda's demeanor changes whenever her husband is around. She feels she can be her true self whenever she's with him.
+27	Sally owns a pet dog; the dog always wiggles its tails and sits next to Sally's father more than anyone else.
+28	He always argues on the silliest topics, it’s like he can’t see the wood for the trees.
+28	The congressman became so involved in the wording of his bill that he did not realize that the bill could never pass.
+28	The way he's obsessing over one doorknob when we're renovating the entire house makes me think that he can't see the larger picture.
+28	The way the book is written, I get distracted by the peculiar grammar and word choice and can't learn anything from it.
+28	He is so engrossed in his work that he is missing out on his personal life and his family.
+28	Often times, in the interest of reaching the destination, we forget to experience the journey.
+29	Listen to the news straight from the horse’s mouth, his factory burned down right in front of his eyes.
+29	Lets meet him and ask about the robbery. Since he is the one who was robbed, it would be much more thrilling to hear.
+29	I want to attend the lecture as it will be delivered straight from the pioneer of the subject.
+29	Let Mike share the incident with you as he is the one who went through it and will be able to give enough details.
+29	He was called on national television to talk about his crimes for everyone to listen directly from the serial killer.
+29	Let Sam share the story of the movie herself as she was the one who went to watch it.
+30	This shopkeeper always palms off old stock to the customers.
+30	She tried to hand over the hardest part of the assignment on me so she doesn't have to do it.
+30	In this part of town, there are always guys trying to deceitfully pass off cheap watches as authentic Rolexes.
+30	Victor from school is always trying to sell old coins to me saying they are rare and valuable.
+30	The music producer selects a less liked song from his collection for his least favorite client.
+30	The chef picks out a dish from his list of simpler recipies for the less adventurous customer.
+31	Please don’t bother me today with any calls, I have bigger fish to fry.
+31	Whenever Tom had an important event to plan for, he would not meet with any of us and work on that plan with full attention.
+31	Ramos decided to finish writing the novel over the weekend, so he went to the cabin where no one could disturb him.
+31	The doctor had an important surgery the next day, so he asked the staff to not interrupt him with any minor tasks.
+31	Philip needed an entire day of focus to finish the project that he switched off all of his devices.
+31	My mother had an important conference to prepare for, so she refused to entertain our day to day rants and fights.
+32	Andy played hooky from work for a week saying he was sick, now he is on very thin ice according to his boss.
+32	The manager saw that Silvy was passing on her clients for hair appointments to other professionals but was showing up for tips; she decided to fire her the next time.
+32	Soon after, Garry realized that Hannah was avoiding making the presentation by pretending to be occupied by personal issues, he planned to approach her about it if she repeated it again.
+32	Philip avoided the chores by pretending to be busy until his mother realised he had no work and made him do the chores all week.
+32	The group had lied about one of them being out of town to avoid the meeting, but the professor discerned the truth and decided to deduct marks on the project.
+32	For not submitting her homework on time, Amy falsely made up an excuse that her dog ate it but the professor decided to penalize her.
+33	He told his wife that he doesn’t want to rain on her parade, but they had to shift their vacation dates.
+33	I hate to inform you that your A in chemistry was actually a clerical error.
+33	I'm sorry to disappoint you but you're not allowed in this party anymore. You're on the blocklist!.
+33	I am sorry, but you would now have to present your work before you can go for the vacation.
+33	The company was apologetic for not being able to pay the holiday bonus to employees.
+33	I do not want to spoil your mood but I have to babysit my nephew today.
+34	She's a representative of California for crying out loud! How do you not recognize her?.
+34	Don't you know he is the president of the United States?!.
+34	I cannot believe you don't know who Cristiano Ronaldo is! He is one of the greatest football players alive.
+34	Show some respect to your professor! He is a legend in his field.
+34	He is the winner of three Grammy awards for god's sake! People consider him to be the god of rap.
+34	Do you know who you're facing? That's the world champion of taekwondo standing right there!.
+35	She knows he's lying to her, but she's choosing to turn a blind eye to the situation.
+35	Garry knows he is underpaid, but he chooses not to focus on it as he is more than happy to have a job.
+35	Sally is not clueless about her situation with Scott, she has just decided to be with him despite the circumstances.
+35	He knows Rick is not a good friend and is only after money, but chooses to get along with him for the time being.
+35	The professor knows the students mostly copied the homework, but decides not to be strict about it.
+35	Lisa knew that Mark borrowed her book without asking, but she doesn't mention this to him.
+36	She never bragged about her grades but secured the second position in the board exams. Truly, actions speak louder than words.
+36	He never told her about his feelings but everytime he met her, he was caring towards her.
+36	She posted a lot about her friendship with Mary on Instagram. But in reality they hardly had any bond as they were constantly on their phones when together.
+36	He spoke about his guitar skills poorly, but when he played, his hard work showed through the music he produced.
+36	Garry talked about how easily he managed the work stress. But his constant need of smoking told a different story.
+36	Peter's parents said they were not good parents at all but they were always ready to spend quality time with their children showing they were really good parents.
+37	A forest grew near the river.
+37	Many students came to study under the guru.
+37	John brought out one dish after another onto the dining room table. Soon, all the guests began gathering around.
+37	Mary collected so many books over the years that she eventually had enough to make her own library.
+37	Andy opened the window blinds to see the sun rising. The dark room was brighly lit in a few hours.
+37	A large suburban community has developed outside the city center over the past few decades.
+44	Each blade of grass was a bayonet pointed firmly at our bare feet.
+44	Every cigarette you smoked is a threat to your health.
+44	He attacked every point in my argument.
+44	The strong winds snapped many of the cables supporting the cellphone tower.
+44	A succession of waves battered the rock.
+44	A string of unfortunate events had plagued the production of the play.
+44	The economic depression was the combined result of several risky fiscal policies.
+44	The corporation threw in more and more money to fix the problem.
+44	He knocked the nail into the wall with a hammer.
+44	Her ideas were challenged as she read book after book.
+48	It's hard to love with a broken heart.
+48	A broken cup can no longer contain its coffee.
+48	You can't pour from an empty cup.
+48	A fallen tree cannot provide shade.
+48	No light can be found from an unlit candle.
+48	You can't write from an inkless pen.
+48	You can't drive a car with no fuel.
+48	one can't eat from a broken plate.
+50	The water is flowing from a large beaker to a smaller one through a narrow pipe.
+50	Lake Erie drains into Lake Ontario via the Niagara River.
+50	The parent tries to instill bits of knowledge in their child by simple communication.
+50	Little by little, the stove’s radiating heat melted the chocolate bar on the counter nearby.
+50	Part of the state budget comes from the federal government’s contentious spending package.
+50	My tiny daily coffee expenses are draining up all my income.
+53	The father told the son that it was his way or the highway when the son came back home drunk.
+53	The management made it clear that the employees had to be on board with the new policies or they would be let go.
+53	The wife told the husband that since she is in charge of the kitchen, the family will eat what she makes or go hungry.
+53	The technical lead informed the team that they have to follow his ideas for the project to be completed without question or risk failure.
+53	I told my wife I will compromise on most of the things but on holidays I can do whatever I want.
+53	If the workers cannot work for 20 hours a week, they can quit.
+54	Every evening, many drinkers get together in a bar near our home. You know, birds of a feather flock together.
+54	I love to talk to people who know about computers because I enjoy learning about computers.
+54	The fancy Michelin-star restaurant seems to attract a homogeneous clientele, who all appear to wear the same fashion and be around the same age.
+54	The lawyers who attended the business seminar talked amongst themselves.
+54	The soccer club is divided into groups of people from the same region who practice often with each other.
+54	All the people who had the same interests at the conference were socializing together.
+55	You can’t just sell all of your shares when the market is low; look before you leap. Tomorrow, it is possible the shares may rebound.
+55	It is better to gauge others before taking such political stands these days. You never know who is on your side and who will cause you harm for it.
+55	People in the village say that the house is haunted by the ghost of the lady that lived here many years back. So, my father decides to wait to buy it so he can take more opinions from different people.
+55	Gary started investing his money and time in creating a small garden for himself during the off season. Gary regrets not planning and starting during the spring and summer season when results are more visible.
+55	No need to take so much work this quarter, as performance won't impact appraisals. Work more in the next two quarters when the management will actively prioritize it.
+55	Samantha should not spend all her savings on the flight tickets during the holidays. She should wait and check after a few months when the prices are low.
+56	The deal was finally in the bag after a few rounds of tough negotiations.
+56	The game was won when the team broke the tie and scored their third goal.
+56	After months of hard campaigning, the politician had all but secured the election.
+56	The job was finally his after the last interview that went well.
+56	Everyone thought that he would lose, but he made a comeback through herculean effort.
+56	Having received recognition from the management for his diligence, he got the promotion.
+57	They don’t talk about Olive anymore, turns out he was the Black sheep of the family, he married someone else while he was still engaged to his fiancé.
+57	Sandy is the only one who doesn't show up to the dance class and one of us is always without a partner because of it.
+57	Jim is the only one from our group who has engaged in any sort of criminal activity. Only Jim has ever spent time in jail.
+57	Everyone likes me because I'm so quiet and obedient. The same cannot be said for my wild cousin Nathan, who always lands himself in trouble.
+57	The A team is the best one as it has the best players except Ron, who often negates the others' efforts.
+57	All the songs on her album are amazing, but the last one is the one that ruins the vibe.
+59	If you don’t go to sleep early, you will wake up late. As you sow, so shall you reap.
+59	How can you expect to not to fail if you didn't study for the test at all?.
+59	Fred built an immense fortune by swindling others, but he lost it all when someone swindled him.
+59	He spent years trying to avoid paying taxes, and now he's facing nearly 10 years in prison for it.
+59	She has been talking trash about us all week to everyone. So I don't feel sorry for her when someone spilled all her secrets.
+59	The boy who cried wolf got his comeuppance once the wolves really came.
+62	She wanted to buy a dress in case someone asked her to the dance, but I told her not to count her chickens before they hatched.
+62	He wanted to buy a big house and a car, but his father advised him to get a job first.
+62	Mary started making vacation plans but realized she might not get leave until the project was done.
+62	Although Larry looked forward to meeting his favorite author at the event, he had yet to receive an invite.
+62	John wanted to build and paint the nursery without having heard the adoption agency's decision.
+62	Sarah wanted to book the honeymoon tickets before she had even been proposed to.
