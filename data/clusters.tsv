@@ -20,17 +20,11 @@ cluster	sentence
 1	My pet dog is down for the count after playing the whole day with the frisbee.
 1	Their company is so debt-ridden due to poor management that I think it's safe to say they're about to go bankrupt.
 1	On his last birthday, Mike's friend gave him so many drinks that he passed out before midnight.
-1	After going through extensive workload, Ally got very sick and will be doing nothing but rest during this weekend.
+1	After going through an extensive workload, Ally got very sick and will be doing nothing but rest during this weekend.
 1	Having immersed herself in a day-long painting marathon, my friend is now completely drained and refused to get up for several minutes
 1	Monica cooked so much food last weekend in the restaurant that she had to take a leave to rest on Monday.
 1	After working two years for the company she was burned out.
 1	He collapsed after he ran for the marathon.
-2	She wanted to buy a dress in case someone asked her to the dance, but I told her not to count her chickens before they hatched.
-2	He wanted to buy a big house and a car, but his father advised him to get a job first.
-2	Mary started making vacation plans but realized she might not get leave until the project was done.
-2	Although Larry looked forward to meeting his favorite author at the event, he had yet to receive an invite.
-2	John wanted to build and paint the nursery without having heard the adoption agency's decision.
-2	Sarah wanted to book the honeymoon tickets before she had even been proposed to.
 2	You may not like your job, but don't quit merely on the hope of finding a better one.
 2	He left his partner to find true love, only to realize that he already had it before.
 2	Better to buy the sweets we are accustomed to than to try the new ones that might taste better.
@@ -111,26 +105,12 @@ cluster	sentence
 11	Ron comes up with detailed and complex pranks because he is not given any responsibilities towards anything.
 11	Since he had nothing else to do during the break, he kept obsessing over his previous girlfriend.
 11	The students created a mess in the class when there was no teacher to monitor.
-11	They don’t talk about Olive anymore, turns out he was the Black sheep of the family, he married someone else while he was still engaged to his fiancé.
-11	Sandy is the only one who doesn't show up to the dance class and one of us is always without a partner because of it.
-11	Jim is the only one who has engaged in any sort of criminal activity. Only Jim from our group has ever spent time in jail when he was younger.
-11	Everyone likes me because I'm so quiet and obedient. The same cannot be said for my wild cousin Nathan, who always lands himself in trouble.
-11	The A team is the best one as it has the best players except Ron, who often negates the others' efforts.
-11	All the songs on her album are amazing, but the last one is the one that ruins the vibe.
-11	David is a worm for what he did to his boss
-11	The commis chef did a disservice to the restaurant by burning the bread.
 12	Don’t ignore the sudden malfunctioning of your car, just go to the garage. A stitch in time saves nine.
 12	I think it’s better to compromise with your neighbour now instead of letting tensions simmer and allowing the problem to snowball
 12	Resolving small issues in relationships immediately may prevent bigger troubles down the road.
 12	If you had come earlier with your computer, it would have been possible to fix the malfunction. But now, you may need to buy a new one.
 12	You should have gone to the doctor earlier. They still could have cured you then.
 12	It would have been okay if you had discussed the problem right then and there. Now, its too late and a lot of work is required to rectify this.
-12	If you don’t go to sleep early, you will wake up late. As you sow, so shall you reap.
-12	How can you expect to not to fail if you didn't study for the test at all?
-12	Fred built an immense fortune by swindling others, but he lost it all when someone swindled him.
-12	He spent years trying to avoid paying taxes, and now he's facing nearly 10 years in prison for it.
-12	She has been talking trash about us all week to everyone. So I don't feel sorry for her when someone spilled all her secrets. 
-12	The boy who cried wolf got his comeuppance once the wolves really came. 
 12	We should go early to the boutique on the day of their sale to get the best stuff. The early bird catches the worm!
 12	We should submit the courses we want to register as early as possible so that we can get a seat.
 12	When the site was just discovered and undeveloped, Larry was able to purchase the home for a low price. Now, the price has risen to the point where even Will cannot afford it.
@@ -203,8 +183,6 @@ cluster	sentence
 23	Sam decided not to engage with Peter in a friendly manner anymore after he made fun of her about her insecurities.
 23	Karen is upset with Sandy for not telling her about her plans for the summer.
 23	Mary stopped talking to Amy because of the way she spoke to her last time.
-23	Don't mention Tom 's promotion to Mike as it might offend him.
-23	Research the idea in detail before presenting to the experts as any mistake would reflect poorly on your grades.
 24	Lester made the dance team by the skin of his teeth since the audition was about to be closed.
 24	While people believed it was impossible to escape from the secret police, Peter somehow managed to do so successfully, albeit a bit close for comfort. 
 24	The group managed to finish the project just in time and submitted the report two minutes before the deadline.
@@ -241,8 +219,6 @@ cluster	sentence
 29	The way the book is written, I get distracted by the peculiar grammar and word choice and can't learn anything from it.
 29	He is so engrossed in his work that he is missing out on his personal life and his family.
 29	Often times, in the interest of reaching the destination, we forget to experience the journey.
-29	Adam did not understand the root of the crisis.
-29	The child could not reach the top shelf.
 30	Listen to the news straight from the horse’s mouth, his factory burned down right in front of his eyes.
 30	Lets meet him and ask about the robbery. Since he is the one who was robbed, it would be much more thrilling to hear.
 30	I want to attend the lecture as it will be delivered straight from the pioneer of the subject.
@@ -318,7 +294,7 @@ cluster	sentence
 51	The water is flowing from a large beaker to a smaller one through a narrow pipe.
 51	Lake Erie drains into Lake Ontario via the Niagara River.
 51	The parent tries to instill bits of knowledge in their child by simple communication.
-51	The stove’s heat melted the chocolate bar on the counter nearby.
+51	Little by little, the stove’s radiating heat melted the chocolate bar on the counter nearby.
 51	Part of the state budget comes from the federal government’s contentious spending package.
 51	My tiny daily coffee expenses are draining up all my income.
 54	The father told the son that it was his way or the highway when the son came back home drunk.
@@ -345,3 +321,21 @@ cluster	sentence
 57	The job was finally his after the last interview that went well.
 57	Everyone thought that he would lose, but he made a comeback through herculean effort.
 57	Having received recognition from the management for his diligence, he got the promotion.
+58	They don’t talk about Olive anymore, turns out he was the Black sheep of the family, he married someone else while he was still engaged to his fiancé.
+58	Sandy is the only one who doesn't show up to the dance class and one of us is always without a partner because of it.
+58	Jim is the only one who has engaged in any sort of criminal activity. Only Jim from our group has ever spent time in jail when he was younger.
+58	Everyone likes me because I'm so quiet and obedient. The same cannot be said for my wild cousin Nathan, who always lands himself in trouble.
+58	The A team is the best one as it has the best players except Ron, who often negates the others' efforts.
+58	All the songs on her album are amazing, but the last one is the one that ruins the vibe.
+60	If you don’t go to sleep early, you will wake up late. As you sow, so shall you reap.
+60	How can you expect to not to fail if you didn't study for the test at all?
+60	Fred built an immense fortune by swindling others, but he lost it all when someone swindled him.
+60	He spent years trying to avoid paying taxes, and now he's facing nearly 10 years in prison for it.
+60	She has been talking trash about us all week to everyone. So I don't feel sorry for her when someone spilled all her secrets. 
+60	The boy who cried wolf got his comeuppance once the wolves really came. 
+63	She wanted to buy a dress in case someone asked her to the dance, but I told her not to count her chickens before they hatched.
+63	He wanted to buy a big house and a car, but his father advised him to get a job first.
+63	Mary started making vacation plans but realized she might not get leave until the project was done.
+63	Although Larry looked forward to meeting his favorite author at the event, he had yet to receive an invite.
+63	John wanted to build and paint the nursery without having heard the adoption agency's decision.
+63	Sarah wanted to book the honeymoon tickets before she had even been proposed to.
