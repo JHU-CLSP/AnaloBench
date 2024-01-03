@@ -1,4 +1,4 @@
-requests
+regex
 pandas
-tqdm
-spacy==3.7.1
+torch
+transformers
