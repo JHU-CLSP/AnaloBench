@@ -92,7 +92,8 @@ if __name__ == '__main__':
                              '\n (1) `generate_base_classification`: Generates a dataset that includes indices for options. This dataset serves as the foundational data for other tasks.'
                              '\n (2) `generate_s1_classification`: Builds a dataset tailored for single sentence classification tasks, utilizing the base dataset as an input.'
                              '\n (3) `generate_s10_classification`: Creates a dataset designed for classification tasks involving 10 sentences, also based on the initial dataset.'
-                             '\n (4) `generate_s30_classification`: Produces a dataset aimed at classification tasks with 30 sentences, which similarly requires the preliminary dataset.',
+                             '\n (4) `generate_s30_classification`: Produces a dataset aimed at classification tasks with 30 sentences, which similarly requires the preliminary dataset.'
+                             '\n (5) `generate_base_retrieval`: Generates a dataset that includes indices for options. This dataset serves as the foundational data for other tasks.',
                         required=True)
     args = parser.parse_args()
     task = args.task
@@ -119,5 +120,27 @@ if __name__ == '__main__':
     elif task == "generate_s30_classification":
         _, _, story_clusters = load_and_map_clustered_sentences(30)
         classification_data_generation(30, story_clusters)
+    elif task == "generate_base_retrieval":
+        size_of_sentencebank = 200
+        fields = ["Index", "Sentence", "Options", "Indices"]
+        sentence_bank, clusters, _ = load_and_map_clustered_sentences(0)
+        with open('data/R-Base.csv', 'w') as f:
+            csvwriter = csv.DictWriter(f, fieldnames=fields)
+            csvwriter.writeheader()
+        for index, (key, value) in enumerate(clusters.items()):
+            cluster = [key] + value
+            tmp_bank = list(sentence_bank.copy())
+            candidate = list(set(tmp_bank) - set(cluster))
+            number_of_sentences = size_of_sentencebank - len(value)
+            candidate = random.sample(candidate, number_of_sentences)
+            tmp_bank = value + candidate
+            random.shuffle(tmp_bank)
+            sheet_bank = [sentence_bank.index(i) for i in tmp_bank]
+            indices = [tmp_bank.index(elem)+1 for elem in cluster if elem in tmp_bank and elem != key]
+            labeled_options = [f"{i+1}. {option}" for i, option in enumerate(tmp_bank)]
+            s_sentence_bank = "\n".join(labeled_options)
+            with open('data/R-Base.csv', 'a') as f:
+                csvwriter = csv.DictWriter(f, fieldnames=fields)
+                csvwriter.writerow({'Index': index, 'Sentence': key, 'Options': ",".join([str(index) for index in sheet_bank]), "Indices": ",".join([str(index) for index in indices])})
         
     
