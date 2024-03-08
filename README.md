@@ -6,7 +6,7 @@ This README explains how to utilize our Python script. The provided script is pr
 
 This is the official repo for the paper:
 
-AnaloBench: Benchmarking the Identification of Abstract and Long-context Analogies
+**AnaloBench: Benchmarking the Identification of Abstract and Long-context Analogies**
 
 [[arxiv]](https://arxiv.org/abs/2402.12370) [[Huggingface]](https://huggingface.co/datasets/jhu-clsp/AnaloBench)
 
