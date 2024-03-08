@@ -2,6 +2,20 @@
 
 This README explains how to utilize our Python script. The provided script is programmed to perform various tasks related to analogy, using OpenAI's GPT-4. These tasks include sentence or story analogy classification. Follow the instructions given below to use the provided script.
 
+## Introduction
+
+This is the official repo for the paper:
+
+AnaloBench: Benchmarking the Identification of Abstract and Long-context Analogies
+
+[[arxiv]](https://arxiv.org/abs/2402.12370) [[Huggingface]](https://huggingface.co/datasets/jhu-clsp/AnaloBench)
+
+
+![Link to PDF](./teaser.png)
+
+The above is an example of our problem setup: given a story, the goal is to identify an analogous story from a story bank. 
+We study the difficulty of this goal for LMs by varying the following parameters: 
+(i) length of stories, (ii) number of stories in the story bank. 
 ## Overview
 
 The scripts available in this repository are designed to accomplish different objectives, from dataset generation to model evaluation. These scripts are organized to work together, implementing an end-to-end pipeline.
