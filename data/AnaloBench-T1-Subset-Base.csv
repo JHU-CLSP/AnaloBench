@@ -1,0 +1,341 @@
+Index,Sentence,Options,CorrectIndex,Label
+0,All that glitters is not gold.,"11,176,158,287",11,A
+1,The life of royals looks glamorous from afar but it is not as happy and fun as it looks.,"10,165,319,157",10,A
+2,"The journalist thought the life of the famous actress was extraordinary, only to realize later that it was not what it looks like.","173,6,23,26",6,B
+3,The charming so-called CEO later proved to be the wrong choice to make a deal with. Turns out his promises were only empty words.,"170,101,11,151",11,C
+4,Kevin was worshipped by the new recruits to be the best player in the game. But when they met him they learned that the famous goal was just a fluke.,"9,60,200,286",9,A
+5,Mary often boasted of her rose garden to be the best garden in the city. But in reality it is nothing but ordinary.,"196,9,26,55",9,B
+6,Don’t judge people based on appearances alone; appearances can be deceptive.,"7,131,43,105",7,A
+7,"Don't let his clothes fool you. He may dress himself in simple clothes without logos, but he is actually a millionaire.","1,92,35,245",1,A
+8,"Although Lexi looks like an airhead, she is one of the wisest people I have ever met.","303,240,226,4",4,D
+9,"Claire always thought that Max was unkind and rude because of his edgy fashion sense. But once she learned how kind and sensitive he was, she was surprised.","144,271,6,120",6,C
+10,"Jake might look confused all the time, but he's really extremely bright.","338,124,12,242",12,C
+11,"Don't trust everything on the social media. It appears that people are having the best time of their lives, but remember, it can be fake.","254,224,16,48",16,C
+12,"Sometimes I feel I should have gone for my master’s degree like you instead of this job. Well, the grass is always greener on the other side.","70,68,15,81",15,C
+13,The lawyer left his profession to become an MBA graduate thinking it was better. Guess what? He is still struggling to find a job.,"213,41,153,2",2,D
+14,John is rich and everyone is envious of his wealth. But he is also lonely as he has no one to share his life with.,"64,10,265,53",10,B
+15,It looks like fun but it is actually a struggle to move to a different country. You should count your blessings.,"273,138,10,203",10,C
+16,"The life of a celebrity looks like they have it all, but in fact they have more problems than anyone can possibly imagine.","4,293,219,35",4,A
+17,She thought her neighbor's home was more attractive than her own when she turned to look at it. But she had no idea that it was more difficult to keep up.,"14,68,56,212",14,A
+18,After letting off his rage he sat down like a lamb.,"76,139,25,144",25,C
+19,The weather finally became pleasant following the stormy week.,"21,152,9,40",21,A
+20,Having cried the entire night she greeted everyone in the morning like sunshine.,"162,172,31,248",31,C
+21,A soft breeze blew after the gust of wind shook down the shacks.,"285,295,64,31",31,D
+22,"As the flame extinguished, it left behind a thin wisp of smoke.","225,206,186,25",25,D
+23,He danced off his sugar high then promptly fell asleep.,"31,141,272,273",31,A
+24,My pet dog is down for the count after playing the whole day with the frisbee.,"179,25,129,40",25,B
+25,Their company is so debt-ridden due to erratic management that I think it's safe to say they're about to go bankrupt.,"219,159,67,23",23,D
+26,"On his last birthday, Mike's friend gave him so many drinks that he passed out before midnight.","28,69,34,79",28,A
+27,"After going through an extensive workload, Ally got very sick and will be doing nothing but rest during this weekend.","325,305,26,201",26,C
+28,"Having immersed herself in a day-long painting marathon, my friend is now completely drained and refused to get up for several minutes.","170,173,31,278",31,C
+29,Monica cooked so much food last weekend in the restaurant that she had to take a leave to rest on Monday.,"241,23,203,58",23,B
+30,After working two years for the company she was burned out.,"248,24,43,92",24,B
+31,He collapsed after he ran for the marathon.,"309,28,150,213",28,B
+32,"You may not like your job, but don't quit merely on the hope of finding a better one.","65,178,42,128",42,C
+33,"He left his partner to find true love, only to realize that he already had it before.","254,38,127,173",38,B
+34,Better to buy the sweets we are accustomed to than to try the new ones that might taste better.,"68,186,40,90",40,C
+35,I would rather use my old pan for cooking than buy the new utensil with fancy features.,"5,122,40,338",40,C
+36,Let's make-do with the cold and build a fire instead of waiting for the weather to warm up.,"223,332,94,32",32,D
+37,"Even if rain is on the forecast, keep watering your garden.","88,331,98,42",42,D
+38,"Make sure you take an umbrella – I know it's sunny now, but better safe than sorry.","305,131,325,34",34,D
+39,"To avoid burning your hands, use oven mitts when removing the cake, as it will be hot unlike how it is now.","40,135,209,322",40,A
+40,"It is not that cold today, but I'd still go by car since I can't afford to get sick.","42,265,79,20",42,A
+41,"Don't be greedy, just take whatever they offer you as if you negotiate too much they might take the offer back.","36,320,262,325",36,A
+42,"Although I'm pretty familiar with this part of the woods and don't need a map, I still brought one with me in case I got lost during the hike.","219,314,113,36",36,D
+43,Keep a jug full of water near the table in case you get thirsty at night.,"223,272,114,38",38,D
+44,"In for a penny, in for a pound, we need to stay up all night and get the report done since we cannot turn it in half-finished.","45,263,300,176",45,A
+45,I have decided to see the project through and I will do anything to get the work done.,"334,51,99,18",51,B
+46,"After the team’s defeat last season, they fired their manager and have decided to give it their all to win the title this season.","280,206,101,45",45,D
+47,The poker player liked the hand he was dealt and kept calling until he had staked all his money.,"313,221,175,53",53,D
+48,John studied all throughout college in the hopes of landing a good job. He made sacrifices and put in a lot of hard work.,"1,82,339,50",50,D
+49,"The director finally completed the film, having done everything in his power to get the film released and bankrupting his production company.","267,265,252,44",44,D
+50,"I have set my mind to go through the spreadsheets by Monday and I am working for it hook, line and sinker.","43,190,69,53",53,D
+51,I am determined to cook the Thanksgiving dinner from scratch this time no matter how difficult it is.,"187,132,263,52",52,D
+52,Harry prepared tirelessly for the final race and put in each and every ounce of energy he had into the training.,"322,32,44,209",44,C
+53,Sally was adamant and stubborn about her religious beliefs and went through with the ceremony with full conviction.,"11,45,261,154",45,B
+54,I was completely against nationalization. I resisted it wholeheartedly even though I became quite unpopular in the process.,"53,62,295,0",53,A
+55,Larry was so attached to the idea of working for Frank that no other employer could convince him otherwise.,"278,196,103,44",44,D
+56,"The drawing shows me at one glance, what a book can only show me in many pages.","59,114,143,156",59,A
+57,I can just watch the adaptation instead of reading the 5 massive books the adaptation was based on.,"106,59,16,199",59,B
+58,A picture of diseased lungs on the back of cigarette packs is more effective than just the statutory warning message.,"109,57,75,7",57,B
+59,Hearing the startup give its business pitch was more informative than any of their marketing and advertising.,"13,60,181,186",60,B
+60,It is better to use a map with directions than reading the instructions on how to arrive at the event.,"272,61,151,207",61,B
+61,Mary prefered to learn from the diagrams of the processes than from the notes describing them as they gave her a better idea.,"56,189,238,16",56,A
+62,"I would have preferred a house of my own rather than sharing, but beggars can't be choosers, I suppose.","45,96,292,69",69,D
+63,"That dress wasn't exactly what I would have picked for myself, but, hey, it was free, and I'm broke right now.","10,62,215,339",62,B
+64,"I asked Joe to lend me his bicycle, and he sent me this old, rusty one which I had to use as I had no other option.","14,11,63,243",63,C
+65,I wanted to go out for dinner but I had no money and had to eat the left-over rice from last night.,"88,234,66,197",66,C
+66,Mary wanted a big dog house for the dogs but Peter couldn't afford to build her one so she made one from the carboard boxes.,"176,325,107,63",63,D
+67,"While a bed would be nice, I'm fine with sleeping on the sofa in the living room for now.","127,228,155,64",64,D
+68,"By that time, my friend was broke, so he had to sell his house.","66,261,32,125",66,A
+69,"After losing half of the soldiers, they had no other option but to use the tank to fight.","94,98,9,64",64,D
+70,"As they say, every cloud has a silver lining. If we hadn't missed the plane, we would never have met you.","75,77,166,265",75,A
+71,"Had she brought the chicken for the birthday party as planned, we wouldn't have got the chance to taste the delicious pasta she made.","68,337,74,17",74,C
+72,It is good that you didn't get to go to the party as I heard the neighbors called the police and everyone got in trouble.,"167,16,319,70",70,D
+73,But if you look at the bright side you got to learn so much from the experience.,"113,232,59,74",74,D
+74,"Even though I lost everything in the fire, I ended up moving to Arkansas where I won the state lottery.","68,72,53,189",72,B
+75,"The painter did not have the yellow color with him so had to paint with red, making his painting famous for its unconventional choice.","117,14,70,80",70,C
+76,A journey of a thousand miles begins with a single step.,"167,231,203,81",81,D
+77,We all begin our lives as a baby and slowly learn and grow.,"79,190,312,298",79,A
+78,"By writing simple code first, one can eventually master the art of coding complex algorithms.","100,128,81,98",81,C
+79,Her atheltic career started with her first visit to the gym. She never looked back and now is a world class athelete.,"185,76,42,211",76,B
+80,The process of quiting smoking starts with a desire to quit smoking.,"79,138,273,68",79,A
+81,"As someone with social anxiety, joining the debate club many years ago led me to become a powerful and persuasive public speaker.","79,303,63,325",79,A
+82,People work their hardest to attain something only when it is necessary for them.,"273,81,34,84",84,D
+83,If my project partner hadn't gotten sick I never would have need to finish the entire assignment on my own by working day and night.,"39,142,84,75",84,C
+84,"Normally I try to maintain a good work-life balance, but I worked all of last week non stop because I had 5 deadlines and I couldn't miss any of them.","86,263,312,186",86,A
+85,Sally had to gather the strength to be the pillar of support for her parents when her only sibling passed away.,"28,86,230,240",86,B
+86,David was at risk of receiving bad reviews for his work ethic from his manager and scrambled to setup the new system from scratch.,"114,18,83,55",83,C
+87,"Megan, a lousy student, worked twice as hard and revised her basics once she was told to mentor two new members of the team.","84,48,26,255",84,A
+88,It is not acceptable to do a bad thing just because someone else has done it.,"151,91,199,27",91,B
+89,"You should not be using your pen for gossip and rumors, even though other media reporters are doing so.","73,92,43,283",92,B
+90,Just because your roommate never cleans up after himself doesn't mean you should too.,"221,91,199,337",91,B
+91,Your friend going to the spa instead of doing her homework doesn't mean you can do it too.,"149,92,124,63",92,B
+92,Sally spent the weekend relaxing following her sister's example. But it was not right choice as she had a lot of work to do.,"144,86,120,91",91,D
+93,Mary should not have dropped out of school to follow in the footsteps of her favorite writer.,"62,22,89,227",89,C
+94,"It was a fantastic vacation, but all good things come to an end.","76,299,97,297",97,C
+95,"Sachin is said to be the best cricketer in the world, but like every other player, he had to retire.","69,41,96,254",96,C
+96,"While the president was immensely popular, he nevertheless had to step down at the conclusion of his term per the rules of the constitution.","216,53,104,179",104,C
+97,"I have had a great time in college, but tomorrow I will be graduating.","100,273,314,137",100,A
+98,I wish the TV show never ended. It was so good but unfortunately the writers thought to end it at a high point.,"99,147,18,110",99,A
+99,"But before he knew it, he had already finished the delicious meal.","273,58,270,98",98,D
+100,"Your 20s are the best time of your life, enjoy it while it lasts.","184,170,99,309",99,C
+101,"You wouldn't have these options once you move across the country, so work hard while you are here.","100,0,142,147",100,A
+102,"When the season changes, we won't have access to such delicious mangoes. So, devour them.","228,180,132,105",105,D
+103,Enjoy the honeymoon period of your marriage as much as you can before it passes.,"196,100,136,332",100,B
+104,Don't consider work or stress when on vacation. Have fun; you'll only be gone for a week.,"319,96,230,61",96,B
+105,Be thankful for the sunshine this summer because it only appears briefly during the winter.,"310,161,317,99",99,D
+106,"My daughter creates problems for my mom in the afternoon if she has nothing else to do. After all, an idle brain is the devil’s workshop.","107,301,134,83",107,A
+107,"With no homework to do, I spent the weekend coming up with ways to annoy my brother.","110,235,137,17",110,A
+108,"After getting fired and having nothing else to do, Kate spent her days imagining schemes to get the boss fired.","292,109,214,31",109,B
+109,Ron comes up with detailed and complex pranks because he is not given any responsibilities towards anything.,"219,150,80,110",110,D
+110,"Since he had nothing else to do during the break, he kept obsessing over his previous girlfriend.","30,148,47,109",109,D
+111,The students created a mess in the class when there was no teacher to monitor.,"109,259,89,315",109,A
+112,"Don’t ignore the sudden malfunctioning of your car, just go to the garage. A stitch in time saves nine.","86,190,306,119",119,D
+113,I think it’s better to compromise with your neighbour now instead of letting tensions simmer and allowing the problem to snowball.,"247,117,190,10",117,B
+114,Resolving small issues in relationships immediately may prevent bigger troubles down the road.,"42,49,111,118",118,D
+115,"If you had come earlier with your computer, it would have been possible to fix the malfunction. But now, you may need to buy a new one.","177,60,123,204",123,C
+116,You should have gone to the doctor earlier. They still could have cured you then.,"114,75,194,286",114,A
+117,"It would have been okay if you had discussed the problem right then and there. Now, it's too late and a lot of work is required to rectify this.","40,121,98,12",121,B
+118,We should go early to the boutique on the day of their sale to get the best stuff. The early bird catches the worm!.,"96,236,113,84",113,C
+119,We should submit the courses we want to register as early as possible so that we can get a seat.,"116,70,35,105",116,A
+120,"When the site was just discovered and undeveloped, Larry was able to purchase the home for a low price. Now, the price has risen to the point where even Will cannot afford it.","223,113,134,335",113,B
+121,"To secure the best batch, let's go to the farmer's market early as the remaining options may not be as favorable.","224,119,266,100",119,B
+122,"You must go immediately if you want to meet with the Senate. Otherwise, you'll struggle due to the traffic.","339,321,315,117",117,D
+123,"Between six and eight in the morning is when most of the museum visitors arrive. So, you should come one hour before then to avoid the crowd.","220,276,116,275",116,C
+124,"I don’t really like the colour of your car, but then, beauty lies in the eyes of the beholder.","47,86,34,128",128,D
+125,"She thinks he is the most attractive man in the world, even though others perceive him as ordinary.","115,44,129,94",129,C
+126,The oldest laptop in the office is Lexi's. But she really enjoys using it.,"76,3,130,124",124,D
+127,"Although many people dislike the color combination of orange and green, I believe it to be one of the best.","220,124,176,238",124,B
+128,"Many people fail to understand the beauty of mathematics. But to me, it is the most meaningful subject.","126,325,158,30",126,A
+129,"Although he isn't my favorite singer, my brother absolutely adores his vocals and techniques.","42,319,127,153",127,C
+130,"We have been waiting for you for 3 hours, but that's okay. It’s better late than never.","322,305,93,133",133,D
+131,"Even though it took me two weeks, I at least sent the letter.","5,126,135,270",135,C
+132,"A friend of mine who had failed 12th grade for the last five years, finally succeeded to pass.","79,131,37,208",131,B
+133,"I took three years instead of one to finish the training program, but at least I have the credential now.","280,293,135,251",135,C
+134,Clark took 10 years to propose to Cece. We all had lost hope but finally he came through.,"159,135,103,330",135,B
+135,"Although she realized the mistake a week after the incident, she waited two years before finally apologizing and confessing.","58,25,37,134",134,D
+136,"Don’t invest all your money in the stock market, you should never put all your eggs in one basket.","140,108,6,182",140,A
+137,It would be better if you applied to several companies instead of just one.,"102,333,143,141",141,D
+138,"He was depending heavily on the success of his venture, but when it failed, he was ruined. He realized that he should have had other backup plans.","142,140,266,36",140,B
+139,"It is important to keep learning new skills and not rely on one skill for your career. With emerging technology, current skills may become outdated in the future.","189,72,327,136",136,D
+140,"In familiy planning, it's wise not to trust just one childcare method. Different parenting styles contribute to a well-rounded upbringing.","64,85,137,216",137,C
+141,Having different social groups is a good idea so that you can enjoy all the things you like with different kinds of people.,"4,125,59,137",137,D
+142,"Don’t lie to land a job, remember that honesty is the best policy.","268,127,147,213",147,C
+143,Doing your work thoroughly and responsibly helps you avoid problems in the long run.,"25,313,253,145",145,D
+144,"Politicians frequently tell lies, which gets them into problems. They could win election after election if they would just be sincere about their aims.","142,221,86,91",142,A
+145,Jane advised a worried Jill that she would feel better after owning up to the mistake.,"50,142,119,81",142,B
+146,"Liam lied to get into the school; Lary did not. Liam had a difficult time trying to hide the deception as a result. But unlike Liam, Lary did not have to worry about anything else, so he had a terrific time.","312,143,246,61",143,B
+147,"You should tell your mother the truth about the vase, as it would relieve you of the stress.","172,184,138,146",146,D
+148,"Don’t rush through your assignment, remember haste makes waste.","102,149,137,3",149,B
+149,Larry always starts the work without reading the requirements and tries to finish it early as well. This leads to others having to fix his work.,"194,152,90,339",152,B
+150,"Kim checked the papers in a rush so that she can have more free time. But, now she needs to redo them as half of the class complained.","237,159,145,152",152,D
+151,The presentation was such a mess! The presenters tried to convey a lot of information in such a short time that there was no clarity.,"98,258,86,150",150,D
+152,"These files require a throrough look, don't skim through them quickly.","201,148,41,152",148,B
+153,Maintaining a steady pace and avoiding excessive running at the start is crucial in a marathon.,"149,298,144,21",149,A
+154,"Walter failed his exam, but his father only responded, ""Son, don't cry over spilt milk,"" when he arrived.","20,61,156,217",156,C
+155,There is no point in regretting your approach after you've had the interview. Move on to the next one.,"76,134,190,160",160,D
+156,"Larry was upset even months after breaking up with Samantha. So, Mary, his sister finally told him that there is no point in dwelling over it since Samantha has moved on.","215,164,322,285",164,B
+157,"When Juli's favorite tree had fallen over, her father created a painting of it and said there was nothing else they could do.","287,165,217,146",165,B
+158,"After seeing Tim being disappointed over not making the basketball team, Barry advised him to stray away from his emotions and work hard to try again next year.","179,198,162,111",162,C
+159,"We missed the bus, but it serves no use to be angry about it right now, so let's walk.","156,73,312,278",156,A
+160,"Now that we're friends, we can let bygones be bygones.","161,104,219,106",161,A
+161,"Since both of our favourite teams have lost, lets enjoy the world cup together and not fight.","130,27,305,156",156,D
+162,Let's forget what happened and work on the project together.,"192,63,158,335",158,C
+163,The brother and sister decided to stop the fight and decided to be cordial again.,"163,46,54,158",158,D
+164,The war was finally over and the countries decided to maintain friendly relations with each other.,"55,16,154,328",154,C
+165,The parents have been living happily ever since they decided not to go through the divorce.,"27,122,155,284",155,C
+166,"I can see that you are beside yourself with joy at being selected for the job, congratulations.","198,217,167,152",167,C
+167,Rory could see the happiness on her mother's face when her brother called after ages.,"137,275,168,110",168,C
+168,The teacher was ecstatic that he had finally succeeded in explaining the complex topic for the students.,"166,226,54,168",166,A
+169,Samantha was more than happy when she realised David had kept her trust by not going to the event.,"171,337,277,251",171,A
+170,"Wow, your kid just graduated middle schoool! You must be filled with pride and joy.","307,171,106,311",171,B
+171,The incharge was overjoyed to see that the floor had finally been cleaned properly by the new hire and was no longer slippery.,"168,91,40,233",168,A
+172,"Brian kept quiet at the board meeting, who knew he had an Ace hidden up his sleeve the whole time.","175,154,246,300",175,A
+173,"The savvy politician had a secret plan that could make him win. At the last moment, he revealed a scandalous secret about his opponent.","316,248,176,50",176,C
+174,"The opponents are unaware of my greatest asset, which is my stamina. The other runners have no chance at all!.","72,177,250,280",177,B
+175,I've heard that the defense lawyer has a fresh eyewitness who was previously unknown.,"172,210,75,74",172,A
+176,They think they’ve won the contract but we’ve still got a couple of ideas to win it back.,"168,292,23,172",172,D
+177,She cannot be dismissed because she is aware of the boss's shady business dealings.,"123,117,289,176",176,D
+178,I hold it against him for not treating me with respect.,"206,181,60,12",181,B
+179,I am mad at Kim for choosing not to support me at my wedding.,"181,40,254,279",181,A
+180,I cannot forgive Nick for how he insulted me that day at the party.,"179,112,127,19",179,A
+181,Sam decided not to engage with Peter in a friendly manner anymore after he made fun of her about her insecurities.,"4,298,178,123",178,C
+182,Karen is upset with Sandy for not telling her about her plans for the summer.,"245,174,178,217",178,C
+183,Mary stopped talking to Amy because of the way she spoke to her last time.,"176,182,217,4",182,B
+184,Lester made the dance team by the skin of his teeth since the audition was about to be closed.,"7,279,292,185",185,D
+185,"While people believed it was impossible to escape from the secret police, Peter somehow managed to do so successfully, albeit a bit close for comfort.","186,300,44,121",186,A
+186,The group managed to finish the project just in time and submitted the report two minutes before the deadline.,"188,132,46,31",188,A
+187,He made the final cut to the university just by a small margin.,"186,154,308,18",186,A
+188,He slipped at the edge of the cliff but managed to hold on to the rock and was saved just in time.,"188,184,219,160",184,B
+189,Philly won the game but the opponent was just as good and also came close to victory.,"63,64,186,331",186,C
+190,"Listen, losing weight is easier said than done, many people lack commitment.","194,151,232,37",194,A
+191,It looks easy but it is very hard to drive a car in this traffic. Only experienced drivers can navigate this chaos.,"195,83,288,174",195,A
+192,"It takes a lot of effort to write a novel, so do not think writers do nothing worthy.","329,272,193,192",193,C
+193,Victor thought acting is an easy and useless job until he joined a theater class and performed for the first time. He realised it is an art form not everyone can master.,"68,336,191,335",191,C
+194,To teach a class of even 10 students can be daunting for a first-timer. It needs a lot of dedication and preparation to explain ideas well.,"223,190,224,170",190,B
+195,It requires a tremendous amount of focus and discipline to clear the entrance exam. Not everyone can pass it.,"125,279,121,191",191,D
+196,"I am absolutely terrified of skydiving, but I think once in my life, I will give it a whirl.","251,200,155,234",200,B
+197,I am afraid of walking on the streets at night but I will eventually do it one day once I start living alone.,"198,41,20,288",198,A
+198,Sam is scared of speaking to strangers but she wants to build up the courage and try it out.,"201,328,24,147",201,A
+199,"Frank has never tried to write a computer program before as he finds computers daunting. But last time we met, he said he will go for it.","20,201,42,27",201,B
+200,"My sister cannot sleep in a dark room due to her fears, but she wants to challenge herself someday.","198,228,272,59",198,A
+201,"Sally has never been to the gym as she is afraid of lifting weights, but lately she's been showing interest and said she will start soon.","199,304,138,0",199,A
+202,"When Chris turned forty, he decided to live his life in the fast lane and quit his job for his hobbies.","295,17,204,271",204,C
+203,"After years of working as a lawyer, Smith decided to quit and open a youtube channel for his singing videos.","296,251,107,206",206,D
+204,"Once she got bored and tired with the same old job, she decided to leave and opened up a restaurant.","208,207,277,236",207,B
+205,She worked for weeks on the project and got so exhausted that she decided to go on a vacation for a month.,"84,207,275,237",207,B
+206,"Post graduation, Emily decided to not go for any jobs but instead chose to travel and paint for enjoyment.","218,23,198,203",203,D
+207,"When he finally started earning after years of struggle, Alex spent all his money on drinks and parties as he wanted to enjoy his life now.","136,69,329,203",203,D
+208,The baby looks as snug as a bug in a rug next to her mother.,"180,213,52,185",213,B
+209,Sally always gets so happy and comfortable whenever Sharon is around.,"212,264,254,89",212,A
+210,Jimmy was reassured after consulting with the professor about what courses to take next semester.,"263,209,176,232",209,B
+211,Frank finally had a good sleep in his childhood bed when he returned to the familiarity of his home country after years of working in faraway lands.,"257,144,210,286",210,C
+212,Linda's demeanor changes whenever her husband is around. She feels she can be her true self whenever she's with him.,"209,110,150,300",209,A
+213,Sally owns a pet dog; the dog always wiggles its tails and sits next to Sally's father more than anyone else.,"124,224,210,177",210,C
+214,"He always argues on the silliest topics, it’s like he can’t see the wood for the trees.","78,219,220,256",219,B
+215,The congressman became so involved in the wording of his bill that he did not realize that the bill could never pass.,"269,177,145,216",216,D
+216,The way he's obsessing over one doorknob when we're renovating the entire house makes me think that he can't see the larger picture.,"265,217,159,299",217,B
+217,"The way the book is written, I get distracted by the peculiar grammar and word choice and can't learn anything from it.","83,36,52,215",215,D
+218,He is so engrossed in his work that he is missing out on his personal life and his family.,"19,3,219,336",219,C
+219,"Often times, in the interest of reaching the destination, we forget to experience the journey.","243,217,162,270",217,B
+220,"Listen to the news straight from the horse’s mouth, his factory burned down right in front of his eyes.","221,120,19,306",221,A
+221,"Lets meet him and ask about the robbery. Since he is the one who was robbed, it would be much more thrilling to hear.","228,338,6,220",220,D
+222,I want to attend the lecture as it will be delivered straight from the pioneer of the subject.,"213,59,251,224",224,D
+223,Let Mike share the incident with you as he is the one who went through it and will be able to give enough details.,"330,220,77,7",220,B
+224,He was called on national television to talk about his crimes for everyone to listen directly from the serial killer.,"254,220,164,14",220,B
+225,Let Sam share the story of the movie herself as she was the one who went to watch it.,"111,54,69,224",224,D
+226,This shopkeeper always palms off old stock to the customers.,"195,229,284,128",229,B
+227,She tried to hand over the hardest part of the assignment on me so she doesn't have to do it.,"190,226,124,77",226,B
+228,"In this part of town, there are always guys trying to deceitfully pass off cheap watches as authentic Rolexes.","27,210,226,218",226,C
+229,Victor from school is always trying to sell old coins to me saying they are rare and valuable.,"156,336,228,59",228,C
+230,The music producer selects a less liked song from his collection for his least favorite client.,"229,109,3,191",229,A
+231,The chef picks out a dish from his list of simpler recipies for the less adventurous customer.,"58,228,211,210",228,B
+232,"Please don’t bother me today with any calls, I have bigger fish to fry.","36,233,133,285",233,B
+233,"Whenever Tom had an important event to plan for, he would not meet with any of us and work on that plan with full attention.","235,67,59,112",235,A
+234,"Ramos decided to finish writing the novel over the weekend, so he went to the cabin where no one could disturb him.","196,237,321,151",237,B
+235,"The doctor had an important surgery the next day, so he asked the staff to not interrupt him with any minor tasks.","232,28,167,245",232,A
+236,Philip needed an entire day of focus to finish the project that he switched off all of his devices.,"244,108,129,234",234,D
+237,"My mother had an important conference to prepare for, so she refused to entertain our day to day rants and fights.","47,103,57,233",233,D
+238,"Andy played hooky from work for a week saying he was sick, now he is on very thin ice according to his boss.","42,219,229,241",241,D
+239,The manager saw that Silvy was passing on her clients for hair appointments to other professionals but was showing up for tips; she decided to fire her the next time.,"174,238,258,157",238,B
+240,"Soon after, Garry realized that Hannah was avoiding making the presentation by pretending to be occupied by personal issues, he planned to approach her about it if she repeated it again.","243,92,15,309",243,A
+241,Philip avoided the chores by pretending to be busy until his mother realised he had no work and made him do the chores all week.,"332,238,236,275",238,B
+242,"The group had lied about one of them being out of town to avoid the meeting, but the professor discerned the truth and decided to deduct marks on the project.","239,250,200,88",239,A
+243,"For not submitting her homework on time, Amy falsely made up an excuse that her dog ate it but the professor decided to penalize her.","307,281,241,290",241,C
+244,"He told his wife that he doesn’t want to rain on her parade, but they had to shift their vacation dates.","167,262,249,92",249,C
+245,I hate to inform you that your A in chemistry was actually a clerical error.,"247,140,203,259",247,A
+246,I'm sorry to disappoint you but you're not allowed in this party anymore. You're on the blocklist!.,"245,89,218,241",245,A
+247,"I am sorry, but you would now have to present your work before you can go for the vacation.","285,246,146,262",246,B
+248,The company was apologetic for not being able to pay the holiday bonus to employees.,"1,103,97,249",249,D
+249,I do not want to spoil your mood but I have to babysit my nephew today.,"225,338,247,235",247,C
+250,She's a representative of California for crying out loud! How do you not recognize her?.,"6,254,281,313",254,B
+251,Don't you know he is the president of the United States?!.,"37,101,122,252",252,D
+252,I cannot believe you don't know who Cristiano Ronaldo is! He is one of the greatest football players alive.,"196,253,1,175",253,B
+253,Show some respect to your professor! He is a legend in his field.,"298,151,254,238",254,C
+254,He is the winner of three Grammy awards for god's sake! People consider him to be the god of rap.,"90,44,202,251",251,D
+255,Do you know who you're facing? That's the world champion of taekwondo standing right there!.,"275,251,58,159",251,B
+256,"She knows he's lying to her, but she's choosing to turn a blind eye to the situation.","154,258,66,181",258,B
+257,"Garry knows he is underpaid, but he chooses not to focus on it as he is more than happy to have a job.","329,190,260,272",260,C
+258,"Sally is not clueless about her situation with Scott, she has just decided to be with him despite the circumstances.","175,265,206,260",260,D
+259,"He knows Rick is not a good friend and is only after money, but chooses to get along with him for the time being.","14,260,34,91",260,B
+260,"The professor knows the students mostly copied the homework, but decides not to be strict about it.","256,197,212,105",256,A
+261,"Lisa knew that Mark borrowed her book without asking, but she doesn't mention this to him.","205,333,259,188",259,C
+262,"She never bragged about her grades but secured the second position in the board exams. Truly, actions speak louder than words.","267,106,62,113",267,A
+263,"He never told her about his feelings but everytime he met her, he was caring towards her.","37,266,29,251",266,B
+264,She posted a lot about her friendship with Mary on Instagram. But in reality they hardly had any bond as they were constantly on their phones when together.,"131,290,156,263",263,D
+265,"He spoke about his guitar skills poorly, but when he played, his hard work showed through the music he produced.","263,114,260,101",263,A
+266,Garry talked about how easily he managed the work stress. But his constant need of smoking told a different story.,"267,165,50,327",267,A
+267,Peter's parents said they were not good parents at all but they were always ready to spend quality time with their children showing they were really good parents.,"275,132,238,263",263,D
+268,A forest grew near the river.,"158,37,60,270",270,D
+269,Many students came to study under the guru.,"85,276,217,272",272,D
+270,"John brought out one dish after another onto the dining room table. Soon, all the guests began gathering around.","228,272,309,157",272,B
+271,Mary collected so many books over the years that she eventually had enough to make her own library.,"273,65,223,263",273,A
+272,Andy opened the window blinds to see the sun rising. The dark room was brighly lit in a few hours.,"270,319,188,29",270,A
+273,A large suburban community has developed outside the city center over the past few decades.,"268,20,171,69",268,A
+274,Each blade of grass was a bayonet pointed firmly at our bare feet.,"64,204,71,281",281,D
+275,Every cigarette you smoked is a threat to your health.,"261,283,289,267",283,B
+276,He attacked every point in my argument.,"60,282,158,28",282,B
+277,The strong winds snapped many of the cables supporting the cellphone tower.,"278,231,205,271",278,A
+278,A succession of waves battered the rock.,"245,232,281,309",281,C
+279,A string of unfortunate events had plagued the production of the play.,"265,276,321,266",276,B
+280,The economic depression was the combined result of several risky fiscal policies.,"156,318,251,282",282,D
+281,The corporation threw in more and more money to fix the problem.,"275,8,71,52",275,A
+282,He knocked the nail into the wall with a hammer.,"136,275,19,258",275,B
+283,Her ideas were challenged as she read book after book.,"277,289,133,315",277,A
+284,It's hard to love with a broken heart.,"221,261,251,290",290,D
+285,A broken cup can no longer contain its coffee.,"84,95,270,291",291,D
+286,You can't pour from an empty cup.,"278,53,85,291",291,D
+287,A fallen tree cannot provide shade.,"326,291,252,115",291,B
+288,No light can be found from an unlit candle.,"285,62,108,20",285,A
+289,You can't write from an inkless pen.,"276,284,274,168",284,B
+290,You can't drive a car with no fuel.,"56,289,23,203",289,B
+291,one can't eat from a broken plate.,"289,197,277,214",289,A
+292,The water is flowing from a large beaker to a smaller one through a narrow pipe.,"295,22,254,173",295,A
+293,Lake Erie drains into Lake Ontario via the Niagara River.,"292,224,98,315",292,A
+294,The parent tries to instill bits of knowledge in their child by simple communication.,"106,292,202,126",292,B
+295,"Little by little, the stove’s radiating heat melted the chocolate bar on the counter nearby.","90,210,296,137",296,C
+296,Part of the state budget comes from the federal government’s contentious spending package.,"162,295,164,339",295,B
+297,My tiny daily coffee expenses are draining up all my income.,"229,293,50,140",293,B
+298,The father told the son that it was his way or the highway when the son came back home drunk.,"201,317,300,160",300,C
+299,The management made it clear that the employees had to be on board with the new policies or they would be let go.,"190,29,89,300",300,D
+300,"The wife told the husband that since she is in charge of the kitchen, the family will eat what she makes or go hungry.","118,67,299,9",299,C
+301,The technical lead informed the team that they have to follow his ideas for the project to be completed without question or risk failure.,"116,89,151,302",302,D
+302,I told my wife I will compromise on most of the things but on holidays I can do whatever I want.,"300,236,111,291",300,A
+303,"If the workers cannot work for 20 hours a week, they can quit.","298,271,278,168",298,A
+304,"Every evening, many drinkers get together in a bar near our home. You know, birds of a feather flock together.","77,308,190,167",308,B
+305,I love to talk to people who know about computers because I enjoy learning about computers.,"32,140,308,111",308,C
+306,"The fancy Michelin-star restaurant seems to attract a homogeneous clientele, who all appear to wear the same fashion and be around the same age.","296,305,211,21",305,B
+307,The lawyers who attended the business seminar talked amongst themselves.,"53,47,308,108",308,C
+308,The soccer club is divided into groups of people from the same region who practice often with each other.,"259,130,304,332",304,C
+309,All the people who had the same interests at the conference were socializing together.,"304,186,217,290",304,A
+310,"You can’t just sell all of your shares when the market is low; look before you leap. Tomorrow, it is possible the shares may rebound.","243,314,138,140",314,B
+311,It is better to gauge others before taking such political stands these days. You never know who is on your side and who will cause you harm for it.,"96,165,312,208",312,C
+312,"People in the village say that the house is haunted by the ghost of the lady that lived here many years back. So, my father decides to wait to buy it so he can take more opinions from different people.","314,169,272,67",314,A
+313,Gary started investing his money and time in creating a small garden for himself during the off season. Gary regrets not planning and starting during the spring and summer season when results are more visible.,"310,183,58,204",310,A
+314,"No need to take so much work this quarter, as performance won't impact appraisals. Work more in the next two quarters when the management will actively prioritize it.","178,22,312,3",312,C
+315,Samantha should not spend all her savings on the flight tickets during the holidays. She should wait and check after a few months when the prices are low.,"32,313,251,193",313,B
+316,The deal was finally in the bag after a few rounds of tough negotiations.,"44,317,227,212",317,B
+317,The game was won when the team broke the tie and scored their third goal.,"83,116,197,316",316,D
+318,"After months of hard campaigning, the politician had all but secured the election.","317,8,266,31",317,A
+319,The job was finally his after the last interview that went well.,"247,92,160,318",318,D
+320,"Everyone thought that he would lose, but he made a comeback through herculean effort.","216,217,317,289",317,C
+321,"Having received recognition from the management for his diligence, he got the promotion.","24,120,81,316",316,D
+322,"They don’t talk about Olive anymore, turns out he was the Black sheep of the family, he married someone else while he was still engaged to his fiancé.","136,327,115,171",327,B
+323,Sandy is the only one who doesn't show up to the dance class and one of us is always without a partner because of it.,"242,324,166,15",324,B
+324,Jim is the only one from our group who has engaged in any sort of criminal activity. Only Jim has ever spent time in jail.,"55,200,297,326",326,D
+325,"Everyone likes me because I'm so quiet and obedient. The same cannot be said for my wild cousin Nathan, who always lands himself in trouble.","257,130,323,281",323,C
+326,"The A team is the best one as it has the best players except Ron, who often negates the others' efforts.","273,327,218,145",327,B
+327,"All the songs on her album are amazing, but the last one is the one that ruins the vibe.","319,326,74,122",326,B
+328,"If you don’t go to sleep early, you will wake up late. As you sow, so shall you reap.","255,296,332,140",332,C
+329,How can you expect to not to fail if you didn't study for the test at all?.,"117,328,211,152",328,B
+330,"Fred built an immense fortune by swindling others, but he lost it all when someone swindled him.","226,333,100,33",333,B
+331,"He spent years trying to avoid paying taxes, and now he's facing nearly 10 years in prison for it.","332,29,192,8",332,A
+332,She has been talking trash about us all week to everyone. So I don't feel sorry for her when someone spilled all her secrets.,"215,295,333,125",333,C
+333,The boy who cried wolf got his comeuppance once the wolves really came.,"218,16,329,164",329,C
+334,"She wanted to buy a dress in case someone asked her to the dance, but I told her not to count her chickens before they hatched.","297,191,287,337",337,D
+335,"He wanted to buy a big house and a car, but his father advised him to get a job first.","337,195,103,205",337,A
+336,Mary started making vacation plans but realized she might not get leave until the project was done.,"323,337,267,179",337,B
+337,"Although Larry looked forward to meeting his favorite author at the event, he had yet to receive an invite.","229,81,336,89",336,C
+338,John wanted to build and paint the nursery without having heard the adoption agency's decision.,"69,339,79,134",339,B
+339,Sarah wanted to book the honeymoon tickets before she had even been proposed to.,"337,103,27,150",337,A

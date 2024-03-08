@@ -1,4 +1,0 @@
-requests
-pandas
-tqdm
-spacy==3.7.1
