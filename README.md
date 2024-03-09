@@ -10,7 +10,7 @@ This is the official repo for the paper:
 
 [[arxiv]](https://arxiv.org/abs/2402.12370) [[Huggingface]](https://huggingface.co/datasets/jhu-clsp/AnaloBench)
 
-<div style="text-align:center;">
+<div align="center">
     <img src="./teaser.png" alt="Link to PDF" height="auto" style="width:40%;">
 </div>
 
