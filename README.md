@@ -139,8 +139,8 @@ This project is available under the MIT License. You can freely modify and use i
 
 ## Citation
 
-```
-@misc{ye2024analobench,
+```bibtex
+@article{ye2024analobench,
       title={AnaloBench: Benchmarking the Identification of Abstract and Long-context Analogies}, 
       author={Xiao Ye and Andrew Wang and Jacob Choi and Yining Lu and Shreya Sharma and Lingfeng Shen and Vijay Tiyyala and Nicholas Andrews and Daniel Khashabi},
       year={2024},
