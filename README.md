@@ -10,8 +10,7 @@ This is the official repo for the paper:
 
 [[arxiv]](https://arxiv.org/abs/2402.12370) [[Huggingface]](https://huggingface.co/datasets/jhu-clsp/AnaloBench)
 
-
-![Link to PDF](./teaser.png)
+<img src="./teaser.png" width="75%" height="auto" alt="Link to PDF">
 
 The above is an example of our problem setup: given a story, the goal is to identify an analogous story from a story bank. 
 We study the difficulty of this goal for LMs by varying the following parameters: 
