@@ -1,4 +1,4 @@
-# Analogical Reasoning 
+# AnaloBench: Benchmarking the Identification of Abstract and Long-context Analogies
 
 This README explains how to utilize our Python script. The provided script is programmed to perform various tasks related to analogy, using OpenAI's GPT-4. These tasks include sentence or story analogy classification. Follow the instructions given below to use the provided script.
 
