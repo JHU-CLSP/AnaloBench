@@ -3,4 +3,4 @@ pandas
 argparse
 torch==2.1.2
 datasets==2.18.0
-transformers==4.36.1
+transformers==4.38.0
