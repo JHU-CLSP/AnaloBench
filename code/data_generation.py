@@ -81,25 +81,24 @@ def t1_full_base_generation(sentence_bank, clusters):
         
         for sent, neighbors in clusters.items():
             # for each sentence, generate all unique pairs within its cluster
-            for main_sent, neighbor_sent in permutations([sent] + neighbors, 2):
+            for neighbor_sent in neighbors:
                 true_candidate = sentence_bank.index(neighbor_sent)
-                false_candidates = random.sample([index for index, item in enumerate(sentence_bank) if item not in clusters[sent]], 3)
+                false_candidates = random.sample([index for index, item in enumerate(sentence_bank) if item not in [sent] + clusters[sent]], 3)
                 all_candidates = false_candidates + [true_candidate]
                 random.shuffle(all_candidates)
                 labels = ['A', 'B', 'C', 'D']
                 correct_label = labels[all_candidates.index(true_candidate)]
-                
+                    
                 csvwriter.writerow({
                     'Index': index_counter,
-                    'Sentence': main_sent,
+                    'Sentence': sent,
                     'Options': ",".join(str(num) for num in all_candidates),
                     "CorrectIndex": true_candidate,
                     'Label': correct_label
                 })
                 index_counter += 1 
 
-
-def t1_data_generation(task, story_clusters, size):
+def t1_data_generation(task, story_clusters, size, sentence_bank):
     fieldnames = ['Index', 'Sentence', "Story", "Options", "Label"]
     with open(f"data/AnaloBench-T1-{size}-S{task}.csv", "w") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -112,7 +111,7 @@ def t1_data_generation(task, story_clusters, size):
     for i in range(len(df)):
         options = df["Options"][i].split(",")
         labels = ['A', 'B', 'C', 'D']
-        options = "\n".join([f"{labels[j]}. {story_clusters[df['Sentence'][int(candidate)]]}" for j, candidate in enumerate(options)])
+        options = "\n".join([f"{labels[j]}. {story_clusters[sentence_bank[int(candidate)]]}" for j, candidate in enumerate(options)])
         with open(f"data/AnaloBench-T1-{size}-S{task}.csv", "a") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writerow({'Index': i, 'Sentence': df['Sentence'][i], "Story": story_clusters[df['Sentence'][i]], "Options": options, "Label": df['Label'][i]})
@@ -169,19 +168,20 @@ if __name__ == '__main__':
             df = pd.read_csv('data/AnaloBench-T1-Subset-Base.csv')
         else:
             df = pd.read_csv('data/AnaloBench-T1-Full-Base.csv')
+        sentence_bank, _, _ = load_and_map_clustered_sentences(0)
         for i in range(len(df)):
             options = df["Options"][i].split(",")
             labels = ['A', 'B', 'C', 'D']
-            options = "\n".join([f"{labels[j]}. {df['Sentence'][int(candidate)]}" for j, candidate in enumerate(options)])
+            options = "\n".join([f"{labels[j]}. {sentence_bank[int(candidate)]}" for j, candidate in enumerate(options)])
             with open(f"data/AnaloBench-T1-{size}-S1.csv", "a") as f:
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writerow({'Index': i, 'Sentence': df['Sentence'][i], "Options": options, "Label": df['Label'][i]})
     elif task == "generate_t1_s10":
-        _, _, story_clusters = load_and_map_clustered_sentences(10)
-        t1_data_generation(10, story_clusters, size)
+        sentence_bank, _, story_clusters = load_and_map_clustered_sentences(10)
+        t1_data_generation(10, story_clusters, size, sentence_bank)
     elif task == "generate_t1_s30":
-        _, _, story_clusters = load_and_map_clustered_sentences(30)
-        t1_data_generation(30, story_clusters, size)
+        sentence_bank, _, story_clusters = load_and_map_clustered_sentences(30)
+        t1_data_generation(30, story_clusters, size, sentence_bank)
     elif task == "generate_t2_base":
         size_of_sentencebank = 200
         fields = ["Index", "Sentence", "Options", "Indices"]
